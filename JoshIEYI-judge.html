@@ -3214,9 +3214,7 @@ function secData() {
         '<button class="btn sm" id="bWipe">' + ti('全部清除', 'Clear all') + '</button>' +
         '<input type="file" id="fJson" accept=".json,application/json" hidden>' +
       '</span></div>' +
-    '<div id="dataPanes"></div>' +
-    '<div class="note mt">' + tb('數據會自動存在這台裝置的瀏覽器（localStorage），換電腦或清快取會消失——<b>請務必用「匯出 JSON／CSV」另存一份備份</b>，並保留紙本實驗紀錄本作為查驗依據。',
-      'Entries are saved automatically in this browser (localStorage) and are lost if you switch computers or clear site data — <b>always keep a backup via "Export JSON/CSV"</b>, and keep a paper lab notebook as supporting evidence.') + '</div>';
+    '<div id="dataPanes"></div>';
 }
 
 function renderDataPanes(active) {
@@ -3447,9 +3445,7 @@ function secScenario() {
       '<button class="btn sm" id="bGridCsv">' + ti('匯出全部情境數據 CSV（含校園調查表）', 'Export all scenario data as CSV (incl. the campus survey)') + '</button>' +
       '<button class="btn sm" id="bGridWipe">' + ti('清除情境與調查數據', 'Clear scenario & survey data') + '</button>' +
     '</div>' +
-    gridHTML('s1') + gridHTML('s2') + gridHTML('s3') + gridHTML('s4') + gridHTML('s5') +
-    '<div class="note mt">' + tb('五項情境的量測條件與材料最佳化實驗相同（節拍器 120 BPM、10 µF 電容、1N4007×4 整流、每組重複 3 次）。<b>情境一請與師長安排夜間或遮光時段</b>，並在全黑環境中拍下 LED 點亮的照片或影片——這是本類別最有說服力的視覺素材。',
-      'All five scenarios use the same conditions as the optimisation experiments (120 BPM metronome, 10 µF capacitor, 1N4007 ×4 rectifier, three repeats). <b>Arrange Scenario 1 with a teacher for a night-time or blacked-out slot</b> and photograph or film the lit LED in the dark — it is the single most persuasive visual in this category.') + '</div>';
+    gridHTML('s1') + gridHTML('s2') + gridHTML('s3') + gridHTML('s4') + gridHTML('s5');
 }
 
 /* ---------- 討論 ---------- */
@@ -3843,8 +3839,7 @@ var SECTIONS = [
   { id: 'discuss', nav: ['討論', 'Discussion'], t: ['討論與分析', 'Discussion'],
     lead: ['數據背後的物理，以及那個推翻我們假設的厚度實驗。', 'The physics behind the numbers — and the thickness experiment that overturned our hypothesis.'], body: secDiscuss },
   { id: 'safety', nav: ['安全與限制', 'Safety & limits'], t: ['實用性、安全性與限制', 'Practicality, Safety & Limitations'],
-    lead: ['主動說明限制，比假裝作品沒有缺點更負責。',
-           'Stating our limitations is more responsible than pretending there are none.'], body: secSafety },
+    lead: ['', ''], body: secSafety },
   { id: 'impact', nav: ['應用與推廣', 'Impact'], t: ['應用場域、推廣與結論', 'Applications, Outreach & Conclusions'],
     lead: ['從一片 10 公分見方的模組，到一間學校的防災韌性。', 'From one 10 cm module to a whole school&rsquo;s disaster resilience.'], body: secImpact },
   { id: 'pitch', nav: ['展示與 Pitch', 'Pitch'], t: ['展示規劃與中英 Pitch 稿', 'Presentation & Bilingual Pitch'],
