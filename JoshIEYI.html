@@ -309,7 +309,7 @@ table.entry th:first-child, table.entry td:first-child { white-space: nowrap; fo
 .poster .two { grid-column: span 2; }
 .poster .t { background: var(--brand-soft); }
 
-/* ---------- judge Q&A ---------- */
+/* ---------- Q&A ---------- */
 .qa { background: var(--card); border: 1px solid var(--ring); border-radius: 14px; box-shadow: var(--shadow); overflow: hidden; }
 .qa + .qa { margin-top: 10px; }
 .qa > button { width: 100%; text-align: left; font: inherit; font-size: 15px; font-weight: 700; padding: 14px 16px;
@@ -350,7 +350,7 @@ table.gloss td:nth-child(3) { color: var(--ink-2); font-size: 13px; }
 .member-b .mname { font-size: 16px; font-weight: 700; }
 .member-b .mrole { font-size: 12.5px; color: var(--ink-2); }
 
-/* ---------- 評審操作指引卡 ---------- */
+/* ---------- 操作指引卡 ---------- */
 .jbox { margin-top: 20px; max-width: 76ch; background: var(--card); border: 1px solid var(--brand);
   border-left: 4px solid var(--brand); border-radius: 12px; padding: 14px 18px; box-shadow: var(--shadow); }
 .jbox .jt { font-weight: 800; font-size: 15.5px; color: var(--brand-ink); margin-bottom: 6px; }
@@ -530,7 +530,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
 "use strict";
 
 /* ---------- 版本模式 ----------
-   評審操作版（整合版）在 <html> 上帶 data-judge="1"：
+   互動操作版（整合版）在 <html> 上帶 data-judge="1"：
    拿掉只給製作團隊看的待辦提醒與參賽準備清單，改成「請這樣玩」的操作指引。
    任何版本都能用 ?judge=1 / ?judge=0 臨時切換，方便自己預覽。 */
 var JUDGE = (function () {
@@ -539,7 +539,7 @@ var JUDGE = (function () {
   return document.documentElement.getAttribute('data-judge') === '1';
 })();
 function team(h) { return JUDGE ? '' : h; }   /* 只有製作團隊版看得到 */
-function judge(h) { return JUDGE ? h : ''; }  /* 只有評審操作版看得到 */
+function judge(h) { return JUDGE ? h : ''; }  /* 只有互動操作版看得到 */
 
 /* ---------- 雙語小工具：ti() 行內、tb() 段落 ---------- */
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
@@ -718,7 +718,7 @@ function loadGrids() {
   return b;
 }
 var gridState = loadGrids();
-/* 評審操作版：這台裝置還沒有任何資料時，先鋪上示範數據，讓圖表不是空的。
+/* 互動操作版：這台裝置還沒有任何資料時，先鋪上示範數據，讓圖表不是空的。
    （不寫回 localStorage；畫面上會一直掛著「示範數據」紅字提示。） */
 (function () {
   var stored = null;
@@ -730,7 +730,7 @@ function gridDemoBanner() {
   if (!gridState.demo) return '';
   return '<div class="warn" style="margin-bottom:12px"><b>' + ti('目前顯示的是示範數據，不是實測值',
     'The figures shown are sample data, not measurements') + '</b> — ' +
-    ti('用來讓評審看到表格與圖表怎麼運作。實測數據以現場紙本實驗紀錄本與說明書為準；按下方「清除」即可看到空白紀錄表。',
+    ti('用來讓你看到表格與圖表怎麼運作。實測數據以現場紙本實驗紀錄本與說明書為準；按下方「清除」即可看到空白紀錄表。',
        'They exist so you can see how the tables and charts work. The real measurements are in the paper lab notebook and the written report. Press "clear" below to see the blank record sheets.') + '</div>';
 }
 
@@ -879,7 +879,7 @@ function renderHero() {
     '<span class="tag">© Hinata Team</span>',
     '</div>',
     judge('<div class="jbox no-print">' +
-      '<div class="jt">' + ti('👋 給評審：這一頁可以動手操作（約 2 分鐘）', '👋 For the judges: this page is meant to be played with (about 2 minutes)') + '</div>' +
+      '<div class="jt">' + ti('👋 給來賓：這一頁可以動手操作（約 2 分鐘）', '👋 For visitors: this page is meant to be played with (about 2 minutes)') + '</div>' +
       '<ol>' +
         '<li>' + ti('到 <a href="#lab">互動模擬實驗室</a>，<b>按住「👋 拍一下」</b>（或按住空白鍵）：看示波器上的<b>交流脈衝</b>與電容電壓一格一格爬上去，再按「接上 LED」看它亮起來。',
                     'Go to the <a href="#lab">simulation lab</a> and <b>hold down &ldquo;👋 Tap&rdquo;</b> (or the space bar): watch the <b>AC pulses</b> on the scope and the capacitor voltage climb, then press &ldquo;Connect LED&rdquo; and see it light.') + '</li>' +
@@ -930,12 +930,12 @@ function secProblem() {
     '<div class="quote mt">' + tb('<b>我們想解決的核心問題：</b>能不能設計一種緊急指引燈，它「<b>不需要事先儲存任何電</b>」，因此也就不存在「放久了會沒電」的問題？',
          '<b>The core question:</b> can we design an emergency guidance light that <b>stores no energy in advance at all</b>, and therefore can never be found flat when the disaster arrives?') + '</div>' +
     '<h3 style="font-size:17px;margin:26px 0 8px">' + ti('校園實地調查（本作品的原創現場數據）', 'Campus field survey — our own original evidence') + '</h3>' +
-    tp('為確認這不只是想像，我們對校園內的緊急照明<b>逐一清點與實測</b>：按下每一盞的測試鈕，記錄它到底會不會亮、電池標示到期了沒有。這是本作品在「災害管理與安全」類別中最有力的證據——評審看到的是學生自己走遍校園量出來的現場數據，而不是網路轉述。',
+    tp('為確認這不只是想像，我們對校園內的緊急照明<b>逐一清點與實測</b>：按下每一盞的測試鈕，記錄它到底會不會亮、電池標示到期了沒有。這是本作品在「災害管理與安全」類別中最有力的證據——這是學生自己走遍校園量出來的現場數據，而不是網路轉述。',
        'To confirm this is not merely an assumption, we <b>inventoried and tested every emergency light on campus</b>: press each test button, record whether it actually lights, and check whether the battery label has expired. This is our strongest evidence in the Disaster Management &amp; Safety category — field data the students measured across their own school, not something quoted from the internet.') +
     team('<div class="warn" style="margin-bottom:12px"><span class="todo">' + ti('待填', 'TO DO') + '</span>' +
       tb('<b>此表必須實地調查並填入真實數字。</b>調查前請先向學校總務處或安全衛生人員報備，並請師長陪同；拍照時注意去識別化，不要拍到人。',
          '<b>This table must be filled with numbers from a real survey.</b> Notify the school office or safety officer first and have a teacher accompany you; when photographing, keep people out of frame.') + '</div>') +
-    judge('<div class="note no-print" style="margin-bottom:12px">' + tb('<b>評審可以直接操作這張表：</b>改任何一格（例如把某一盞改成「完全不亮」），下方的<b>失效比例會立刻重算</b>。這就是我們清點校園時使用的紀錄表。',
+    judge('<div class="note no-print" style="margin-bottom:12px">' + tb('<b>這張表可以直接操作：</b>改任何一格（例如把某一盞改成「完全不亮」），下方的<b>失效比例會立刻重算</b>。這就是我們清點校園時使用的紀錄表。',
          '<b>You can edit this table directly:</b> change any cell — mark one unit as "dead", for instance — and the <b>failure rate below recalculates immediately</b>. This is the record sheet we used to inventory the campus.') + '</div>') +
     gridDemoBanner() +
     gridHTML('survey') +
@@ -1177,8 +1177,8 @@ function secBreadboard() {
   if (!document.getElementById('bbSrc')) return '';
   return '<h3 style="font-size:17px;margin:30px 0 8px">' + ti('模擬器二：麵包板接線模擬器（把整流電路親手插出來）',
       'Simulator 2 — breadboard wiring simulator (build the rectifier yourself)') + '</h3>' +
-    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是評審最愛追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、電容極性接錯、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
-       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part judges most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed electrolytic capacitor, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
+    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、電容極性接錯、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
+       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed electrolytic capacitor, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
     '<div class="bb no-print" id="bbBox">' +
       '<div class="bb-bar">' +
         '<b>🍞 ' + ti('麵包板模擬器', 'Breadboard simulator') + '</b>' +
@@ -1190,10 +1190,10 @@ function secBreadboard() {
       '</div>' +
       '<iframe id="bbFrame" title="' + esc(pick('麵包板接線模擬器', 'Breadboard wiring simulator')) + '"></iframe>' +
     '</div>' +
-    '<div class="note mt">' + tb('<b>建議玩法：</b>先按模擬器裡的「⚡ 一鍵標準接線」看正確答案 → 按「🗑 清空」→ 自己重接一次 → 右邊「接線檢查」全部變綠就對了。接著把一顆二極體<b>故意插反</b>，看它怎麼罵你——這題評審很可能會問。<b>此區塊為互動元件，列印說明書時不會輸出。</b>',
-      '<b>How to use it:</b> press <b>⚡ one-click reference wiring</b> to see the correct answer, then <b>🗑 clear</b> and rebuild it yourself until every check on the right turns green. Then <b>deliberately reverse one diode</b> and watch what it says — judges are likely to ask about exactly that. <b>This interactive block is omitted when printing the report.</b>') +
-      tb('（麵包板模擬器本身的介面為中文；向國際評審解說時請用本頁「展示與 Pitch」章節的中英術語對照表。）',
-         '(The breadboard simulator&rsquo;s own interface is in Chinese. When explaining it to international judges, use the bilingual glossary in the Presentation &amp; Pitch section.)') + '</div>';
+    '<div class="note mt">' + tb('<b>建議玩法：</b>先按模擬器裡的「⚡ 一鍵標準接線」看正確答案 → 按「🗑 清空」→ 自己重接一次 → 右邊「接線檢查」全部變綠就對了。接著把一顆二極體<b>故意插反</b>，看它怎麼罵你——這題現場很可能會被問到。<b>此區塊為互動元件，列印說明書時不會輸出。</b>',
+      '<b>How to use it:</b> press <b>⚡ one-click reference wiring</b> to see the correct answer, then <b>🗑 clear</b> and rebuild it yourself until every check on the right turns green. Then <b>deliberately reverse one diode</b> and watch what it says — you are likely to be asked about exactly that. <b>This interactive block is omitted when printing the report.</b>') +
+      tb('（麵包板模擬器本身的介面為中文；向國際來賓解說時請用本頁「展示與 Pitch」章節的中英術語對照表。）',
+         '(The breadboard simulator&rsquo;s own interface is in Chinese. When explaining it to international visitors, use the bilingual glossary in the Presentation &amp; Pitch section.)') + '</div>';
 }
 
 /* --- 結構、尺寸與製作 --- */
@@ -1468,7 +1468,7 @@ var DEMO = {
   demo: true
 };
 var dataState = loadData();
-/* 評審操作版：同上，沒有資料時先鋪示範數據（畫面會顯示示範數據警示條） */
+/* 互動操作版：同上，沒有資料時先鋪示範數據（畫面會顯示示範數據警示條） */
 (function () {
   var stored = null;
   try { stored = localStorage.getItem(DS_KEY); } catch (e) {}
@@ -1518,8 +1518,8 @@ function secData() {
         '<input type="file" id="fJson" accept=".json,application/json" hidden>' +
       '</span></div>' +
     '<div id="dataPanes"></div>' +
-    '<div class="note mt">' + tb('數據會自動存在這台裝置的瀏覽器（localStorage），換電腦或清快取會消失——<b>請務必用「匯出 JSON／CSV」另存一份備份</b>，並保留紙本實驗紀錄本作為評審查驗依據。',
-      'Entries are saved automatically in this browser (localStorage) and are lost if you switch computers or clear site data — <b>always keep a backup via "Export JSON/CSV"</b>, and keep a paper lab notebook as evidence for the judges.') + '</div>';
+    '<div class="note mt">' + tb('數據會自動存在這台裝置的瀏覽器（localStorage），換電腦或清快取會消失——<b>請務必用「匯出 JSON／CSV」另存一份備份</b>，並保留紙本實驗紀錄本作為查驗依據。',
+      'Entries are saved automatically in this browser (localStorage) and are lost if you switch computers or clear site data — <b>always keep a backup via "Export JSON/CSV"</b>, and keep a paper lab notebook as supporting evidence.') + '</div>';
 }
 
 function renderDataPanes(active) {
@@ -1742,7 +1742,7 @@ function secScenario() {
     team('<div class="warn" style="margin-bottom:12px"><span class="todo">' + ti('最急', 'MOST URGENT') + '</span>' +
       tb('<b>情境三「四週零衰退」需提前約一個月開始記錄</b>，是全份報告中唯一有時間壓力的實驗——<b>請立刻把作品與一組全新乾電池並排擺好、記下今天的日期</b>，其他實驗都可以之後再補。',
          '<b>Scenario 3 needs about a month of elapsed time</b> and is the only time-critical experiment in the report. <b>Set the project beside a set of brand-new dry cells today and write down the date</b> — everything else can be done later.') + '</div>') +
-    judge('<div class="note no-print" style="margin-bottom:12px">' + tb('<b>請評審看情境三：</b>那張折線圖是本作品的全部論點——<b>一條持平（本作品）、一條下降（乾電池）</b>。您可以直接改表格裡的數字，圖會立刻跟著變。',
+    judge('<div class="note no-print" style="margin-bottom:12px">' + tb('<b>請看情境三：</b>那張折線圖是本作品的全部論點——<b>一條持平（本作品）、一條下降（乾電池）</b>。您可以直接改表格裡的數字，圖會立刻跟著變。',
          '<b>Please look at Scenario 3:</b> that line chart is the entire argument — <b>one line flat (this work), one falling (the dry battery)</b>. Edit any number in the table and the chart follows immediately.') + '</div>') +
     gridDemoBanner() +
     '<div class="toolbar no-print" style="margin:0 0 12px">' +
@@ -1762,8 +1762,8 @@ function secDiscuss() {
      ti('預期<b>石蠟 × 鋁箔</b>組合電壓最高：石蠟在靜電序列極偏負、鋁偏正，兩者電子親和力差距最大，接觸分離時電荷轉移量最顯著。PET 屬於偏負材料，與石蠟差距小，因此電壓最低——這正好反過來驗證靜電序列的正確性。',
         'We expect <b>paraffin × aluminium</b> to give the highest voltage: paraffin is strongly negative in the triboelectric series and aluminium is positive, so the difference in electron affinity — and thus charge transfer per contact — is greatest. PET is itself negative, so its gap with paraffin is small and its voltage lowest, which in turn confirms the series is behaving as predicted.')],
     [ti('顏料成分的影響', 'Effect of pigment composition'),
-     ti('黑色蠟筆含<b>碳黑</b>（導電微粒），白色含<b>鈦白粉</b>（高介電常數）。兩者都會改變石蠟表面的介電特性，因此顏色差異其實是「顏料填充物」的差異，而不是顏色本身。這是本研究中最容易被評審追問、也最能展現科學思考的一題。',
-        'Black crayons contain <b>carbon black</b> (conductive particles); white contains <b>titanium dioxide</b> (high dielectric constant). Both alter the dielectric behaviour of the wax surface, so the "colour" effect is really a difference in pigment filler, not colour itself. This is the point judges most often probe — and the best chance to show real scientific reasoning.')],
+     ti('黑色蠟筆含<b>碳黑</b>（導電微粒），白色含<b>鈦白粉</b>（高介電常數）。兩者都會改變石蠟表面的介電特性，因此顏色差異其實是「顏料填充物」的差異，而不是顏色本身。這是本研究中最容易被追問、也最能展現科學思考的一題。',
+        'Black crayons contain <b>carbon black</b> (conductive particles); white contains <b>titanium dioxide</b> (high dielectric constant). Both alter the dielectric behaviour of the wax surface, so the "colour" effect is really a difference in pigment filler, not colour itself. This is the point people most often probe — and the best chance to show real scientific reasoning.')],
     [ti('表面粗糙度的影響', 'Effect of surface roughness'),
      ti('砂紙打磨後<b>微觀有效接觸面積增加</b>，每次拍打轉移的電荷密度提高，因此電容充電速度明顯加快。但過度粗糙會讓接觸不完全，存在<b>最佳粗糙度</b>——這是我們下一步想找出的曲線。',
         'Sanding <b>increases the effective microscopic contact area</b>, raising the charge density transferred per tap and visibly speeding up capacitor charging. Excessive roughness, however, prevents full contact, so an <b>optimum roughness</b> should exist — finding that curve is our next step.')],
@@ -1892,14 +1892,14 @@ function secImpact() {
 
 /* ---------- 展示與 pitch ---------- */
 function secPitch() {
-  var p30zh = '評審好！請問一件事：如果現在停電，你們學校走廊的緊急照明，<b>真的會亮嗎</b>？<br>我們走遍校園按下每一顆測試鈕，發現有相當比例根本不亮——原因幾乎都一樣：<b>電池早就沒電或過期了</b>。電池會自放電，放得越久越不可靠，可是災害不會事先通知。<br>所以我們做了一種<b>完全沒有電池</b>的指引燈：把美術課丟掉的斷蠟筆熔成石蠟膜，做成摩擦發電地墊，鋪在樓梯口。<b>逃生者踩下去的那一步，就是電源。</b><br>沒有電池，就沒有自放電——<b>放一年也不會沒電，而且踩的人越多、亮得越久。</b>';
+  var p30zh = '大家好！請問一件事：如果現在停電，你們學校走廊的緊急照明，<b>真的會亮嗎</b>？<br>我們走遍校園按下每一顆測試鈕，發現有相當比例根本不亮——原因幾乎都一樣：<b>電池早就沒電或過期了</b>。電池會自放電，放得越久越不可靠，可是災害不會事先通知。<br>所以我們做了一種<b>完全沒有電池</b>的指引燈：把美術課丟掉的斷蠟筆熔成石蠟膜，做成摩擦發電地墊，鋪在樓梯口。<b>逃生者踩下去的那一步，就是電源。</b><br>沒有電池，就沒有自放電——<b>放一年也不會沒電，而且踩的人越多、亮得越久。</b>';
   var p30en = 'Good afternoon. One question first: if the power went out right now, would the emergency lights in your school corridor <b>actually come on</b>?<br>We walked the whole campus pressing every test button, and a substantial share simply did not light. The reason was nearly always the same: <b>the battery was already flat or expired</b>. Batteries self-discharge — the longer they sit, the less you can trust them — and disasters give no warning.<br>So we built a guidance light with <b>no battery at all</b>: broken crayons from art class, melted into a paraffin film, made into a triboelectric mat laid at the stairwell. <b>The step the evacuee takes is the power source.</b><br>No battery means no self-discharge: <b>a year in place and it still works — and the more people walk on it, the longer it stays lit.</b>';
   var b90 = [
     [ti('問題（20 秒）', 'Problem (20 s)'), ti('停電時最需要照明的走廊與樓梯，緊急照明卻常常不亮。我們實地清點全校 ___ 盞，失效比例 ___%，原因幾乎都是電池早已耗盡或過期。（指向調查表）', 'The corridors and stairwells that need light most in a blackout are served by lights that often do not work. We inventoried ___ units across the school; ___% failed, almost always because the battery was flat or expired. (Point at the survey table.)')],
     [ti('洞察（15 秒）', 'Insight (15 s)'), ti('現有方案全部都是「先把電存起來」——蓄電池、乾電池、蓄光片，所以都會隨時間衰退。我們反過來問：能不能<b>完全不儲存電</b>？', 'Every existing solution stores energy in advance — battery packs, dry cells, glow strips — so all of them decay with time. We asked the opposite question: can we <b>store no energy at all</b>?')],
     [ti('方法（20 秒）', 'Method (20 s)'), ti('石蠟在摩擦起電序列的強負電端，和實驗室用的 PTFE 同區。我們把廢蠟筆熔成薄膜配鋁箔，做成接觸-分離式 TENG，踩一下就是一次脈衝，整流後存進電容點亮 LED。', 'Paraffin sits at the strongly negative end of the triboelectric series, the same region as lab-grade PTFE. We melt waste crayons into a film, pair it with foil as a contact-separation TENG, and each step is one pulse — rectified into a capacitor to light an LED.')],
     [ti('數據（25 秒）', 'Data (25 s)'), ti('全黑走廊 ___ 公尺外可辨識；踩 10 下亮 ___ 秒；<b>擺放 28 天輸出零衰退，同期乾電池下降 ___%</b>；1000 次踩踏後仍有 ___%。（指向四週對照折線圖）', 'Recognisable from ___ m in a black corridor; ten steps keep it lit ___ s; <b>zero decay after 28 days in storage while the control batteries fell ___%</b>; still ___% after 1000 steps. (Point at the four-week comparison chart.)')],
-    [ti('創新與請求（10 秒）', 'Innovation & ask (10 s)'), ti('材料來自垃圾、單片不到 50 元、免布線可自由增減——便宜到每個樓梯口都裝得起。請評審踩一下我們的地墊，親自把燈點亮。', 'Made from rubbish, under NT$50 a module, no wiring and freely scalable — cheap enough for every stairwell. Please step on our mat and light it yourself.')]
+    [ti('創新與請求（10 秒）', 'Innovation & ask (10 s)'), ti('材料來自垃圾、單片不到 50 元、免布線可自由增減——便宜到每個樓梯口都裝得起。請您踩一下我們的地墊，親自把燈點亮。', 'Made from rubbish, under NT$50 a module, no wiring and freely scalable — cheap enough for every stairwell. Please step on our mat and light it yourself.')]
   ];
   var gloss = [
     ['避難指引燈', 'Evacuation guidance light', ti('指出出口方向的燈，不是照亮空間的燈', 'A light that shows where the exit is, not one that illuminates a room')],
@@ -1932,10 +1932,10 @@ function secPitch() {
   var sop = [
     ti('擦乾：用乾布把石蠟面與鋁箔擦一次（<b>最重要</b>，濕氣會讓示範失敗）', 'Wipe dry: pass a dry cloth over the wax and foil (<b>most important</b> — moisture ruins the demo)'),
     ti('檢查：短路檢查（壓到底時電表維持 ∞）與回彈檢查各做一次', 'Check: run the short-circuit test (meter stays at ∞ when fully pressed) and the spring-back test once each'),
-    ti('放電：先短路電容歸零，讓評審看到「從零開始」', 'Discharge: short the capacitor to zero so judges see it start from nothing'),
+    ti('放電：先短路電容歸零，讓大家看到「從零開始」', 'Discharge: short the capacitor to zero so everyone sees it start from nothing'),
     ti('關燈：可以的話關掉攤位燈或用黑布罩住——<b>暗一點，說服力差很多</b>', 'Dim it: switch off the booth light or drape a black cloth if you can — <b>darkness makes the demo far more convincing</b>'),
-    ti('踩踏：請<b>評審自己踩</b>（或跟著 120 BPM 拍 30 秒），同時解說「這就是逃生的那一步」', 'Step: let <b>the judge step on it themselves</b> (or tap at 120 BPM for 30 s) while you explain that this is the escaping footstep'),
-    ti('亮燈：接上 LED，讓評審自己看到燈亮起來', 'Light it: connect the LED and let the judges see it come on'),
+    ti('踩踏：請<b>來賓自己踩</b>（或跟著 120 BPM 拍 30 秒），同時解說「這就是逃生的那一步」', 'Step: let <b>the visitor step on it themselves</b> (or tap at 120 BPM for 30 s) while you explain that this is the escaping footstep'),
+    ti('亮燈：接上 LED，讓來賓自己看到燈亮起來', 'Light it: connect the LED and let the visitor see it come on'),
     ti('備援：另備一組已充好電的模組，萬一現場太潮濕仍可示範', 'Backup: keep a second pre-charged module in case the hall is too humid')
   ];
   return '<div class="grid g2">' +
@@ -1953,13 +1953,13 @@ function secPitch() {
       '<div><h3 style="font-size:16px;margin-bottom:8px">' + ti('現場示範 SOP（30 秒內要亮燈）', 'Live-demo SOP (light it within 30 s)') + '</h3>' +
         '<div class="goals">' + sop.map(function (s) { return '<div class="goal"><div><span>' + s + '</span></div></div>'; }).join('') + '</div></div>' +
     '</div>' +
-    '<h3 style="font-size:16px;margin:26px 0 8px">' + ti('中英術語對照表（給國際評審解說用）', 'Bilingual glossary (for explaining to international judges)') + '</h3>' +
+    '<h3 style="font-size:16px;margin:26px 0 8px">' + ti('中英術語對照表（給國際來賓解說用）', 'Bilingual glossary (for explaining to international visitors)') + '</h3>' +
     '<div class="tw"><table class="gloss"><thead><tr><th>' + ti('中文', 'Chinese') + '</th><th>English</th><th>' + ti('一句話解釋', 'One-line explanation') + '</th></tr></thead><tbody>' +
       gloss.map(function (g) { return '<tr><td>' + g[0] + '</td><td>' + g[1] + '</td><td>' + g[2] + '</td></tr>'; }).join('') +
     '</tbody></table></div>';
 }
 
-/* ---------- 評審問答 ---------- */
+/* ---------- 現場問答 ---------- */
 function secQA() {
   var qa = [
     [ti('為什麼電壓有幾十伏特，卻不會電到人？', 'Why doesn&rsquo;t tens of volts give you a shock?'),
@@ -2037,7 +2037,7 @@ var CHECK = [
   ]],
   [ti('⑤ 表達與語言', '(5) Presentation & language'), [
     ti('中文 90 秒簡報背熟、英文 30 秒 pitch 背熟', '90-second Chinese pitch and 30-second English pitch memorised'),
-    ti('英文 Q&A 至少練過 8 題（見上方評審問答）', 'Practised at least eight English Q&A items (see above)'),
+    ti('英文 Q&A 至少練過 8 題（見上方問答章節）', 'Practised at least eight English Q&A items (see above)'),
     ti('術語卡：中英對照隨身小卡', 'Glossary cards: bilingual pocket cards'),
     ti('示範操作演練到 30 秒內能亮燈', 'Demo rehearsed until the LED lights within 30 seconds'),
     ti('練習「被打斷後接回主軸」與「不知道就誠實說並提出下一步」', 'Practised recovering from interruptions and saying "we don&rsquo;t know yet, and here is our next step"')
@@ -2093,8 +2093,7 @@ function secTeam() {
       var dv = saved[f[0]] != null ? saved[f[0]] : (DEF[f[0]] || '');
       return '<div class="fld"><label>' + f[1] + '</label><input type="text" class="teamf" data-k="' + f[0] + '" value="' + esc(dv) + '" placeholder="' + pick('請填寫', 'Fill in') + '"></div>';
     }).join('') + '</div>' +
-    '<div class="note">' + tb('這些欄位只存在你自己的瀏覽器，不會上傳到任何地方；列印說明書時會一起印出。',
-      'These fields are stored only in your own browser and are never uploaded; they are included when you print the report.') + '</div></div></div>';
+    '</div></div>';
 }
 function secThanks() {
   return '<div class="grid g2">' +
@@ -2164,7 +2163,7 @@ var SECTIONS = [
 ];
 
 function renderAll() {
-  /* 評審操作版不顯示只給製作團隊看的章節（例如參賽準備檢查清單） */
+  /* 互動操作版不顯示只給製作團隊看的章節（例如參賽準備檢查清單） */
   var SECS = SECTIONS.filter(function (s) { return !(JUDGE && s.teamOnly); });
   document.getElementById('hero').innerHTML = renderHero();
   document.getElementById('navList').innerHTML = SECS.map(function (s) {
@@ -2181,9 +2180,7 @@ function renderAll() {
       '<div>' + ti('「踩亮生路」免電池廢蠟筆發電緊急避難指引地墊｜IEYI 世界青少年創客發明展 · 災害管理與安全類',
                    'Step on It, Light the Way Out — a battery-free waste-crayon TENG guidance mat | IEYI, Disaster Management & Safety') + '</div></div>' +
     '<div><div>' + ti('未經 Hinata Team <b>書面同意</b>，不得重製、散布或改作本作品；<b>保留一切專利申請權</b>（詳見 LICENSE.md）。',
-                 'No reproduction, distribution or adaptation without <b>written permission</b> from Hinata Team; <b>all patent rights reserved</b> (see LICENSE.md).') + '</div>' +
-      '<div>' + ti('本頁為單一 HTML 檔、純前端、離線可用；填寫的資料只存在你自己的瀏覽器。',
-                 'A single-file, offline-capable static page. Anything you type stays in your own browser.') + '</div></div>';
+                 'No reproduction, distribution or adaptation without <b>written permission</b> from Hinata Team; <b>all patent rights reserved</b> (see LICENSE.md).') + '</div></div>';
 }
 /* ==========================================================================
    5. 互動原理模擬器

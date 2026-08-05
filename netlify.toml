@@ -14,7 +14,7 @@
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
 
-# 評審操作版（含內嵌麵包板模擬器）：更新後要立刻看到新版
+# 互動操作版（含內嵌麵包板模擬器）：更新後要立刻看到新版
 [[headers]]
   for = "/JoshIEYI-judge.html"
   [headers.values]

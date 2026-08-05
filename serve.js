@@ -41,13 +41,13 @@ console.log("\n  ==================================================");
 console.log("   「踩亮生路」IEYI 參賽網站 · 伺服器已啟動");
 console.log("  ==================================================\n");
 console.log("   這台電腦看：  http://localhost:" + PORT + "\n");
-console.log("   （評審操作版：後面加 /JoshIEYI-judge.html）\n");
+console.log("   （互動操作版：後面加 /JoshIEYI-judge.html）\n");
 const ips = lanIPs();
 if (ips.length) {
   console.log("   手機 / 平板（同一個 WiFi）開瀏覽器輸入：\n");
   for (const ip of ips) {
     console.log("        團隊版　　http://" + ip + ":" + PORT);
-    console.log("        評審操作版 http://" + ip + ":" + PORT + "/JoshIEYI-judge.html\n");
+    console.log("        互動操作版 http://" + ip + ":" + PORT + "/JoshIEYI-judge.html\n");
   }
 } else {
   console.log("   （找不到區網 IP，請確認已連上 WiFi）\n");

@@ -25,6 +25,9 @@ const BB = path.join(DIR, '..', 'breadboard-sim');
 const SRC = path.join(DIR, 'JoshIEYI.html');
 /* 檔名刻意用純 ASCII：.bat 啟動器裡出現中文檔名時，cmd 會用 Big5 解讀 UTF-8 位元組而找不到檔案 */
 const OUT = path.join(DIR, 'JoshIEYI-judge.html');
+/* 同一份內容再輸出一個 ieyi.html，直接丟進 hinata-josh/ieyi repo 即為
+   https://hinata-josh.github.io/ieyi/ieyi.html（Josh Games 選單指向這個網址） */
+const OUT_PAGES = path.join(DIR, 'ieyi.html');
 
 /* ---------- 1. 組出「單一檔案版」的麵包板模擬器 ---------- */
 let bb = fs.readFileSync(path.join(BB, 'breadboard.html'), 'utf8');
@@ -94,25 +97,28 @@ const block =
 
 html = html.slice(0, at) + block + html.slice(at);
 
-/* ---------- 4. 切成「評審操作版」 ---------- */
+/* ---------- 4. 切成「互動操作版」 ---------- */
 const HTMLTAG = '<html lang="zh-Hant" data-lang="zh" data-theme="dark">';
 if (html.indexOf(HTMLTAG) < 0) throw new Error('找不到 <html> 標籤（屬性被改過？）');
 html = html.replace(HTMLTAG, '<html lang="zh-Hant" data-lang="zh" data-theme="dark" data-judge="1">');
 
-html = html.replace('<title>', '<title>【評審操作版】');
+html = html.replace('<title>', '<title>【互動操作版】');
 html = html.replace('<small>災害管理與安全 · IEYI 世界青少年創客發明展 · Hinata Team</small>',
-  '<small>評審操作版 · 災害管理與安全 · IEYI · Hinata Team</small>');
+  '<small>互動操作版 · 災害管理與安全 · IEYI · Hinata Team</small>');
 
 html = html.replace('<!doctype html>',
-  '<!doctype html>\n<!-- 【評審操作版】本檔＝JoshIEYI.html ＋ 內嵌麵包板模擬器，並以 data-judge="1" 切成\n' +
-  '     給評審動手操作的版本（多了操作指引、預先鋪上標示清楚的示範數據、拿掉製作團隊的待辦與參賽檢查清單）。\n' +
+  '<!doctype html>\n<!-- 【互動操作版】本檔＝JoshIEYI.html ＋ 內嵌麵包板模擬器，並以 data-judge="1" 切成\n' +
+  '     給現場動手操作的版本（多了操作指引、預先鋪上標示清楚的示範數據、拿掉製作團隊的待辦與參賽檢查清單）。\n' +
   '     由 build-integrated.js 自動產生，請勿手改；要改內容請改 JoshIEYI.html 後重新產生。\n' +
   '     想在這個檔案上看製作團隊版，網址後面加 ?judge=0 即可。 -->');
 
 fs.writeFileSync(OUT, html, 'utf8');
+fs.writeFileSync(OUT_PAGES, html, 'utf8');
 
 const kb = (Buffer.byteLength(html, 'utf8') / 1024).toFixed(0);
 const left = html.match(/<script src="[^"]+"/g);
 console.log('已產生 ' + OUT + '（' + kb + ' KB）');
+console.log('已產生 ' + OUT_PAGES + '（同一份內容，給 hinata-josh/ieyi repo 用）');
+console.log('  → 上傳後網址：https://hinata-josh.github.io/ieyi/ieyi.html');
 console.log('  · 內嵌麵包板模擬器：' + (Buffer.byteLength(bb, 'utf8') / 1024).toFixed(0) + ' KB');
 console.log('  · 外部相依：' + (left ? '⚠️ 還有 ' + left.join(', ') : '無（完全自足，可離線）'));

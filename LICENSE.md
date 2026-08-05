@@ -38,7 +38,7 @@ This notice covers **all deliverables of this project**, including without limit
 
 ## 3. 明示授權｜Permissions expressly granted
 
-1. **主辦單位與評審**：IEYI 世界青少年創客發明展主辦單位、評審及其委託之工作人員，得為**競賽評審、現場展示、成果紀錄與活動報導**之必要範圍內使用本作品之資料與影像。
+1. **主辦單位**：IEYI 世界青少年創客發明展主辦單位及其委託之工作人員，得為**競賽審查、現場展示、成果紀錄與活動報導**之必要範圍內使用本作品之資料與影像。
    *The organiser and judges of the IEYI World Young Inventors Exhibition, and personnel they authorise, may use the materials and images of this work as necessary for **judging, on-site exhibition, record-keeping and event publicity**.*
 2. **教育與非商業引用**：教師、學生得為教學或學術討論引用本作品內容，惟須**明確標示出處**（作品名稱＋Hinata Team）且**不得整份重製或改作**。
    *Teachers and students may quote this work for teaching or academic discussion, provided the source is **clearly attributed** (title + Hinata Team) and the work is **not reproduced in full or adapted**.*
