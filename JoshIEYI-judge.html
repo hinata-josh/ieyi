@@ -2957,9 +2957,9 @@ function secBuild() {
 
   var subs = [
     [ti('下板（需承受熔蠟的熱）', 'Base board (takes the heat of molten wax)'),
-     ti('① 廢棄厚紙板（喜餅盒）　② 回收 PP 瓦楞板（塑膠中空板）　③ <b>鐵餅乾盒蓋／鋁製便當盒蓋</b>', '(1) waste thick cardboard, (2) recycled PP corrugated sheet, (3) <b>a biscuit-tin lid or aluminium lunchbox lid</b>'),
-     ti('石蠟熔點約 50–60°C，但吹風機出風可達 100°C 以上。選項③最耐熱，且<b>金屬本身即可作為下電極</b>，無須另貼鋁箔。<b>避免</b> PET 透明片、PVC 發泡板（雪弗板）、薄壓克力——約 70–80°C 就軟化翹曲。',
-        'Paraffin melts at 50–60°C but a hair dryer blows well over 100°C. Option 3 tolerates heat best and <b>the metal can be the bottom electrode itself</b>. <b>Avoid</b> PET film, PVC foam board and thin acrylic — they soften and warp at 70–80°C.')],
+     ti('① <b>回收 PP 瓦楞板（塑膠中空板）</b>　② 廢棄厚紙板（喜餅盒）　③ 薄三夾板', '(1) <b>recycled PP corrugated sheet</b>, (2) waste thick cardboard, (3) thin plywood'),
+     ti('石蠟熔點約 50–60°C，但吹風機出風可達 100°C 以上。PP 中空板熔點約 160°C，最耐熱又不吸濕，是首選。<b>避免</b> PET 透明片、PVC 發泡板（雪弗板）、薄壓克力——約 70–80°C 就軟化翹曲。<b>下板絕對不可用金屬</b>（鐵餅乾盒蓋、鋁製便當盒蓋、烤盤）：金屬底板隔著一層膠帶與鋁箔電極正對面，形同並聯一顆約 2000 pF 的寄生電容，而 TENG 本身僅約 30 pF，輸出電壓會被分掉數十倍；盒蓋的金屬捲邊也可能直接碰到上電極造成短路。',
+        'Paraffin melts at 50–60°C but a hair dryer blows well over 100°C. PP corrugated sheet melts around 160°C, tolerates heat best and absorbs no moisture — the first choice. <b>Avoid</b> PET film, PVC foam board and thin acrylic — they soften and warp at 70–80°C. <b>Never use metal for the base board</b> (biscuit-tin lid, aluminium lunchbox lid, baking tray): a metal base sits face-to-face with the foil electrode across one layer of tape, adding a parasitic capacitance of roughly 2000 pF in parallel with a TENG whose own capacitance is only about 30 pF — the output voltage is divided down by tens of times. The turned-up metal rim of a lid can also touch the top electrode and short the device out.')],
     [ti('上板（對擦板，不受熱）', 'Top board (no heat)'),
      ti('回收塑膠板（廢資料夾、PP 中空板）或厚紙板', 'Recycled plastic sheet (an old document folder, PP board) or thick cardboard'),
      ti('塑膠<b>不吸濕、不易翹曲、可重複使用</b>；災防用途要長期佈設，這點尤其重要。', 'Plastic <b>does not absorb moisture, resists warping and is reusable</b> — vital for equipment that stays deployed for years.')],
@@ -2999,7 +2999,7 @@ function secBuild() {
   var bom = [
     [ti('廢棄蠟筆（黑色為主）', 'Waste crayons (mainly black)'), ti('美術課用剩的斷蠟筆、家裡舊蠟筆', 'Broken crayons left over from art class, old ones at home'), ti('極容易（免費廢物利用）', 'Trivial — free waste'), 'NT$0'],
     [ti('對擦金屬電極', 'Counter-metal electrode'), ti('廚房烘焙用鋁箔紙、銅箔膠帶', 'Kitchen aluminium foil, copper tape'), ti('極容易（家裡就有）', 'Trivial — already at home'), 'NT$0'],
-    [ti('基板與支架', 'Boards & frame'), ti('廢棄厚紙板、喜餅盒紙板、回收 PP 中空板、鐵餅乾盒蓋', 'Waste cardboard, gift-box board, recycled PP sheet, biscuit-tin lid'), ti('極容易（垃圾回收）', 'Trivial — from the recycling bin'), 'NT$0'],
+    [ti('基板與支架', 'Boards & frame'), ti('回收 PP 中空板（首選）、廢棄厚紙板、喜餅盒紙板　<b>※ 不可用金屬</b>', 'Recycled PP sheet (first choice), waste cardboard, gift-box board　<b>— no metal</b>'), ti('極容易（垃圾回收）', 'Trivial — from the recycling bin'), 'NT$0'],
     [ti('彈性間隔', 'Elastic spacer'), ti('高密度海綿、洗碗菜瓜布', 'High-density sponge, dish scrubber'), ti('極容易', 'Trivial'), 'NT$0'],
     [ti('電子元件：1N4007 ×4、10 µF 電容 ×1、小 LED ×1', 'Electronics: 1N4007 ×4, 10 µF capacitor ×1, small LED ×1'),
      ti('網拍或電子材料行（亦可直接買組好的橋式整流模組）', 'Online or an electronics shop (a ready-made bridge module also works)'), ti('容易', 'Easy'), 'NT$30–50'],
