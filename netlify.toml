@@ -1,0 +1,27 @@
+# Netlify 設定（用 Git 或整個資料夾部署時生效；只拖 JoshIEYI.html 時不需要）
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/JoshIEYI.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# 評審操作版（含內嵌麵包板模擬器）：更新後要立刻看到新版
+[[headers]]
+  for = "/JoshIEYI-judge.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# 讓根目錄 / 直接顯示 JoshIEYI.html（拖整個資料夾或接 git 部署時生效）
+[[redirects]]
+  from = "/"
+  to = "/JoshIEYI.html"
+  status = 200
