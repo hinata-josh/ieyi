@@ -36,33 +36,6 @@
 
 ---
 
-## 列印／輸出 PDF
-
-按右上角 🖨️（或 `Ctrl`+`P`）→ 目的地選「另存為 PDF」。列印版會自動：
-
-- **彩色列印**：沿用淺色主題的配色（不是灰階），並用 `print-color-adjust: exact` 強制印出底色與色塊——**即使 Chrome 沒勾「背景圖形」也印得出來**。封面保留蠟筆色條與淡漸層。
-- **每個大項目（章節）強制從新的一頁開始**，封面自己一頁；表格跨頁時每頁重印表頭，小標題不會單獨留在頁尾。
-- **不會被截掉**：表格改成 `table-layout:fixed` 縮到紙寬、捲軸容器改成可見；已用 A4 內容寬度（約 702px）實測 `scrollWidth === clientWidth`、**沒有任何元素超出紙寬**。
-- **輸入框的字不會被切一半**：列印前會把每個輸入框換成可自動換行的純文字（`printSwap()`）並把原本的輸入框藏起來（否則值會印成兩份），列印完自動還原；空格顯示「—」。
-- **個人照片縮成 30 mm 大頭照**（螢幕上仍是大張）。
-- 隱藏互動元件（兩台模擬器、頁籤、工具列、評審指引卡），展開所有 Q&A 解答。
-
-> 目前約 32～33 頁（A4，一章一頁起）。只想印重點就先切到某個語言（中或 EN），雙語對照模式會多一倍字。
-
----
-
-## 架到 Netlify
-
-開 <https://app.netlify.com/drop>：
-
-1. **只拖 `JoshIEYI-judge.html`（給評審的網址，推薦）** — 單檔自足，拖進去就有網址，印成展板 QR code。
-2. **拖整個 `science-fair-teng` 資料夾** — 根目錄自動轉到 `JoshIEYI.html`（`netlify.toml` 已設好），評審版在 `/JoshIEYI-judge.html`。
-3. **接 GitHub repo** — `netlify.toml` 已設 `publish = "."`、無 build 指令；若在大 repo 子資料夾，Netlify 的 **Base directory** 填 `science-fair-teng`。
-
-> 網址改名：Netlify 站台 → **Site configuration → Change site name**（例如 `hinata-teng-ieyi.netlify.app`）。
-
----
-
 ## 網站裡有什麼
 
 | # | 章節 | 重點 |
