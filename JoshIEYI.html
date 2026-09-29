@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>「踩亮生路」免電池廢蠟筆發電避難指引地墊 — IEYI 災害管理與安全</title>
-<meta name="description" content="停電時的緊急照明常因電池早已耗盡而失效。本作品用美術課廢棄蠟筆的石蠟製作摩擦奈米發電器（TENG）地墊，逃生者踩踏當下發電點亮 LED 指引燈——沒有電池、沒有自放電、放一年也不會沒電。含校園緊急照明實地調查、互動原理模擬、麵包板接線模擬器、材料最佳化與五項災防情境驗證數據站。">
+<title>「踩亮生路」免電池保鮮膜發電避難指引地墊 — IEYI 災害管理與安全</title>
+<meta name="description" content="停電時的緊急照明常因電池早已耗盡而失效。本作品用廢保鮮膜製作摩擦奈米發電器（TENG）地墊，逃生者踩踏當下發電點亮 LED 指引燈——沒有電池、沒有自放電、放一年也不會沒電。含校園緊急照明實地調查、互動原理模擬、麵包板接線模擬器、材料最佳化與五項災防情境驗證數據站。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%E2%9A%A1</text></svg>">
 <script>
 /* 預設深色；使用者按過切換就記住他的選擇。放在 <head> 是為了避免載入時閃一下白畫面。 */
@@ -23,7 +23,7 @@
 </script>
 <style>
 /* ============================================================
-   IEYI 參賽網站｜廢棄蠟筆石蠟摩擦發電（TENG）
+   IEYI 參賽網站｜廢保鮮膜摩擦發電（TENG）
    單一檔案、純前端、離線可用。
    圖表色彩：量值用單一藍色系；分類用三色色盤
    （#2a78d6 / #eb6834 / #1baf7a，已通過 CVD 與對比驗證）。
@@ -546,7 +546,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
   .pshot img { display: block; width: 100%; height: auto; max-width: 150mm; margin: 0 auto;
     border: 1px solid var(--rule); border-radius: 2mm; }
   .pshot figcaption { font-size: 8.5pt; color: var(--muted); text-align: center; margin-top: 1.5mm; }
-  /* 封面保留淡淡的漸層底與蠟筆色條（彩色列印才有的樣子） */
+  /* 封面保留淡淡的漸層底與彩色色條（彩色列印才有的樣子） */
   .hero, .hero::before, .crayons i, .hero .tag, .tile {
     -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important;
   }
@@ -773,12 +773,12 @@ var GRIDS = {
   },
   s5: {
     t: ['情境五：被踩很多次會壞嗎？', 'Scenario 5 — does it wear out after many steps?'],
-    sub: ['以節拍器維持固定頻率反覆踩踏，記錄輸出衰減與石蠟塗層外觀變化。',
-          'Tap at a fixed metronome tempo and record both the output decay and how the paraffin coating looks.'],
+    sub: ['以節拍器維持固定頻率反覆踩踏，記錄輸出衰減與保鮮膜表面外觀變化（皺褶、破損）。',
+          'Tap at a fixed metronome tempo and record both the output decay and how the plastic-wrap surface looks (creases, tears).'],
     rowLabel: ['累積踩踏次數', 'Cumulative steps'],
     rows: [['0（初始）', '0 (initial)'], ['100 次', '100'], ['500 次', '500'], ['1000 次', '1000']],
     cols: [['平均峰值電壓 (V)', 'Mean peak voltage (V)', 'num'],
-           ['石蠟塗層外觀', 'Appearance of the coating', 'text']],
+           ['保鮮膜外觀', 'Appearance of the wrap', 'text']],
     comp: [['相對初始值', 'Relative to initial'], 'rel0'],
     chart: 's5'
   }
@@ -999,10 +999,10 @@ function renderPCover() {
     '<div class="pc-host">' + ti('IEYI 世界青少年創客發明展', 'IEYI World Young Inventors Exhibition') + '</div>',
     '<div class="pc-cat">' + ti('災害管理與安全類 · 國小組', 'Disaster Management &amp; Safety · Primary Division') + '</div>',
     '<hr class="pc-rule">',
-    '<h1>' + ti('「踩亮生路」<br>免電池、放久也不會沒電的<br>廢蠟筆發電緊急避難指引地墊',
-                'Step on It, Light the Way Out<br>A battery-free emergency guidance mat<br>powered by waste crayons') + '</h1>',
-    '<div class="pc-en">' + ti('A Battery-Free Emergency Evacuation Guidance Mat Using a Paraffin Triboelectric Nanogenerator (TENG) Made from Waste Art-Class Crayons',
-                                '利用美術課廢棄蠟筆之石蠟成分製作摩擦奈米發電器（TENG）') + '</div>',
+    '<h1>' + ti('「踩亮生路」<br>免電池、放久也不會沒電的<br>保鮮膜發電緊急避難指引地墊',
+                'Step on It, Light the Way Out<br>A battery-free emergency guidance mat<br>powered by waste plastic wrap') + '</h1>',
+    '<div class="pc-en">' + ti('A Battery-Free Emergency Evacuation Guidance Mat Using a Triboelectric Nanogenerator (TENG) Made from Waste Plastic Wrap',
+                                '利用廢保鮮膜製作摩擦奈米發電器（TENG）') + '</div>',
     '<div class="pc-who">',
       '<div><span class="k">' + ti('參賽人', 'Inventor') + '</span><b>' + ti('林日向', 'Hinata Lin') + '</b></div>',
       '<div><span class="k">' + ti('學校', 'School') + '</span>' + ti('林口康橋國際學校', 'Kang Chiao International School, Linkou') + '</div>',
@@ -1031,12 +1031,12 @@ function renderHero() {
     '<div style="font-size:13.5px;color:var(--ink-2);margin-top:4px">' +
       ti('參賽人 <b>林日向</b>　·　林口康橋國際學校　·　Hinata Team',
          'Inventor <b>Hinata Lin</b> · Kang Chiao International School, Linkou Campus · Hinata Team') + '</div>',
-    '<h1>' + ti('「<span class="hl">踩亮</span>生路」<br>免電池、放久也不會沒電的<br>廢蠟筆發電緊急避難指引地墊',
-                'Step on It, <span class="hl">Light the Way Out</span><br>A battery-free emergency guidance mat<br>powered by waste crayons') + '</h1>',
-    '<p class="en-title">' + ti('A Battery-Free Emergency Evacuation Guidance Mat Using a Paraffin Triboelectric Nanogenerator (TENG) Made from Waste Art-Class Crayons',
-                                '技術基礎：利用美術課廢棄蠟筆之石蠟成分製作摩擦奈米發電器（TENG）') + '</p>',
-    '<p class="sub">' + ti('地震、颱風停電時最需要照明的走廊與樓梯，緊急照明卻常因為<b>電池早已耗盡或過期</b>而不亮——電池會自放電，放得越久越不可靠，偏偏災害不會事先通知。本作品把美術課廢棄蠟筆（主成分石蠟）熔製成摩擦奈米發電器地墊：<b>逃生者踩下去的動作本身就是電源</b>，整流儲能後點亮 LED 指引燈。因為完全沒有電池，所以<b>放一年也不會沒電</b>，而且踩的人越多、亮得越久。',
-                           'When an earthquake or typhoon cuts the power, the dark corridors and stairwells that need light most are often served by emergency lights that <b>fail because their batteries have already drained or expired</b>. Batteries self-discharge — the longer they sit, the less trustworthy they are — and disasters give no warning. This project melts waste art-class crayons (mainly paraffin wax) into a triboelectric nanogenerator mat: <b>the evacuee&rsquo;s own footstep is the power source</b>, rectified and stored to light an LED guidance lamp. With no battery at all, it <b>cannot go flat after a year in storage</b> — and the more people walk on it, the longer it stays lit.') + '</p>',
+    '<h1>' + ti('「<span class="hl">踩亮</span>生路」<br>免電池、放久也不會沒電的<br>保鮮膜發電緊急避難指引地墊',
+                'Step on It, <span class="hl">Light the Way Out</span><br>A battery-free emergency guidance mat<br>powered by waste plastic wrap') + '</h1>',
+    '<p class="en-title">' + ti('A Battery-Free Emergency Evacuation Guidance Mat Using a Triboelectric Nanogenerator (TENG) Made from Waste Plastic Wrap',
+                                '技術基礎：利用廢保鮮膜製作摩擦奈米發電器（TENG）') + '</p>',
+    '<p class="sub">' + ti('地震、颱風停電時最需要照明的走廊與樓梯，緊急照明卻常因為<b>電池早已耗盡或過期</b>而不亮——電池會自放電，放得越久越不可靠，偏偏災害不會事先通知。本作品把廢保鮮膜包覆在鋁箔上，做成摩擦奈米發電器地墊：<b>逃生者踩下去的動作本身就是電源</b>，整流儲能後點亮 LED 指引燈。因為完全沒有電池，所以<b>放一年也不會沒電</b>，而且踩的人越多、亮得越久。',
+                           'When an earthquake or typhoon cuts the power, the dark corridors and stairwells that need light most are often served by emergency lights that <b>fail because their batteries have already drained or expired</b>. Batteries self-discharge — the longer they sit, the less trustworthy they are — and disasters give no warning. This project wraps waste plastic film over aluminium foil to make a triboelectric nanogenerator mat: <b>the evacuee&rsquo;s own footstep is the power source</b>, rectified and stored to light an LED guidance lamp. With no battery at all, it <b>cannot go flat after a year in storage</b> — and the more people walk on it, the longer it stays lit.') + '</p>',
     '<div class="tags">',
     '<span class="tag b">' + ti('災害管理與安全', 'Disaster Management & Safety') + '</span>',
     '<span class="tag">' + ti('零電池 · 零自放電', 'Battery-free · zero self-discharge') + '</span>',
@@ -1066,7 +1066,7 @@ function renderHero() {
     '</div>',
     '<div class="tiles">',
     tile('hero-fig', ti('閒置一年後的電量衰退', 'Capacity lost after a year idle'), '0%', ti('沒有電池，就沒有自放電', 'no battery means no self-discharge')),
-    tile('', ti('單片材料成本', 'Material cost / module'), '< NT$50', ti('蠟筆、紙板、鋁箔全來自回收', 'crayons, board and foil all reclaimed')),
+    tile('', ti('單片材料成本', 'Material cost / module'), '< NT$50', ti('保鮮膜、紙板、鋁箔全來自回收', 'wrap, board and foil all reclaimed')),
     tile('', ti('電源來源', 'Power source'), ti('踩踏', 'Footstep'), ti('逃生者本來就會做的動作', 'the motion evacuees already make')),
     tile('', ti('瞬間峰值電壓', 'Peak voltage'), '10–20 V', ti('乾燥環境、最佳組合', 'dry air, best combination')),
     tile('', ti('耐久驗證', 'Durability tested'), '1000 ' + ti('次踩踏', 'steps'), ti('情境五：輸出衰減與外觀紀錄', 'Scenario 5: output decay and coating wear')),
@@ -1132,7 +1132,7 @@ function secPrior() {
      ti('太陽光', 'Sunlight'),
      ti('室內走廊、樓梯間、地下室無日照；夜間停電時無法即時補充，仍需蓄電池。', 'Indoor corridors, stairwells and basements get no sun; it cannot recharge during a night-time blackout and still needs a battery.'),
      '<span class="no">' + ti('需更換蓄電池', 'Only with a new battery') + '</span>'],
-    [ti('★ 本作品：廢蠟筆 TENG 地墊', '★ This work: waste-crayon TENG mat'),
+    [ti('★ 本作品：保鮮膜 TENG 地墊', '★ This work: plastic-wrap TENG mat'),
      ti('<b>逃生者自己的踩踏動作</b>', "<b>The evacuee's own footstep</b>"),
      ti('亮度較低，且必須有人踩踏才發光（<b>見第「限制」章的誠實揭露</b>）。', 'Lower brightness, and it only lights while someone is stepping on it (<b>see the limitations section for our full disclosure</b>).'),
      '<span class="yes">' + ti('可以（無電池、無自放電）', 'Yes — no battery, no self-discharge') + '</span>']
@@ -1145,19 +1145,19 @@ function secPrior() {
     }).join('') + '</tbody></table></div>' +
     '<div class="quote mt">' + tb('<b>關鍵差異：</b>前四種方案都是「<b>先把電存起來、等災害時拿出來用</b>」，所以都會隨時間衰退；本作品是「<b>災害發生的那一刻、由逃生者當場產生電</b>」——時間對它沒有影響。',
       '<b>The key difference:</b> the first four approaches all <b>store energy now and spend it when disaster strikes</b>, so all of them decay with time. This project <b>generates electricity at the moment of the disaster, from the person escaping</b> — time has no effect on it.') + '</div>' +
-    '<div class="note mt">' + tb('比較內容為依公開資料與文獻整理之定性比較，成本為自製實測估算；正式送審前請補上專利檢索紀錄（建議檢索關鍵字：triboelectric、paraffin wax、self-powered emergency lighting、energy harvesting floor mat）。',
-      'This is a qualitative comparison compiled from public sources and literature; costs are estimated from our own build. Before formal submission, attach a patent-search record (suggested keywords: triboelectric, paraffin wax, self-powered emergency lighting, energy-harvesting floor mat).') + '</div>';
+    '<div class="note mt">' + tb('比較內容為依公開資料與文獻整理之定性比較，成本為自製實測估算；正式送審前請補上專利檢索紀錄（建議檢索關鍵字：triboelectric、plastic wrap / polyethylene film、self-powered emergency lighting、energy harvesting floor mat）。',
+      'This is a qualitative comparison compiled from public sources and literature; costs are estimated from our own build. Before formal submission, attach a patent-search record (suggested keywords: triboelectric, plastic wrap / polyethylene film, self-powered emergency lighting, energy-harvesting floor mat).') + '</div>';
 }
 
 /* --- 設計理念與創新特色 --- */
 function secSolution() {
   var why = [
     [ti('物理特性適合', 'The physics fits'),
-     ti('蠟筆主成分「<b>石蠟</b>」在摩擦起電順序表中屬於<b>強負電材料</b>，極易吸引電子，是製作 TENG 的優異材料——和實驗室常用的 PTFE 同一區。',
-        '<b>Paraffin</b>, the main ingredient of crayons, sits at the <b>strongly negative end</b> of the triboelectric series — eager to take electrons, and an excellent TENG material in the same region as lab-grade PTFE.')],
+     ti('保鮮膜的材質「<b>PE（聚乙烯）／PVC（聚氯乙烯）</b>」在摩擦起電順序表中屬於<b>負電端材料</b>，容易吸引電子，是製作 TENG 的好材料——和實驗室常用的 PTFE 同在負電那一側。',
+        'Plastic wrap is made of <b>PE (polyethylene) or PVC (polyvinyl chloride)</b>, both on the <b>negative side</b> of the triboelectric series — eager to take electrons, and a good TENG material on the same side as lab-grade PTFE.')],
     [ti('取得零成本', 'It costs nothing to get'),
-     ti('美術課大量產生斷裂、過短而丟棄的蠟筆。回收再利用<b>同時解決廢棄物問題</b>，而且供應源源不絕。',
-        'Art classes constantly produce crayons that are broken or too short to use. Reclaiming them <b>solves a waste problem at the same time</b>, with an endless supply.')],
+     ti('家庭廚房與學校午餐每天都丟棄大量保鮮膜，捲筒用到最後的尾段也常被整捲丟掉。回收再利用<b>同時解決廢棄物問題</b>，而且供應源源不絕。',
+        'Home kitchens and school lunches throw away plastic wrap every day, and the last stretch of a roll often goes out with the tube. Reclaiming it <b>solves a waste problem at the same time</b>, with an endless supply.')],
     [ti('災防上的意義', 'Why cheapness is a safety feature'),
      ti('防災設備必須「<b>便宜到可以大量佈設</b>」。若一片要價數千元，學校不可能每個樓梯口都裝；本作品單片材料成本不到 50 元，具備真正普及的可能。',
         'Disaster equipment must be <b>cheap enough to deploy everywhere</b>. At a few thousand NT dollars a unit, no school would fit one at every stairwell. Under NT$50 per module, this one can genuinely be everywhere.')]
@@ -1170,8 +1170,8 @@ function secSolution() {
      ti('不儲存電力，就不存在「放久了沒電」的失效模式。而這正是<b>現行緊急照明最主要的失效原因</b>。',
         'Store no energy and the "found flat" failure mode simply does not exist — and that is <b>the single most common way existing emergency lights fail</b>.')],
     [ti('以廢棄物製造防災設備', 'Disaster equipment made from rubbish'),
-     ti('把美術課垃圾轉為公共安全設備，<b>同時達成減廢與防災</b>，且成本低到可以大量佈設。',
-        'Art-class waste becomes public-safety equipment: <b>waste reduction and disaster preparedness at once</b>, cheap enough to install at scale.')],
+     ti('把廚房垃圾轉為公共安全設備，<b>同時達成減廢與防災</b>，且成本低到可以大量佈設。',
+        'Kitchen waste becomes public-safety equipment: <b>waste reduction and disaster preparedness at once</b>, cheap enough to install at scale.')],
     [ti('免布線、可自由增減', 'No wiring, freely scalable'),
      ti('不需接市電、不需施工，<b>哪裡黑就鋪哪裡</b>；需要更亮就多並聯幾片模組。',
         'No mains connection, no construction work: <b>lay it wherever it is dark</b>, and parallel up more modules when you want it brighter.')],
@@ -1179,7 +1179,7 @@ function secSolution() {
      ti('實驗四<b>推翻了我們自己的假設</b>（以為塗層越厚越好），並以「TENG 屬表面現象」解釋，顯示本研究確實依數據修正認知。',
         'Experiment 4 <b>overturned our own hypothesis</b> (that a thicker coating would be better) and explained why — a TENG is a surface phenomenon. We changed our minds because of the data.')]
   ];
-  return '<h3 style="font-size:17px;margin:0 0 10px">' + ti('為什麼選廢棄蠟筆？', 'Why waste crayons?') + '</h3>' +
+  return '<h3 style="font-size:17px;margin:0 0 10px">' + ti('為什麼選廢保鮮膜？', 'Why waste plastic wrap?') + '</h3>' +
     '<div class="grid g3">' + why.map(function (v, i) { return icard(i + 1, v[0], v[1]); }).join('') + '</div>' +
     '<h3 style="font-size:17px;margin:26px 0 10px">' + ti('創新性與特色', 'Innovation & distinguishing features') + '</h3>' +
     '<div class="grid g2">' + innov.map(function (v, i) { return icard(i + 1, v[0], v[1]); }).join('') + '</div>';
@@ -1188,14 +1188,14 @@ function secSolution() {
 /* --- 研究目的 --- */
 function secGoals() {
   var a = [
-    [ti('對擦材料', 'Counter-material'), ti('探討鋁箔、銅箔、PET 塑膠片、影印紙四種對擦材料，對廢蠟筆發電電壓與亮燈效果的影響。',
+    [ti('對擦材料', 'Counter-material'), ti('探討鋁箔、銅箔、PET 塑膠片、影印紙四種對擦材料，對保鮮膜發電電壓與亮燈效果的影響。',
       'Compare aluminium foil, copper foil, PET sheet and copy paper as counter-materials, and their effect on output voltage and lamp brightness.')],
-    [ti('顏料顏色', 'Pigment colour'), ti('探討黑、白、紅、藍四種顏色廢蠟筆，對摩擦起電量的差異（黑色含碳黑、白色含鈦白粉）。',
-      'Compare black, white, red and blue waste crayons (black contains carbon black, white contains titanium dioxide) for differences in triboelectric charge.')],
-    [ti('表面粗糙度', 'Surface roughness'), ti('探討石蠟塗層的表面粗糙度（平滑熔融面 vs. 600 目／200 目砂紙打磨）對發電量與電容充電速度的影響。',
-      'Compare paraffin coatings that are smooth-melted versus sanded with 600-grit / 200-grit paper, for output and capacitor charging speed.')],
-    [ti('塗層厚度', 'Coating thickness'), ti('探討石蠟塗層厚度（約 0.5／1／3 mm）對可轉移電荷量的影響，並檢驗「越厚越好」這個直覺是否成立。',
-      'Study how paraffin thickness (about 0.5 / 1 / 3 mm) affects transferable charge — and test whether the intuition that "thicker is better" survives.')]
+    [ti('保鮮膜材質', 'Wrap material'), ti('探討 PE、PVC、PVDC 三種材質保鮮膜與「回收洗淨的舊 PE 保鮮膜」，對摩擦起電量的差異（PVC、PVDC 分子含氯）。',
+      'Compare PE, PVC and PVDC plastic wrap, plus washed recycled PE wrap, for differences in triboelectric charge (PVC and PVDC contain chlorine).')],
+    [ti('表面粗糙度', 'Surface roughness'), ti('探討保鮮膜的表面粗糙度（平整拉平 vs. 600 目／200 目砂紙壓紋）對發電量與電容充電速度的影響。',
+      'Compare plastic wrap laid flat versus embossed with 600-grit / 200-grit sandpaper, for output and capacitor charging speed.')],
+    [ti('包覆層數', 'Number of layers'), ti('探討保鮮膜包覆層數（1／10／50 層）對可轉移電荷量的影響，並檢驗「越厚越好」這個直覺是否成立。',
+      'Study how the number of wrap layers (1 / 10 / 50) affects transferable charge — and test whether the intuition that "thicker is better" survives.')]
   ];
   var b = [
     [ti('情境一：全黑可視性', 'Scenario 1 — visibility in total darkness'), ti('在全黑走廊中，逃生者能在幾公尺外辨識指引燈、能否判斷該往哪邊走。',
@@ -1256,13 +1256,13 @@ function phaseSVG(kind) {
 }
 function secHow() {
   var ph = [
-    ['a', ti('① 接觸', '① Contact'), ti('壓下後石蠟與鋁箔緊密接觸，石蠟從金屬奪走電子，界面帶等量正負電。', 'Pressing brings paraffin and foil into contact; paraffin strips electrons from the metal, leaving equal and opposite charges at the interface.')],
+    ['a', ti('① 接觸', '① Contact'), ti('壓下後保鮮膜與鋁箔緊密接觸，保鮮膜從金屬奪走電子，界面帶等量正負電。', 'Pressing brings the wrap and foil into contact; the wrap strips electrons from the metal, leaving equal and opposite charges at the interface.')],
     ['b', ti('② 分離（放電流）', '② Separation (current)'), ti('鬆手彈開，間隙產生電位差，電子被迫經外電路流動——這就是我們量到的電。', 'On release the gap creates a potential difference, forcing electrons through the external circuit — this is the current we measure.')],
     ['c', ti('③ 最大分離', '③ Fully separated'), ti('間隙 3 mm 時電位差最大，電流停止，此時電表顯示峰值電壓。', 'At the 3 mm gap the potential difference peaks and current stops; the meter reads peak voltage.')],
     ['d', ti('④ 再壓合（反向）', '④ Pressed again (reverse)'), ti('再次壓下時電子反向流回，形成交流訊號，所以必須整流才能儲存。', 'Pressing again drives electrons back, producing an AC signal — which is why rectification is required before storage.')]
   ];
-  return tp('石蠟層與上方的鋁箔電極原本被 <b>3 mm 氣隙</b>分開。有人踩下地墊，兩者緊密接觸，石蠟因電子親和力較強而<b>從鋁箔奪取電子</b>、表面帶負電；腳離開、海綿把兩板彈開，帶負電的石蠟與鋁箔分離，電位差驅使電子經由外部導線流動，<b>產生一次脈衝電流</b>。每踩一下產生一次脈衝，經<b>橋式整流（4 顆 1N4007）</b>轉為直流，累積在 <b>10 µF 電容</b>中「積少成多」，電壓足夠後即可點亮 LED。',
-    'A <b>3 mm air gap</b> separates the paraffin layer from the aluminium electrode above it. When someone steps on the mat the two press together and the paraffin, having the stronger electron affinity, <b>strips electrons from the foil</b> and becomes negatively charged. As the foot lifts and the sponge springs the plates apart, the charged paraffin separates from the foil and the resulting potential difference drives electrons through the external wire — <b>one pulse of current</b>. Every step is one pulse; a <b>bridge rectifier (four 1N4007 diodes)</b> turns them into DC, a <b>10 µF capacitor</b> accumulates them, and once the voltage is high enough the LED lights.') +
+  return tp('保鮮膜層與上方的鋁箔電極原本被 <b>3 mm 氣隙</b>分開。有人踩下地墊，兩者緊密接觸，保鮮膜因電子親和力較強而<b>從鋁箔奪取電子</b>、表面帶負電；腳離開、海綿把兩板彈開，帶負電的保鮮膜與鋁箔分離，電位差驅使電子經由外部導線流動，<b>產生一次脈衝電流</b>。每踩一下產生一次脈衝，經<b>橋式整流（4 顆 1N4148）</b>轉為直流，累積在 <b>0.1 µF 電容</b>中「積少成多」，電壓足夠後即可點亮 LED。',
+    'A <b>3 mm air gap</b> separates the plastic-wrap layer from the aluminium electrode above it. When someone steps on the mat the two press together and the wrap, having the stronger electron affinity, <b>strips electrons from the foil</b> and becomes negatively charged. As the foot lifts and the sponge springs the plates apart, the charged wrap separates from the foil and the resulting potential difference drives electrons through the external wire — <b>one pulse of current</b>. Every step is one pulse; a <b>bridge rectifier (four 1N4148 diodes)</b> turns them into DC, a <b>0.1 µF capacitor</b> accumulates them, and once the voltage is high enough the LED lights.') +
     '<div class="quote">' + tb('<b>重點：</b>能量來源是「<b>逃生者本來就會做的動作</b>」——在黑暗中往出口走。使用者不需要多做任何事，也不需要記得換電池。',
       '<b>The point:</b> the energy source is <b>an action evacuees already perform</b> — walking toward the exit in the dark. Users need do nothing extra, and never need to remember to change a battery.') + '</div>' +
     '<div class="phases mt">' + ph.map(function (p) {
@@ -1271,16 +1271,16 @@ function secHow() {
     '<div class="grid g2 mt">' +
       '<div class="warn">' + tb('<b>安全：為什麼幾十伏特卻不會電到人？</b>摩擦發電是靜電，瞬間電壓高但電流極微弱（微安培 µA 級），總電量非常小，對人體安全；也正因為電流小，才必須靠電容累積。',
         '<b>Safety: why is tens of volts harmless?</b> This is static electricity: the instantaneous voltage is high but the current is extremely small (microamperes), so the total charge is tiny and safe for the human body. That small current is exactly why a capacitor is needed to accumulate energy.') + '</div>' +
-      '<div class="note">' + tb('<b>成功的兩個關鍵：</b>①石蠟層要<b>乾燥乾淨</b>——摩擦起電最怕濕氣，在冷氣房做、用乾布擦淨，電壓可從幾伏特升到十幾伏特。②導線要<b>緊貼鋁箔</b>，用長尾夾或膠帶加重物壓緊，靜電訊號才導得出來。',
-        '<b>Two keys to success:</b> (1) keep the paraffin layer <b>dry and clean</b> — triboelectricity hates moisture; working in an air-conditioned room and wiping with a dry cloth can lift output from a few volts to over ten. (2) Keep the wires <b>pressed tightly onto the foil</b> with bulldog clips or tape and a weight, or the static signal never reaches the meter.') + '</div>' +
+      '<div class="note">' + tb('<b>成功的兩個關鍵：</b>①保鮮膜層要<b>乾燥乾淨</b>——摩擦起電最怕濕氣，在冷氣房做、用乾布擦淨，電壓可從幾伏特升到十幾伏特。②導線要<b>緊貼鋁箔</b>，用長尾夾或膠帶加重物壓緊，靜電訊號才導得出來。',
+        '<b>Two keys to success:</b> (1) keep the plastic-wrap layer <b>dry and clean</b> — triboelectricity hates moisture; working in an air-conditioned room and wiping with a dry cloth can lift output from a few volts to over ten. (2) Keep the wires <b>pressed tightly onto the foil</b> with bulldog clips or tape and a weight, or the static signal never reaches the meter.') + '</div>' +
     '</div>';
 }
 
 /* --- 互動模擬器（外殼；行為在 initSim） --- */
 function secLab() {
   var opt = function (o) { return o.map(function (v) { return '<option value="' + v[0] + '">' + v[1] + '</option>'; }).join(''); };
-  return '<div class="note no-print" style="margin-bottom:12px">' + tb('本節有<b>兩台模擬器</b>：①<b>發電原理模擬器</b>——換材料、換顏色、換粗糙度、換濕度，看波形與電容充電；②<b>麵包板接線模擬器</b>——把整流電路親手插出來，接錯了它會告訴你錯在哪。兩者都是<b>原理模擬</b>，用來預習趨勢與練習解說；<b>比賽數據請以實際實驗量測為準</b>。',
-      'This section holds <b>two simulators</b>: (1) a <b>generation-principle simulator</b> — swap material, colour, roughness and humidity and watch the waveform and the capacitor charge; and (2) a <b>breadboard wiring simulator</b> — build the rectifier circuit hole by hole, and it tells you exactly what is wrong when you miswire it. Both are <b>principle simulations</b> for previewing trends and rehearsing explanations; <b>competition data must come from real measurements</b>.') + '</div>' +
+  return '<div class="note no-print" style="margin-bottom:12px">' + tb('本節有<b>兩台模擬器</b>：①<b>發電原理模擬器</b>——換對擦材料、換保鮮膜材質、換粗糙度、換濕度，看波形與電容充電；②<b>麵包板接線模擬器</b>——把整流電路親手插出來，接錯了它會告訴你錯在哪。兩者都是<b>原理模擬</b>，用來預習趨勢與練習解說；<b>比賽數據請以實際實驗量測為準</b>。',
+      'This section holds <b>two simulators</b>: (1) a <b>generation-principle simulator</b> — swap counter-material, wrap type, roughness and humidity and watch the waveform and the capacitor charge; and (2) a <b>breadboard wiring simulator</b> — build the rectifier circuit hole by hole, and it tells you exactly what is wrong when you miswire it. Both are <b>principle simulations</b> for previewing trends and rehearsing explanations; <b>competition data must come from real measurements</b>.') + '</div>' +
     '<h3 style="font-size:17px;margin:0 0 10px">' + ti('模擬器一：發電原理與儲能', 'Simulator 1 — generation and storage') + '</h3>' +
     pshot(SHOT_SIM, '模擬器一的畫面：接觸－分離動作、橋式整流與儲能電容，下方是瞬間輸出電壓波形（示波器）。線上互動版可以實際操作。',
                     'Simulator 1: the contact&ndash;separation motion, bridge rectifier and storage capacitor, with the instantaneous output waveform below. Fully interactive in the online version.') +
@@ -1294,11 +1294,11 @@ function secLab() {
       '</div>' +
       '<div class="panel">' +
         '<div class="fld"><label>' + ti('對擦材料（上電極）', 'Counter-material (top electrode)') + '</label><select id="cMat"></select></div>' +
-        '<div class="fld"><label>' + ti('廢蠟筆顏色', 'Waste-crayon colour') + '</label><select id="cCol"></select></div>' +
-        '<div class="fld"><label>' + ti('石蠟表面粗糙度', 'Paraffin surface roughness') + '</label><select id="cRough"></select></div>' +
+        '<div class="fld"><label>' + ti('保鮮膜材質', 'Wrap material') + '</label><select id="cCol"></select></div>' +
+        '<div class="fld"><label>' + ti('保鮮膜表面粗糙度', 'Wrap surface roughness') + '</label><select id="cRough"></select></div>' +
         '<div class="fld"><label>' + ti('環境濕度', 'Ambient humidity') + '</label><select id="cHum"></select></div>' +
-        '<div class="fld"><label>' + ti('對照組：石蠟層', 'Control: paraffin layer') + '</label><select id="cWax">' +
-          opt([['1', ti('有蠟層（實驗組）', 'With wax (experimental)')], ['0', ti('拿掉蠟層（對照組）', 'Wax removed (control)')]]) + '</select></div>' +
+        '<div class="fld"><label>' + ti('對照組：保鮮膜層', 'Control: wrap layer') + '</label><select id="cWax">' +
+          opt([['1', ti('有保鮮膜（實驗組）', 'With wrap (experimental)')], ['0', ti('拿掉保鮮膜（對照組）', 'Wrap removed (control)')]]) + '</select></div>' +
         '<div class="fld"><label>' + ti('拍打方式', 'Tapping mode') + '</label><div class="seg-group" id="cMode" style="width:100%">' +
           '<button data-v="manual" aria-pressed="true" style="flex:1">' + ti('手動', 'Manual') + '</button>' +
           '<button data-v="auto" aria-pressed="false" style="flex:1">' + ti('自動 120 BPM', 'Auto 120 BPM') + '</button></div></div>' +
@@ -1309,7 +1309,7 @@ function secLab() {
         '<div class="readouts">' +
           '<div class="ro"><div class="lb">' + ti('瞬間電壓', 'Instant') + '</div><div class="vl" id="roNow">0.0 V</div></div>' +
           '<div class="ro"><div class="lb">' + ti('峰值 Vmax', 'Peak Vmax') + '</div><div class="vl" id="roPeak">0.0 V</div></div>' +
-          '<div class="ro wide"><div class="lb">' + ti('10 µF 電容累積電壓', '10 µF capacitor voltage') + '</div><div class="vl" id="roCap">0.00 V</div><div class="meter"><i id="roCapBar"></i></div></div>' +
+          '<div class="ro wide"><div class="lb">' + ti('0.1 µF 電容累積電壓', '0.1 µF capacitor voltage') + '</div><div class="vl" id="roCap">0.00 V</div><div class="meter"><i id="roCapBar"></i></div></div>' +
           '<div class="ro"><div class="lb">' + ti('拍打次數', 'Taps') + '</div><div class="vl" id="roTaps">0</div></div>' +
           '<div class="ro"><div class="lb">' + ti('經過時間', 'Elapsed') + '</div><div class="vl" id="roTime">0.0 s</div></div>' +
           '<div class="ro wide"><div class="lb">' + ti('LED 指示燈（門檻 1.9 V）', 'LED indicator (1.9 V threshold)') + '</div><div class="vl"><span class="led" id="roLed"></span><span id="roLedTxt">—</span></div></div>' +
@@ -1333,8 +1333,8 @@ function secLab() {
           '<button class="btn sm" id="bLogClear">' + ti('清空', 'Clear') + '</button>' +
         '</span></div>' +
       '<div class="tw"><table class="log"><thead><tr>' +
-        ['#', ti('對擦材料', 'Counter-material'), ti('顏色', 'Colour'), ti('粗糙度', 'Roughness'), ti('濕度', 'Humidity'),
-         ti('蠟層', 'Wax'), ti('峰值 (V)', 'Peak (V)'), ti('電容 (V)', 'Cap (V)'), ti('時間 (s)', 'Time (s)'), ti('備註', 'Note')]
+        ['#', ti('對擦材料', 'Counter-material'), ti('保鮮膜材質', 'Wrap'), ti('粗糙度', 'Roughness'), ti('濕度', 'Humidity'),
+         ti('保鮮膜層', 'Wrap layer'), ti('峰值 (V)', 'Peak (V)'), ti('電容 (V)', 'Cap (V)'), ti('時間 (s)', 'Time (s)'), ti('備註', 'Note')]
           .map(function (h) { return '<th>' + h + '</th>'; }).join('') +
       '</tr></thead><tbody id="logBody"></tbody></table></div>' +
     '</div>' +
@@ -1348,12 +1348,12 @@ function secBreadboard() {
       'Simulator 2 — breadboard wiring simulator (build the rectifier yourself)') + '</h3>' +
     tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、電容極性接錯、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
        'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed electrolytic capacitor, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
-    pshot(SHOT_BB, '模擬器二的畫面：已完成的橋式整流接線（1N4007×4 → 10 µF 電容 → LED）。線上互動版可以自己重接，接錯會告訴你錯在哪。',
-                   'Simulator 2: the completed bridge-rectifier wiring (1N4007&times;4 &rarr; 10 &micro;F &rarr; LED). In the online version you can rebuild it yourself and it explains any miswiring.') +
+    pshot(SHOT_BB, '模擬器二的畫面：已完成的橋式整流接線（1N4148×4 → 0.1 µF 電容 → LED）。線上互動版可以自己重接，接錯會告訴你錯在哪。',
+                   'Simulator 2: the completed bridge-rectifier wiring (1N4148&times;4 &rarr; 0.1 &micro;F &rarr; LED). In the online version you can rebuild it yourself and it explains any miswiring.') +
     '<div class="bb no-print" id="bbBox">' +
       '<div class="bb-bar">' +
         '<b>🍞 ' + ti('麵包板模擬器', 'Breadboard simulator') + '</b>' +
-        '<span class="bb-sub">' + ti('蠟筆發電 → 橋式整流 1N4007×4 → 10 µF 電容 → LED', 'Crayon TENG → bridge rectifier 1N4007×4 → 10 µF → LED') + '</span>' +
+        '<span class="bb-sub">' + ti('保鮮膜發電 → 橋式整流 1N4148×4 → 0.1 µF 電容 → LED', 'Plastic-wrap TENG → bridge rectifier 1N4148×4 → 0.1 µF → LED') + '</span>' +
         '<span class="sp">' +
           '<button class="btn sm" id="bbFull">' + ti('⛶ 放大到全畫面', '⛶ Enlarge') + '</button>' +
           '<button class="btn sm" id="bbReload">' + ti('↺ 重新載入模擬器', '↺ Reload the simulator') + '</button>' +
@@ -1369,24 +1369,24 @@ function secBreadboard() {
 
 /* --- 結構、尺寸與製作 --- */
 function planSVG() {
-  var S = '<svg viewBox="0 0 300 268" role="img" aria-label="' + esc(pick('俯視圖：石蠟層比下鋁箔每邊外擴 5 mm', 'Plan view: paraffin overhangs the foil by 5 mm per side')) + '">';
+  var S = '<svg viewBox="0 0 300 268" role="img" aria-label="' + esc(pick('俯視圖：保鮮膜層比下鋁箔每邊外擴 5 mm', 'Plan view: the wrap overhangs the foil by 5 mm per side')) + '">';
   S += '<rect x="20" y="20" width="228" height="228" rx="4" fill="var(--card-2)" stroke="var(--rule)"/>';
-  S += '<rect x="29" y="29" width="210" height="210" rx="3" fill="#33322f" stroke="var(--rule)" stroke-dasharray="0"/>';
+  S += '<rect x="29" y="29" width="210" height="210" rx="3" fill="#9cc7d6" stroke="var(--rule)" stroke-dasharray="0"/>';
   S += '<rect x="48" y="48" width="172" height="172" rx="2" fill="#c9ccd1" stroke="#9a9da2"/>';
   [[23, 23], [232, 23], [23, 232], [232, 232]].forEach(function (p) {
     S += '<rect x="' + p[0] + '" y="' + p[1] + '" width="13" height="13" rx="3" fill="#b8d84a" stroke="#8ca832"/>';
   });
   S += '<text x="134" y="134" font-size="11" font-weight="700" fill="#3a3d42" text-anchor="middle">' + esc(pick('下鋁箔 10×10', 'Bottom foil 10×10')) + '</text>';
-  S += '<text x="134" y="41" font-size="10" fill="#efece1" text-anchor="middle">' + esc(pick('石蠟層 11×11', 'Paraffin 11×11')) + '</text>';
+  S += '<text x="134" y="41" font-size="10" fill="#1f3a46" text-anchor="middle">' + esc(pick('保鮮膜層 11×11', 'Plastic wrap 11×11')) + '</text>';
   S += '<text x="134" y="261" font-size="10" fill="var(--muted)" text-anchor="middle">' + esc(pick('下板（基座）12×12 cm', 'Base board 12×12 cm')) + '</text>';
-  S += '<text x="134" y="14" font-size="10" fill="var(--muted)" text-anchor="middle">' + esc(pick('■ 四角海綿黏在「留邊」上，不壓蠟面', '■ Sponges glued on the margin, never on the wax')) + '</text>';
+  S += '<text x="134" y="14" font-size="10" fill="var(--muted)" text-anchor="middle">' + esc(pick('■ 四角海綿黏在「留邊」上，不壓保鮮膜面', '■ Sponges glued on the margin, never on the wrap')) + '</text>';
   S += '<path d="M220 60 L262 60" stroke="var(--spark)" stroke-width="1.4"/>';
   S += '<path d="M239 29 L239 48" stroke="var(--spark)" stroke-width="1.4"/>';
   S += '<text x="266" y="63" font-size="10" font-weight="700" fill="var(--spark)">5 mm</text>';
   return S + '</svg>';
 }
 function sideSVG() {
-  var S = '<svg viewBox="0 0 300 178" role="img" aria-label="' + esc(pick('側視剖面圖：3 mm 氣隙與石蠟包覆鋁箔邊緣', 'Cross-section: the 3 mm gap and wax wrapping the foil edge')) + '">';
+  var S = '<svg viewBox="0 0 300 178" role="img" aria-label="' + esc(pick('側視剖面圖：3 mm 氣隙與保鮮膜包覆鋁箔邊緣', 'Cross-section: the 3 mm gap and plastic wrap covering the foil edge')) + '">';
   /* 上板 */
   S += '<rect x="20" y="44" width="260" height="17" rx="2" fill="#c8a074" stroke="var(--rule)"/>';
   S += '<rect x="48" y="61" width="204" height="8" rx="1" fill="#c9ccd1" stroke="#9a9da2"/>';
@@ -1398,20 +1398,20 @@ function sideSVG() {
   [24, 262].forEach(function (x) {
     S += '<rect x="' + x + '" y="69" width="14" height="31" rx="3" fill="#b8d84a" stroke="#8ca832"/>';
   });
-  /* 下鋁箔（先畫，被蠟包住） */
+  /* 下鋁箔（先畫，被保鮮膜包住） */
   S += '<rect x="48" y="112" width="204" height="7" fill="#c9ccd1" stroke="#9a9da2"/>';
-  /* 石蠟層：比鋁箔寬，包住邊緣 */
-  S += '<path d="M38 122 L38 104 Q38 100 42 100 L258 100 Q262 100 262 104 L262 122 Z" fill="#33322f" fill-opacity=".82" stroke="var(--rule)"/>';
-  S += '<text x="150" y="113" font-size="9.5" font-weight="600" fill="#efece1" text-anchor="middle">' + esc(pick('石蠟層 0.3–1 mm（完全包住鋁箔四邊）', 'Paraffin 0.3–1 mm, wrapping all four foil edges')) + '</text>';
+  /* 保鮮膜層：比鋁箔寬，包住邊緣 */
+  S += '<path d="M38 122 L38 104 Q38 100 42 100 L258 100 Q262 100 262 104 L262 122 Z" fill="#9cc7d6" fill-opacity=".82" stroke="var(--rule)"/>';
+  S += '<text x="150" y="113" font-size="9.5" font-weight="600" fill="#1f3a46" text-anchor="middle">' + esc(pick('保鮮膜 1–2 層（完全包住鋁箔四邊）', 'Plastic wrap, 1–2 layers, covering all four foil edges')) + '</text>';
   /* 下板 */
   S += '<rect x="20" y="122" width="260" height="18" rx="2" fill="#c8a074" stroke="var(--rule)"/>';
-  S += '<text x="150" y="135" font-size="9.5" font-weight="600" fill="#5a4630" text-anchor="middle">' + esc(pick('下板（耐熱基座）12×12', 'Base board (heat-tolerant) 12×12')) + '</text>';
-  /* 海綿標籤畫在最後，才不會被石蠟層蓋掉 */
+  S += '<text x="150" y="135" font-size="9.5" font-weight="600" fill="#5a4630" text-anchor="middle">' + esc(pick('下板（基座）12×12', 'Base board 12×12')) + '</text>';
+  /* 海綿標籤畫在最後，才不會被保鮮膜層蓋掉 */
   S += '<text x="31" y="86" font-size="8.5" font-weight="700" fill="#4c5a1e" text-anchor="middle">' + esc(pick('海綿', 'sponge')) + '</text>';
   /* 導線 */
   S += '<path d="M252 65 L288 65 L288 24" stroke="var(--ink-2)" stroke-width="1.6" fill="none"/>';
   S += '<path d="M48 115 L12 115 L12 24" stroke="var(--ink-2)" stroke-width="1.6" fill="none"/>';
-  S += '<text x="150" y="20" font-size="9.5" fill="var(--ink-2)" text-anchor="middle">' + esc(pick('→ 橋式整流 → 10 µF 電容 → LED', '→ bridge rectifier → 10 µF → LED')) + '</text>';
+  S += '<text x="150" y="20" font-size="9.5" fill="var(--ink-2)" text-anchor="middle">' + esc(pick('→ 橋式整流 → 0.1 µF 電容 → LED', '→ bridge rectifier → 0.1 µF → LED')) + '</text>';
   S += '<text x="150" y="160" font-size="9" fill="var(--muted)" text-anchor="middle">' + esc(pick('踩下＝接觸；抬腳＝海綿彈開，各產生一次反向脈衝', 'Press = contact; lift = the sponge springs it open. Each gives one opposite pulse.')) + '</text>';
   return S + '</svg>';
 }
@@ -1419,10 +1419,10 @@ function secBuild() {
   var dim = [
     [ti('下板（基座）', 'Base board'), '12 cm × 12 cm', ti('四周留約 5 mm 邊，供海綿黏貼與導線引出', 'Leave a ~5 mm margin all round for the sponges and the wire tails')],
     [ti('下鋁箔（下電極）', 'Bottom foil (electrode)'), '10 cm × 10 cm', ti('貼於下板正中央', 'Centred on the base board')],
-    [ti('石蠟塗層', 'Paraffin coating'), '11 cm × 11 cm', ti('比下鋁箔<b>每邊外擴約 5 mm</b>，把鋁箔邊緣完全包覆', 'Overhangs the foil by <b>about 5 mm per side</b>, wrapping its edges completely')],
+    [ti('保鮮膜層', 'Plastic-wrap layer'), '11 cm × 11 cm', ti('比下鋁箔<b>每邊外擴約 5 mm</b>，把鋁箔邊緣完全包覆', 'Overhangs the foil by <b>about 5 mm per side</b>, covering its edges completely')],
     [ti('上鋁箔（對擦電極）', 'Top foil (counter-electrode)'), '10 cm × 10 cm', ti('與下鋁箔同尺寸並對齊，取得最大有效接觸面積', 'Same size as the bottom foil and aligned with it, for maximum effective contact area')],
     [ti('上板（承載對擦電極）', 'Top board'), '12 cm × 12 cm', ti('與下板同尺寸，才壓得到留邊上的海綿（<b>見下方設計修正</b>）', 'Same size as the base so it rests on the sponges on the margin (<b>see the design correction below</b>)')],
-    [ti('氣隙（海綿）', 'Air gap (sponge)'), ti('約 3 mm', 'about 3 mm'), ti('海綿黏在下板「留邊」上，<b>不可壓在石蠟面上</b>', 'Glue the sponges to the margin — <b>never onto the wax surface</b>')]
+    [ti('氣隙（海綿）', 'Air gap (sponge)'), ti('約 3 mm', 'about 3 mm'), ti('海綿黏在下板「留邊」上，<b>不可壓在保鮮膜面上</b>', 'Glue the sponges to the margin — <b>never onto the wrap surface</b>')]
   ];
   var dimTbl = '<div class="tw"><table><thead><tr><th>' + ti('部位', 'Part') + '</th><th>' + ti('建議尺寸', 'Size') +
     '</th><th>' + ti('要點', 'Why') + '</th></tr></thead><tbody>' +
@@ -1430,11 +1430,11 @@ function secBuild() {
     '</tbody></table></div>';
 
   var subs = [
-    [ti('下板（需承受熔蠟的熱）', 'Base board (takes the heat of molten wax)'),
+    [ti('下板（基座）', 'Base board'),
      ti('① <b>回收 PP 瓦楞板（塑膠中空板）</b>　② 廢棄厚紙板（喜餅盒）　③ 薄三夾板', '(1) <b>recycled PP corrugated sheet</b>, (2) waste thick cardboard, (3) thin plywood'),
-     ti('石蠟熔點約 50–60°C，但吹風機出風可達 100°C 以上。PP 中空板熔點約 160°C，最耐熱又不吸濕，是首選。<b>避免</b> PET 透明片、PVC 發泡板（雪弗板）、薄壓克力——約 70–80°C 就軟化翹曲。<b>下板絕對不可用金屬</b>（鐵餅乾盒蓋、鋁製便當盒蓋、烤盤）：金屬底板隔著一層膠帶與鋁箔電極正對面，形同並聯一顆約 2000 pF 的寄生電容，而 TENG 本身僅約 30 pF，輸出電壓會被分掉數十倍；盒蓋的金屬捲邊也可能直接碰到上電極造成短路。',
-        'Paraffin melts at 50–60°C but a hair dryer blows well over 100°C. PP corrugated sheet melts around 160°C, tolerates heat best and absorbs no moisture — the first choice. <b>Avoid</b> PET film, PVC foam board and thin acrylic — they soften and warp at 70–80°C. <b>Never use metal for the base board</b> (biscuit-tin lid, aluminium lunchbox lid, baking tray): a metal base sits face-to-face with the foil electrode across one layer of tape, adding a parasitic capacitance of roughly 2000 pF in parallel with a TENG whose own capacitance is only about 30 pF — the output voltage is divided down by tens of times. The turned-up metal rim of a lid can also touch the top electrode and short the device out.')],
-    [ti('上板（對擦板，不受熱）', 'Top board (no heat)'),
+     ti('保鮮膜包覆<b>全程不需加熱</b>，下板只要平整、不吸濕即可。PP 中空板不吸濕、不易翹曲，是首選；厚紙板潮濕時會吸水變形，需加防水封條。<b>下板絕對不可用金屬</b>（鐵餅乾盒蓋、鋁製便當盒蓋、烤盤）：金屬底板隔著一層膠帶與鋁箔電極正對面，形同並聯一顆約 2000 pF 的寄生電容，而 TENG 本身僅約 30 pF，輸出電壓會被分掉數十倍；盒蓋的金屬捲邊也可能直接碰到上電極造成短路。',
+        'Wrapping the film needs <b>no heat at all</b>, so the base only has to be flat and moisture-proof. PP corrugated sheet absorbs no moisture and resists warping — the first choice; cardboard swells in damp air and needs a waterproof seal. <b>Never use metal for the base board</b> (biscuit-tin lid, aluminium lunchbox lid, baking tray): a metal base sits face-to-face with the foil electrode across one layer of tape, adding a parasitic capacitance of roughly 2000 pF in parallel with a TENG whose own capacitance is only about 30 pF — the output voltage is divided down by tens of times. The turned-up metal rim of a lid can also touch the top electrode and short the device out.')],
+    [ti('上板（對擦板）', 'Top board'),
      ti('回收塑膠板（廢資料夾、PP 中空板）或厚紙板', 'Recycled plastic sheet (an old document folder, PP board) or thick cardboard'),
      ti('塑膠<b>不吸濕、不易翹曲、可重複使用</b>；災防用途要長期佈設，這點尤其重要。', 'Plastic <b>does not absorb moisture, resists warping and is reusable</b> — vital for equipment that stays deployed for years.')],
     [ti('彈性間隔', 'Elastic spacer'),
@@ -1450,17 +1450,17 @@ function secBuild() {
     '</tbody></table></div>';
 
   var steps = [
-    [ti('製作石蠟塗層', 'Cast the paraffin layer'), '≈15 ' + ti('分鐘', 'min'),
-     ti('下板中央貼 10×10 cm 鋁箔並引出導線。廢棄<b>黑色</b>蠟筆切碎鋪成約 11×11 cm，用吹風機均勻吹融，趁熱以抹刀劃平，<b>使石蠟完全覆蓋並包住鋁箔四邊</b>，放涼約 5 分鐘凝固。以游標卡尺量厚度並記錄，目標是「<b>剛好完全遮住鋁箔的最薄狀態</b>」約 0.3–1 mm；舉起對光檢查，不可透出鋁箔亮點或針孔。',
-        'Stick a 10×10 cm foil on the centre of the base and lead a wire out. Chop black waste crayons over an area of about 11×11 cm, melt evenly with a hair dryer, level it hot with a spatula so the wax <b>completely covers and wraps all four foil edges</b>, then let it set for about 5 minutes. Measure the thickness with callipers: aim for the <b>thinnest layer that still hides the foil completely</b>, roughly 0.3–1 mm. Hold it to the light — no bright foil spots or pinholes allowed.'),
-     ti('<b>⚠ 需大人協助：</b>吹風機熔蠟或隔水加熱時請家長或老師在旁，避免燙傷；保持通風。',
-        '<b>⚠ Adult supervision required:</b> have a parent or teacher present while melting wax with a hair dryer or hot water, and keep the area ventilated.')],
+    [ti('包覆保鮮膜層', 'Lay the plastic-wrap layer'), '≈10 ' + ti('分鐘', 'min'),
+     ti('下板中央貼 10×10 cm 鋁箔並引出導線。取洗淨晾乾的廢 <b>PE</b> 保鮮膜，裁成約 14×14 cm，從中央往外抹平蓋在鋁箔上，<b>使保鮮膜完全覆蓋並包住鋁箔四邊</b>（每邊至少外擴 5 mm），四邊以膠帶固定在留邊上。目標是「<b>剛好完全遮住鋁箔的最薄狀態</b>」約 1–2 層；舉起對光檢查，不可有破洞、皺褶或氣泡。',
+        'Stick a 10×10 cm foil on the centre of the base and lead a wire out. Cut washed and dried waste <b>PE</b> wrap to about 14×14 cm and smooth it over the foil from the centre outwards so it <b>completely covers all four foil edges</b> (at least 5 mm overhang each side), taping the edges down on the margin. Aim for the <b>thinnest layer that still covers the foil completely</b>, about 1–2 layers. Hold it to the light — no holes, creases or air bubbles allowed.'),
+     ti('<b>⚠ 需大人協助：</b>用美工刀裁切保鮮膜與紙板時請家長或老師在旁，避免割傷。',
+        '<b>⚠ Adult supervision required:</b> have a parent or teacher present when cutting the wrap and board with a craft knife.')],
     [ti('組裝彈性接觸-分離機構', 'Assemble the spring mechanism'), '≈10 ' + ti('分鐘', 'min'),
      ti('另取 12×12 cm 上板，<b>中央</b>貼 10×10 cm 對擦鋁箔並引出導線。於下板四角<b>留邊處</b>黏上約 3 mm 厚的高密度海綿塊，蓋上上板，形成「踩壓接觸、離腳彈開」機構。',
         'Take a second 12×12 cm board and stick a 10×10 cm counter-foil at its <b>centre</b>, with a wire tail. Glue ~3 mm high-density sponge blocks onto the <b>margin</b> at the four corners of the base, then lay the top board over it: press to contact, release to separate.'), ''],
     [ti('接上整流儲能電路', 'Wire the rectifier and capacitor'), '≈10 ' + ti('分鐘', 'min'),
-     ti('上、下電極各引出一條導線，接到 4 顆 1N4007 組成的橋式整流器，輸出接 10 µF 電容再接 LED。不會用電烙鐵時，用金屬長尾夾或鱷魚夾把導線夾緊在鋁箔上即可導電。<b>可先在本頁的麵包板模擬器練一次接線。</b>',
-        'Lead one wire from each electrode into a bridge rectifier of four 1N4007 diodes; the output feeds the 10 µF capacitor and then the LED. If you cannot solder, clamp the wires onto the foil with bulldog or crocodile clips. <b>Practise the wiring first in the breadboard simulator on this page.</b>'), ''],
+     ti('上、下電極各引出一條導線，接到 4 顆 1N4148 組成的橋式整流器，輸出接 0.1 µF 電容再接 LED。不會用電烙鐵時，用金屬長尾夾或鱷魚夾把導線夾緊在鋁箔上即可導電。<b>可先在本頁的麵包板模擬器練一次接線。</b>',
+        'Lead one wire from each electrode into a bridge rectifier of four 1N4148 diodes; the output feeds the 0.1 µF capacitor and then the LED. If you cannot solder, clamp the wires onto the foil with bulldog or crocodile clips. <b>Practise the wiring first in the breadboard simulator on this page.</b>'), ''],
     [ti('多片並聯與封裝', 'Parallel the modules and seal'), '≈20 ' + ti('分鐘', 'min'),
      ti('各片<b>先各自整流</b>，直流端再全部並聯至同一顆電容；整組模組夾在防滑墊與底板之間，外圍加防水封條，使用者只會踩到防滑墊表面。',
         '<b>Rectify each module separately first</b>, then parallel all the DC outputs into one capacitor. Sandwich the array between an anti-slip mat and the base board and seal the perimeter — the user only ever touches the mat surface.'), '']
@@ -1471,13 +1471,13 @@ function secBuild() {
   }).join('') + '</div>';
 
   var bom = [
-    [ti('廢棄蠟筆（黑色為主）', 'Waste crayons (mainly black)'), ti('美術課用剩的斷蠟筆、家裡舊蠟筆', 'Broken crayons left over from art class, old ones at home'), ti('極容易（免費廢物利用）', 'Trivial — free waste'), 'NT$0'],
+    [ti('廢保鮮膜（PE 為主）', 'Waste plastic wrap (mainly PE)'), ti('家裡或午餐用過、洗淨晾乾的保鮮膜，捲筒用剩的尾段', 'Used wrap from home or lunch, washed and dried, and roll ends'), ti('極容易（免費廢物利用）', 'Trivial — free waste'), 'NT$0'],
     [ti('對擦金屬電極', 'Counter-metal electrode'), ti('廚房烘焙用鋁箔紙、銅箔膠帶', 'Kitchen aluminium foil, copper tape'), ti('極容易（家裡就有）', 'Trivial — already at home'), 'NT$0'],
     [ti('基板與支架', 'Boards & frame'), ti('回收 PP 中空板（首選）、廢棄厚紙板、喜餅盒紙板　<b>※ 不可用金屬</b>', 'Recycled PP sheet (first choice), waste cardboard, gift-box board　<b>— no metal</b>'), ti('極容易（垃圾回收）', 'Trivial — from the recycling bin'), 'NT$0'],
     [ti('彈性間隔', 'Elastic spacer'), ti('高密度海綿、洗碗菜瓜布', 'High-density sponge, dish scrubber'), ti('極容易', 'Trivial'), 'NT$0'],
-    [ti('電子元件：1N4007 ×4、10 µF 電容 ×1、小 LED ×1', 'Electronics: 1N4007 ×4, 10 µF capacitor ×1, small LED ×1'),
+    [ti('電子元件：1N4148 ×4、0.1 µF 電容 ×1、小 LED ×1', 'Electronics: 1N4148 ×4, 0.1 µF capacitor ×1, small LED ×1'),
      ti('網拍或電子材料行（亦可直接買組好的橋式整流模組）', 'Online or an electronics shop (a ready-made bridge module also works)'), ti('容易', 'Easy'), 'NT$30–50'],
-    [ti('量化工具', 'Measuring tools'), ti('三用電表、游標卡尺、節拍器（手機 App 即可）', 'Multimeter, vernier callipers, metronome (a phone app is fine)'), ti('容易（可向學校借用）', 'Easy — borrow from school'), 'NT$0'],
+    [ti('量化工具', 'Measuring tools'), ti('三用電表、尺、節拍器（手機 App 即可）', 'Multimeter, ruler, metronome (a phone app is fine)'), ti('容易（可向學校借用）', 'Easy — borrow from school'), 'NT$0'],
     [ti('防水封條、防滑墊', 'Waterproof seal, anti-slip mat'), ti('膠帶／防水膠條；防滑墊可用現成舊墊', 'Tape or weather strip; reuse an old anti-slip mat'), ti('容易', 'Easy'), 'NT$0–10']
   ];
   var bomTbl = '<div class="tw"><table><thead><tr>' +
@@ -1489,20 +1489,20 @@ function secBuild() {
     '</td><td class="num">' + ti('不到 NT$50', 'under NT$50') + '</td></tr></tfoot></table></div>';
 
   return '<h3 style="font-size:17px;margin:0 0 8px">' + ti('一、單片發電模組的尺寸配置（關鍵設計）', '1. Module dimensions — the critical design') + '</h3>' +
-    '<div class="warn" style="margin-bottom:12px">' + tb('<b>⚠ 自製 TENG 最常見的失敗原因：短路。</b>上電極的投影必須<b>完全落在石蠟面之內</b>。若上下電極一樣大，只要偏移 2–3 mm，上鋁箔邊緣就會滑出蠟面而直接碰到下鋁箔，造成短路、<b>輸出歸零</b>。本作品採「<b>石蠟外擴</b>」設計，同時避免短路並保留最大接觸面積。',
-      '<b>⚠ The most common failure in a home-made TENG is a short circuit.</b> The top electrode must project <b>entirely inside the paraffin area</b>. If both electrodes are the same size, a 2–3 mm misalignment lets the top foil slip past the wax and touch the bottom foil directly — a short, and <b>the output drops to zero</b>. Our <b>paraffin-overhang</b> design avoids the short while keeping the contact area at maximum.') + '</div>' +
+    '<div class="warn" style="margin-bottom:12px">' + tb('<b>⚠ 自製 TENG 最常見的失敗原因：短路。</b>上電極的投影必須<b>完全落在保鮮膜面之內</b>。若上下電極一樣大，只要偏移 2–3 mm，上鋁箔邊緣就會滑出保鮮膜面而直接碰到下鋁箔，造成短路、<b>輸出歸零</b>。本作品採「<b>保鮮膜外擴</b>」設計，同時避免短路並保留最大接觸面積。',
+      '<b>⚠ The most common failure in a home-made TENG is a short circuit.</b> The top electrode must project <b>entirely inside the wrapped area</b>. If both electrodes are the same size, a 2–3 mm misalignment lets the top foil slip past the wrap and touch the bottom foil directly — a short, and <b>the output drops to zero</b>. Our <b>wrap-overhang</b> design avoids the short while keeping the contact area at maximum.') + '</div>' +
     '<div class="grid g2" style="align-items:start">' +
       '<div>' + dimTbl + '</div>' +
       '<div class="grid" style="gap:12px">' +
         '<figure class="xsec" style="margin:0"><h4 style="font-size:14px;margin-bottom:8px">' + ti('俯視圖（看得出「外擴 5 mm」）', 'Plan view — the 5 mm overhang') + '</h4>' + planSVG() +
-          '<figcaption>' + ti('蠟面比鋁箔每邊大 5 mm，鋁箔邊緣完全被蠟包覆；海綿在留邊上，不壓蠟面。', 'The wax extends 5 mm beyond the foil on every side, wrapping its edges. The sponges sit on the margin, not the wax.') + '</figcaption></figure>' +
+          '<figcaption>' + ti('保鮮膜比鋁箔每邊大 5 mm，鋁箔邊緣完全被包覆；海綿在留邊上，不壓保鮮膜面。', 'The wrap extends 5 mm beyond the foil on every side, covering its edges. The sponges sit on the margin, not the wrap.') + '</figcaption></figure>' +
         '<figure class="xsec" style="margin:0"><h4 style="font-size:14px;margin-bottom:8px">' + ti('側視剖面圖', 'Cross-section') + '</h4>' + sideSVG() +
-          '<figcaption>' + ti('若海綿壓在石蠟面上，反覆踩踏數百次會把蠟面壓凹刮花，改變表面粗糙度而影響輸出。', 'A sponge resting on the wax will dent and scuff it after a few hundred steps, changing the surface roughness and the output.') + '</figcaption></figure>' +
+          '<figcaption>' + ti('若海綿壓在保鮮膜面上，反覆踩踏數百次會把保鮮膜磨皺甚至磨破，改變表面粗糙度而影響輸出。', 'A sponge resting on the wrap will crease or even wear through it after a few hundred steps, changing the surface roughness and the output.') + '</figcaption></figure>' +
       '</div>' +
     '</div>' +
     '<div class="note mt"><span class="todo">' + ti('設計修正', 'Design fix') + '</span>' +
-      tb('早期版本把上板也畫成 10×10 cm，但海綿黏在下板的<b>留邊</b>（在 11 cm 蠟面之外），10 cm 的上板<b>壓不到海綿</b>、機構根本撐不起來。現行做法：<b>上板用 12×12 cm 紙板，中央貼 10×10 cm 鋁箔</b>——有效接觸面積仍然是 10×10 cm（控制變因不變），但上板壓得到四角海綿。',
-      'An earlier version drew the top board as 10×10 cm too, but the sponges are glued to the <b>margin</b> of the base (outside the 11 cm wax), so a 10 cm top board <b>never reaches them</b> and the mechanism cannot stand up at all. The current design: <b>a 12×12 cm top board with a 10×10 cm foil at its centre</b>. The effective contact area is still 10×10 cm (the controlled variable is unchanged), but the board now rests on the corner sponges.') +
+      tb('早期版本把上板也畫成 10×10 cm，但海綿黏在下板的<b>留邊</b>（在 11 cm 保鮮膜面之外），10 cm 的上板<b>壓不到海綿</b>、機構根本撐不起來。現行做法：<b>上板用 12×12 cm 紙板，中央貼 10×10 cm 鋁箔</b>——有效接觸面積仍然是 10×10 cm（控制變因不變），但上板壓得到四角海綿。',
+      'An earlier version drew the top board as 10×10 cm too, but the sponges are glued to the <b>margin</b> of the base (outside the 11 cm wrap), so a 10 cm top board <b>never reaches them</b> and the mechanism cannot stand up at all. The current design: <b>a 12×12 cm top board with a 10×10 cm foil at its centre</b>. The effective contact area is still 10×10 cm (the controlled variable is unchanged), but the board now rests on the corner sponges.') +
       team(tb('<b>請一併修正紙本說明書第五章的尺寸表。</b>', '<b>Remember to correct the dimension table in chapter 5 of the printed report.</b>')) + '</div>' +
 
     '<h3 style="font-size:17px;margin:28px 0 8px">' + ti('二、地墊整體結構：多片模組並聯', '2. The mat itself — many modules in parallel') + '</h3>' +
@@ -1515,14 +1515,14 @@ function secBuild() {
         '<b>Do not just make one module bigger:</b> the larger the board, the harder it is to make full, even contact. If the centre touches while the corners lift, <b>the effective area has not increased</b>. Cap a single module at about 15×15 cm and add modules beyond that.') + '</div>' +
     '</div>' +
 
-    '<h3 style="font-size:17px;margin:28px 0 8px">' + ti('三、製作步驟（總計約 55 分鐘）', '3. Build steps (about 55 minutes in total)') + '</h3>' + stepHtml +
+    '<h3 style="font-size:17px;margin:28px 0 8px">' + ti('三、製作步驟（總計約 50 分鐘）', '3. Build steps (about 50 minutes in total)') + '</h3>' + stepHtml +
 
     '<h3 style="font-size:17px;margin:28px 0 8px">' + ti('四、基板選材（原理上只是支撐，但選錯就毀了）', '4. Choosing the boards (structural only — but the wrong choice ruins it)') + '</h3>' +
-    tp('基板在原理上<b>僅為支撐結構、不參與發電</b>，只需滿足四項條件：<b>夠平、夠硬、下板耐熱、不吸濕</b>。',
-       'The boards are <b>purely structural and take no part in generating electricity</b>. They need only four qualities: <b>flat enough, stiff enough, heat-tolerant on the bottom, and non-absorbent</b>.') +
+    tp('基板在原理上<b>僅為支撐結構、不參與發電</b>，只需滿足四項條件：<b>夠平、夠硬、不導電、不吸濕</b>。',
+       'The boards are <b>purely structural and take no part in generating electricity</b>. They need only four qualities: <b>flat enough, stiff enough, non-conductive, and non-absorbent</b>.') +
     subTbl +
-    '<div class="note mt">' + tb('<b>實作技巧：</b>若下板也想用塑膠板，可先在耐熱的紙板或鐵盤上完成「鋁箔＋石蠟」整片，冷卻凝固後再以雙面膠整片貼到塑膠板，即可讓塑膠板<b>全程不受熱</b>。',
-      '<b>Practical trick:</b> if you want a plastic base, cast the foil-and-wax sheet on heat-tolerant cardboard or a metal tray first, let it set, then stick the whole sheet onto the plastic with double-sided tape — the plastic <b>never sees any heat</b>.') + '</div>' +
+    '<div class="note mt">' + tb('<b>實作技巧：</b>保鮮膜有自黏性，包覆時先把中央貼平，再用乾布<b>由中央往四邊推</b>，把氣泡與皺褶推出去；氣泡會讓那一塊碰不到上電極，等於縮小了有效接觸面積。',
+      '<b>Practical trick:</b> plastic wrap clings to itself, so fix the centre first and then <b>push outwards to the edges</b> with a dry cloth to chase out bubbles and creases. A bubble keeps that patch from touching the top electrode, which shrinks the effective contact area.') + '</div>' +
 
     '<h3 style="font-size:17px;margin:28px 0 8px">' + ti('五、組裝後必做的兩項檢查', '5. Two checks you must run after assembly') + '</h3>' +
     '<div class="grid g2">' +
@@ -1532,8 +1532,8 @@ function secBuild() {
           '<li>' + ti('兩支探棒分別接上、下兩條導線。', 'Touch one probe to each of the two lead wires.') + '</li>' +
           '<li>' + ti('用手把模組<b>壓到底</b>，維持約 2 秒並觀察電表。', '<b>Press the module fully down</b>, hold for about 2 seconds and watch the meter.') + '</li>' +
         '</ol>' +
-        '<div class="note mt">' + tb('<b>判讀：</b>維持斷路（∞）→ <b class="yes">合格</b>；蜂鳴或電阻值很低 → <b class="no">有短路</b>：檢查哪一角鋁箔露出蠟面外，補大石蠟或修小上鋁箔後重測。',
-          '<b>Reading:</b> stays open (∞) → <b class="yes">pass</b>. Buzzing or a low resistance → <b class="no">short circuit</b>: find which corner of the foil is outside the wax, extend the wax or trim the top foil, and re-test.') + '</div></div>' +
+        '<div class="note mt">' + tb('<b>判讀：</b>維持斷路（∞）→ <b class="yes">合格</b>；蜂鳴或電阻值很低 → <b class="no">有短路</b>：檢查哪一角鋁箔露出保鮮膜外，重新包覆或修小上鋁箔後重測。',
+          '<b>Reading:</b> stays open (∞) → <b class="yes">pass</b>. Buzzing or a low resistance → <b class="no">short circuit</b>: find which corner of the foil is outside the wrap, re-wrap it or trim the top foil, and re-test.') + '</div></div>' +
       '<div class="card"><h4 style="font-size:15px;margin-bottom:6px">' + ti('(2) 回彈檢查', '(2) Spring-back check') + '</h4>' +
         tp('鬆手後兩板必須<b>自動彈開回復約 3 mm 氣隙</b>。若塗層做得較厚使可動板變重，海綿可能撐不起來而彈不開，<b>機構即失效、完全無法發電</b>。厚塗層組別務必先確認能正常彈開。',
            'When you let go, the plates must <b>spring back to about a 3 mm gap by themselves</b>. If a thick coating makes the moving plate heavy, the sponge may not lift it — and then <b>the mechanism is dead and no electricity is produced at all</b>. Any thick-coating test group must confirm spring-back first.') +
@@ -1545,8 +1545,8 @@ function secBuild() {
     '<div class="grid g2" style="grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start">' +
       '<div>' + bomTbl + '</div>' +
       '<div class="card"><h4 style="font-size:15px;margin-bottom:6px">' + ti('大量佈設的成本估算', 'What it costs to deploy at scale') + '</h4>' +
-        tp('單片模組材料不到 NT$50，其中<b>電子元件佔九成以上</b>；做成一片 30×30 cm 地墊時，9 片模組可<b>共用同一組儲能電容與 LED</b>（整流仍各自一組），單片邊際成本降到<b>約 NT$10</b>，一片地墊約 NT$100 以內。全校 30 個樓梯口與轉角約 NT$3,000，且蠟筆與紙板持續由校內廢棄物供應。<b>「便宜到可以每個樓梯口都裝」本身就是防災上的關鍵優點。</b>',
-           'A module costs under NT$50 in materials, <b>over 90% of it electronics</b>. In a 30×30 cm mat, nine modules can <b>share one storage capacitor and LED</b> (each still needs its own rectifier), cutting the marginal cost to <b>about NT$10 per module</b> — under NT$100 per mat. Thirty stairwells and corners across a school come to roughly NT$3,000, with crayons and cardboard supplied continuously by school waste. <b>Being cheap enough to fit at every stairwell is itself the key safety advantage.</b>') +
+        tp('單片模組材料不到 NT$50，其中<b>電子元件佔九成以上</b>；做成一片 30×30 cm 地墊時，9 片模組可<b>共用同一組儲能電容與 LED</b>（整流仍各自一組），單片邊際成本降到<b>約 NT$10</b>，一片地墊約 NT$100 以內。全校 30 個樓梯口與轉角約 NT$3,000，且保鮮膜與紙板持續由家庭與校內廢棄物供應。<b>「便宜到可以每個樓梯口都裝」本身就是防災上的關鍵優點。</b>',
+           'A module costs under NT$50 in materials, <b>over 90% of it electronics</b>. In a 30×30 cm mat, nine modules can <b>share one storage capacitor and LED</b> (each still needs its own rectifier), cutting the marginal cost to <b>about NT$10 per module</b> — under NT$100 per mat. Thirty stairwells and corners across a school come to roughly NT$3,000, with wrap and cardboard supplied continuously by household and school waste. <b>Being cheap enough to fit at every stairwell is itself the key safety advantage.</b>') +
       '</div>' +
     '</div>';
 }
@@ -1556,19 +1556,19 @@ function secDesign() {
   var ex = [
     [ti('實驗一：對擦材質比較', 'Experiment 1: counter-material'),
      ti('對擦材料種類（鋁箔、銅箔、PET、影印紙）', 'Type of counter-material (Al foil, Cu foil, PET, copy paper)'),
-     ti('蠟筆顏色（黑）、拍打力量、頻率 2 Hz、塗層面積 10×10 cm、間隙 3 mm', 'Crayon colour (black), tapping force, 2 Hz frequency, 10×10 cm coating, 3 mm gap'),
+     ti('保鮮膜材質（PE）、拍打力量、頻率 2 Hz、包覆面積 10×10 cm、間隙 3 mm', 'Wrap material (PE), tapping force, 2 Hz frequency, 10×10 cm wrapped area, 3 mm gap'),
      ti('瞬間峰值電壓 Vmax、霓虹燈泡閃爍亮度（目視 1–5 分）', 'Peak voltage Vmax, neon-bulb flash brightness (visual 1–5)')],
-    [ti('實驗二：顏料成分比較', 'Experiment 2: pigment composition'),
-     ti('蠟筆顏色（黑、白、紅、藍）', 'Crayon colour (black, white, red, blue)'),
-     ti('最佳對擦金屬、拍打力道與頻率、塗層面積、粗糙度', 'Best counter-metal, tapping force & frequency, coating area, roughness'),
+    [ti('實驗二：保鮮膜材質比較', 'Experiment 2: wrap material'),
+     ti('保鮮膜材質（PE、PVC、PVDC、回收 PE）', 'Wrap material (PE, PVC, PVDC, recycled PE)'),
+     ti('最佳對擦金屬、拍打力道與頻率、包覆面積、粗糙度', 'Best counter-metal, tapping force & frequency, wrapped area, roughness'),
      ti('瞬間峰值電壓 Vmax、累積儲能電壓', 'Peak voltage Vmax, accumulated storage voltage')],
     [ti('實驗三：粗糙度比較', 'Experiment 3: surface roughness'),
-     ti('表面粗糙程度（平滑熔融面、600 目、200 目打磨）', 'Surface roughness (smooth-melted, 600-grit, 200-grit)'),
-     ti('蠟筆顏色（黑）、對擦材料、拍打力道與頻率、塗層面積', 'Crayon colour (black), counter-material, tapping force & frequency, coating area'),
+     ti('表面粗糙程度（平整拉平、600 目、200 目砂紙壓紋）', 'Surface roughness (laid flat, 600-grit, 200-grit embossed)'),
+     ti('保鮮膜材質（PE）、對擦材料、拍打力道與頻率、包覆面積', 'Wrap material (PE), counter-material, tapping force & frequency, wrapped area'),
      ti('瞬間峰值電壓 Vmax、電容充電速度（V/min）', 'Peak voltage Vmax, capacitor charging rate (V/min)')],
-    [ti('實驗四：塗層厚度比較', 'Experiment 4: coating thickness'),
-     ti('石蠟塗層厚度（約 0.5、1、3 mm，以游標卡尺量測）', 'Paraffin thickness (about 0.5, 1, 3 mm, measured with callipers)'),
-     ti('蠟筆顏色（黑）、對擦材料、表面粗糙度、基板材質、有效接觸面積、氣隙 3 mm、拍打力道與頻率', 'Crayon colour (black), counter-material, roughness, substrate, effective contact area, 3 mm gap, tapping force & frequency'),
+    [ti('實驗四：包覆層數比較', 'Experiment 4: number of layers'),
+     ti('保鮮膜包覆層數（1、10、50 層，以單層約 0.01 mm 換算總厚度）', 'Number of wrap layers (1, 10, 50; total thickness from about 0.01 mm per layer)'),
+     ti('保鮮膜材質（PE）、對擦材料、表面粗糙度、基板材質、有效接觸面積、氣隙 3 mm、拍打力道與頻率', 'Wrap material (PE), counter-material, roughness, substrate, effective contact area, 3 mm gap, tapping force & frequency'),
      ti('瞬間峰值電壓 Vmax、<b>電容充電速度（V/min）</b>、LED 點亮時間', 'Peak voltage Vmax, <b>capacitor charging rate (V/min)</b>, LED lit time')]
   ];
   var cards = ex.map(function (e) {
@@ -1581,16 +1581,16 @@ function secDesign() {
     ti('節拍器設定 <b>120 BPM（每秒 2 下）</b>，以固定力道踩踏或拍打。', 'Metronome at <b>120 BPM (2 taps per second)</b>, tapping or stepping with consistent force.'),
     ti('拍打時墊一塊<b>木片或課本</b>作為受力面：使力道一致，並避免手掌摩擦板子背面產生額外靜電干擾讀值。', 'Put a <b>wooden block or textbook</b> between hand and board: it keeps the force consistent and stops your palm rubbing the back of the board and adding stray static to the reading.'),
     ti('每組<b>重複 3 次取平均</b>。', '<b>Three repeats per condition</b>, averaged.'),
-    ti('儲能電容統一使用 <b>10 µF</b>；整流電路使用 <b>1N4007 × 4</b> 顆之橋式整流。', 'Always the same <b>10 µF</b> storage capacitor and a bridge rectifier of <b>four 1N4007</b> diodes.'),
+    ti('儲能電容統一使用 <b>0.1 µF</b>；整流電路使用 <b>1N4148 × 4</b> 顆之橋式整流。', 'Always the same <b>0.1 µF</b> storage capacitor and a bridge rectifier of <b>four 1N4148</b> diodes.'),
     ti('全部實驗使用<b>同一種基板材質</b>（情境四除外，該組即以基板材質為操縱變因）。', 'Every experiment uses <b>the same substrate material</b> — except Scenario 4, where the substrate is the independent variable.'),
-    ti('<b>對照組：拿掉石蠟層</b>，只用兩片鋁箔（或兩張紙板）對敲，證明電確實來自石蠟。', '<b>Control: remove the paraffin</b> and tap two bare foils (or two boards) together, proving the electricity really comes from the wax.')
+    ti('<b>對照組：拿掉保鮮膜層</b>，只用兩片鋁箔（或兩張紙板）對敲，證明電確實來自保鮮膜。', '<b>Control: remove the wrap</b> and tap two bare foils (or two boards) together, proving the electricity really comes from the wrap.')
   ];
   return '<div class="grid g2">' + cards + '</div>' +
     '<h3 style="font-size:16px;margin:24px 0 8px">' + ti('標準測試條件（所有實驗共用）', 'Standard test conditions (shared by every experiment)') + '</h3>' +
     '<div class="goals">' + cond.map(function (s) { return '<div class="goal"><div><span>' + s + '</span></div></div>'; }).join('') + '</div>' +
     '<div class="grid g2 mt">' +
-      '<div class="note">' + tb('<b>控制變因說明：</b>決定發電量的是「<b>上下兩片重疊的區域</b>」，故統一以「<b>有效接觸面積＝上鋁箔尺寸 10×10 cm</b>」作為控制變因（而不是石蠟塗佈面積）。實驗一的四種對擦材料上板，須以<b>同一張紙板模板裁切</b>，確保尺寸完全一致。',
-        '<b>On the controlled variables:</b> what determines the output is <b>the overlapping area of the two plates</b>, so we control the <b>effective contact area = the 10×10 cm top foil</b> (not the wax-coated area). The four counter-material plates in Experiment 1 must be <b>cut from one cardboard template</b> so their sizes are identical.') + '</div>' +
+      '<div class="note">' + tb('<b>控制變因說明：</b>決定發電量的是「<b>上下兩片重疊的區域</b>」，故統一以「<b>有效接觸面積＝上鋁箔尺寸 10×10 cm</b>」作為控制變因（而不是保鮮膜包覆面積）。實驗一的四種對擦材料上板，須以<b>同一張紙板模板裁切</b>，確保尺寸完全一致。',
+        '<b>On the controlled variables:</b> what determines the output is <b>the overlapping area of the two plates</b>, so we control the <b>effective contact area = the 10×10 cm top foil</b> (not the wrapped area). The four counter-material plates in Experiment 1 must be <b>cut from one cardboard template</b> so their sizes are identical.') + '</div>' +
       '<div class="warn">' + tb('<b>⚠ 量測陷阱：</b>理論上<b>開路峰值電壓與塗層厚度幾乎無關</b>。若只用三用電表看峰值電壓，很可能誤判為「厚度沒有影響」。厚度的真正差異表現在<b>電容充電速度（V/min）與 LED 可點亮時間</b>上，故實驗四<b>必須以電容充電法測量</b>。',
         '<b>⚠ A measurement trap:</b> in theory the <b>open-circuit peak voltage barely depends on coating thickness</b>. Reading only peak voltage on a multimeter can easily lead you to conclude "thickness does not matter". The real difference appears in the <b>capacitor charging rate (V/min) and LED lit time</b>, so Experiment 4 <b>must be measured by capacitor charging</b>.') + '</div>' +
     '</div>' +
@@ -1600,7 +1600,7 @@ function secDesign() {
 /* ==========================================================================
    3. 數據紀錄站（可編輯表格 → 自動平均 → 圖表 → CSV）
    ========================================================================== */
-var DS_KEY = 'teng-ieyi-data-v1';
+var DS_KEY = 'teng-ieyi-data-v2';
 var TABLES = {
   t1: {
     title: ['表（一）不同對擦材料之發電電壓', 'Table 1 — Output voltage by counter-material'],
@@ -1610,32 +1610,32 @@ var TABLES = {
     extraLabel: ['霓虹燈閃爍（1–5）', 'Neon flash (1–5)']
   },
   t2: {
-    title: ['表（二）不同顏料顏色蠟筆之發電電壓', 'Table 2 — Output voltage by crayon pigment colour'],
-    rowHead: ['蠟筆顏色', 'Crayon colour'],
-    rows: [['黑色（含碳黑）', 'Black (carbon black)'], ['白色（含鈦白粉）', 'White (titanium white)'], ['紅色', 'Red'], ['藍色', 'Blue']],
+    title: ['表（二）不同材質保鮮膜之發電電壓', 'Table 2 — Output voltage by wrap material'],
+    rowHead: ['保鮮膜材質', 'Wrap material'],
+    rows: [['PE（聚乙烯）', 'PE (polyethylene)'], ['PVC（聚氯乙烯）', 'PVC (polyvinyl chloride)'], ['PVDC（聚偏二氯乙烯）', 'PVDC (polyvinylidene chloride)'], ['回收 PE（洗淨晾乾）', 'Recycled PE (washed, dried)']],
     trials: 3, extra: 'note',
     extraLabel: ['結論與備註', 'Notes']
   },
   t3: {
-    title: ['表（三）表面粗糙度與電容充電效率（10 µF）', 'Table 3 — Roughness vs. capacitor charging (10 µF)'],
-    rowHead: ['塗層狀態', 'Coating state'],
-    rows: [['平滑熔融面', 'Smooth melted'], ['600 目打磨', '600-grit sanded'], ['200 目打磨', '200-grit sanded']],
+    title: ['表（三）表面粗糙度與電容充電效率（0.1 µF）', 'Table 3 — Roughness vs. capacitor charging (0.1 µF)'],
+    rowHead: ['表面狀態', 'Surface state'],
+    rows: [['平整拉平', 'Laid flat'], ['600 目壓紋', '600-grit embossed'], ['200 目壓紋', '200-grit embossed']],
     cols: [['拍打 30 秒 (V)', 'After 30 s (V)'], ['拍打 60 秒 (V)', 'After 60 s (V)'], ['拍打 120 秒 (V)', 'After 120 s (V)']],
     extra: 'led', extraLabel: ['可點亮 LED 時間 (秒)', 'LED lit time (s)']
   },
   t4: {
-    title: ['表（四）石蠟塗層厚度與發電效率（10 µF）', 'Table 4 — Paraffin thickness vs. output (10 µF)'],
-    rowHead: ['塗層厚度（目標值）', 'Target thickness'],
-    rows: [['約 0.5 mm', 'about 0.5 mm'], ['約 1.0 mm', 'about 1.0 mm'], ['約 3.0 mm', 'about 3.0 mm']],
-    cols: [['卡尺實測 (mm)', 'Callipers (mm)'], ['平均峰值電壓 (V)', 'Mean peak (V)'], ['拍打 60 秒電容電壓 (V)', 'Cap. after 60 s (V)'], ['充電速度 (V/min)', 'Charging rate (V/min)']],
+    title: ['表（四）保鮮膜層數與發電效率（0.1 µF）', 'Table 4 — Wrap layers vs. output (0.1 µF)'],
+    rowHead: ['包覆層數', 'Layers'],
+    rows: [['1 層', '1 layer'], ['10 層', '10 layers'], ['50 層', '50 layers']],
+    cols: [['換算總厚度 (mm)', 'Total thickness (mm)'], ['平均峰值電壓 (V)', 'Mean peak (V)'], ['拍打 60 秒電容電壓 (V)', 'Cap. after 60 s (V)'], ['充電速度 (V/min)', 'Charging rate (V/min)']],
     extra: 'led', extraLabel: ['可點亮 LED 時間 (秒)', 'LED lit time (s)']
   }
 };
 var DEMO = {
   t1: [{ v: [13.8, 14.6, 13.2], e: '5' }, { v: [11.4, 10.9, 11.8], e: '4' }, { v: [4.2, 3.8, 4.5], e: '1' }, { v: [6.1, 5.7, 6.4], e: '2' }],
-  t2: [{ v: [15.1, 14.4, 15.6], e: '' }, { v: [12.6, 13.1, 12.2], e: '' }, { v: [13.5, 13.9, 13.1], e: '' }, { v: [13.2, 12.8, 13.6], e: '' }],
+  t2: [{ v: [13.2, 13.9, 13.5], e: '' }, { v: [15.1, 14.6, 15.5], e: '' }, { v: [15.9, 16.4, 15.6], e: '' }, { v: [11.6, 12.1, 11.3], e: '' }],
   t3: [{ v: [2.1, 3.4, 4.2], e: '5' }, { v: [2.8, 4.3, 5.4], e: '8' }, { v: [3.3, 5.0, 6.3], e: '11' }],
-  t4: [{ v: [0.6, 14.2, 4.3, 4.3], e: '11' }, { v: [1.1, 13.9, 4.0, 4.0], e: '9' }, { v: [3.2, 13.6, 2.6, 2.6], e: '5' }],
+  t4: [{ v: [0.01, 14.2, 4.3, 4.3], e: '11' }, { v: [0.1, 14.0, 4.1, 4.1], e: '10' }, { v: [0.5, 13.3, 3.4, 3.4], e: '8' }],
   demo: true
 };
 var dataState = loadData();
@@ -1672,8 +1672,8 @@ function avg(arr) {
 }
 
 function secData() {
-  var tabNames = [['表（一）對擦材料', 'Table 1 · Material'], ['表（二）蠟筆顏色', 'Table 2 · Colour'],
-                  ['表（三）粗糙度與儲能', 'Table 3 · Roughness'], ['表（四）塗層厚度', 'Table 4 · Thickness']];
+  var tabNames = [['表（一）對擦材料', 'Table 1 · Material'], ['表（二）保鮮膜材質', 'Table 2 · Wrap'],
+                  ['表（三）粗糙度與儲能', 'Table 3 · Roughness'], ['表（四）包覆層數', 'Table 4 · Layers']];
   var tabs = Object.keys(TABLES).map(function (k, i) {
     return '<button class="btn sm dtab" data-t="' + k + '" aria-pressed="' + (i === 0) + '">' +
       ti(tabNames[i][0], tabNames[i][1]) + '</button>';
@@ -1858,7 +1858,7 @@ function renderFigures(k) {
     var labels = t.rows.map(function (r) { return pick(r[0], r[1]); });
     var vals = dataState[k].map(function (r) { return avg(r.v); });
     out += figure(
-      pick(k === 't1' ? '平均峰值電壓 × 對擦材料' : '平均峰值電壓 × 蠟筆顏色', k === 't1' ? 'Mean peak voltage by counter-material' : 'Mean peak voltage by crayon colour'),
+      pick(k === 't1' ? '平均峰值電壓 × 對擦材料' : '平均峰值電壓 × 保鮮膜材質', k === 't1' ? 'Mean peak voltage by counter-material' : 'Mean peak voltage by wrap material'),
       pick('三次試驗平均（單位：伏特）', 'Mean of three trials (volts)'),
       barChart({ labels: labels, values: vals, unit: 'V', aria: 'bar chart' }),
       pick('數值同時列在左側表格中；長條愈高代表電子轉移量愈大。', 'Values are also listed in the table at left; taller bars mean more charge transfer.'));
@@ -1871,7 +1871,7 @@ function renderFigures(k) {
     }
   } else if (k === 't4') {
     var lb4 = t.rows.map(function (r) { return pick(r[0], r[1]); });
-    out += figure(pick('電容充電速度 × 石蠟塗層厚度', 'Charging rate by paraffin thickness'),
+    out += figure(pick('電容充電速度 × 保鮮膜層數', 'Charging rate by number of wrap layers'),
       pick('反直覺結果：塗層越薄，充電越快', 'The counter-intuitive result: thinner charges faster'),
       barChart({ labels: lb4, values: dataState.t4.map(function (r) { return r.v[3]; }), unit: 'V/min', aria: 'bar chart' }),
       pick('這張圖才看得出厚度的影響——峰值電壓幾乎看不出差別（見「量測陷阱」）。', 'Only this chart reveals the effect of thickness — peak voltage barely differs (see the measurement trap).'));
@@ -1891,7 +1891,7 @@ function renderFigures(k) {
     var legend = '<div class="legend">' + series.map(function (se) {
       return '<span><i style="background:' + se.color + '"></i>' + esc(se.name) + '</span>';
     }).join('') + '</div>';
-    out += figure(pick('10 µF 電容充電曲線 × 表面粗糙度', '10 µF capacitor charging curves by surface roughness'),
+    out += figure(pick('0.1 µF 電容充電曲線 × 表面粗糙度', '0.1 µF capacitor charging curves by surface roughness'),
       pick('拍打 30／60／120 秒後的電容電壓', 'Capacitor voltage after 30 / 60 / 120 s of tapping'),
       lineChart({ xs: [30, 60, 120], series: series, aria: 'line chart' }),
       pick('曲線愈陡代表每次接觸轉移的電荷愈多——微觀有效接觸面積增加的證據。', 'Steeper curves mean more charge per contact — evidence that effective microscopic contact area increased.'),
@@ -1926,11 +1926,11 @@ function secScenario() {
 function secDiscuss() {
   var d = [
     [ti('對擦材質的影響', 'Effect of the counter-material'),
-     ti('預期<b>石蠟 × 鋁箔</b>組合電壓最高：石蠟在靜電序列極偏負、鋁偏正，兩者電子親和力差距最大，接觸分離時電荷轉移量最顯著。PET 屬於偏負材料，與石蠟差距小，因此電壓最低——這正好反過來驗證靜電序列的正確性。',
-        'We expect <b>paraffin × aluminium</b> to give the highest voltage: paraffin is strongly negative in the triboelectric series and aluminium is positive, so the difference in electron affinity — and thus charge transfer per contact — is greatest. PET is itself negative, so its gap with paraffin is small and its voltage lowest, which in turn confirms the series is behaving as predicted.')],
-    [ti('顏料成分的影響', 'Effect of pigment composition'),
-     ti('黑色蠟筆含<b>碳黑</b>（導電微粒），白色含<b>鈦白粉</b>（高介電常數）。兩者都會改變石蠟表面的介電特性，因此顏色差異其實是「顏料填充物」的差異，而不是顏色本身。這是本研究中最容易被追問、也最能展現科學思考的一題。',
-        'Black crayons contain <b>carbon black</b> (conductive particles); white contains <b>titanium dioxide</b> (high dielectric constant). Both alter the dielectric behaviour of the wax surface, so the "colour" effect is really a difference in pigment filler, not colour itself. This is the point people most often probe — and the best chance to show real scientific reasoning.')],
+     ti('預期<b>保鮮膜 × 鋁箔</b>組合電壓最高：保鮮膜在靜電序列偏負、鋁偏正，兩者電子親和力差距最大，接觸分離時電荷轉移量最顯著。PET 屬於偏負材料，與保鮮膜差距小，因此電壓最低——這正好反過來驗證靜電序列的正確性。',
+        'We expect <b>plastic wrap × aluminium</b> to give the highest voltage: the wrap is negative in the triboelectric series and aluminium is positive, so the difference in electron affinity — and thus charge transfer per contact — is greatest. PET is itself negative, so its gap with the wrap is small and its voltage lowest, which in turn confirms the series is behaving as predicted.')],
+    [ti('保鮮膜材質的影響', 'Effect of wrap material'),
+     ti('PVC 與 PVDC 的分子裡含有<b>氯原子</b>，氯非常「愛搶電子」，所以在摩擦起電序列上比只有碳和氫的 <b>PE</b> 更偏負電端，預期發電較高。回收 PE 若表面殘留<b>油漬或水氣</b>，會讓電荷漏掉，因此清洗晾乾是關鍵。材質差異其實是「分子結構」的差異，這是本研究中最容易被追問、也最能展現科學思考的一題。',
+        'PVC and PVDC molecules contain <b>chlorine atoms</b>, which grab electrons strongly, so both sit further toward the negative end of the triboelectric series than <b>PE</b>, which is only carbon and hydrogen — we expect them to generate more. Recycled PE that still carries <b>grease or moisture</b> leaks charge, so washing and drying matter. The material effect is really a difference in molecular structure — the point people most often probe, and the best chance to show real scientific reasoning.')],
     [ti('表面粗糙度的影響', 'Effect of surface roughness'),
      ti('砂紙打磨後<b>微觀有效接觸面積增加</b>，每次拍打轉移的電荷密度提高，因此電容充電速度明顯加快。但過度粗糙會讓接觸不完全，存在<b>最佳粗糙度</b>——這是我們下一步想找出的曲線。',
         'Sanding <b>increases the effective microscopic contact area</b>, raising the charge density transferred per tap and visibly speeding up capacitor charging. Excessive roughness, however, prevents full contact, so an <b>optimum roughness</b> should exist — finding that curve is our next step.')],
@@ -1944,20 +1944,20 @@ function secDiscuss() {
      ti('現行緊急照明的主要失效模式<b>不是燈泡壞掉，而是能量在無人察覺時流失</b>：乾電池自放電、蓄電池老化、蓄光片沒照到光。本作品不儲存能量，因此這個失效模式<b>在物理上就不存在</b>；情境三的四週對照實驗就是要把這件事變成數據。',
         'Existing emergency lights mostly fail <b>not because the lamp breaks but because the stored energy quietly disappears</b>: dry cells self-discharge, battery packs age, glow strips never saw light. This design stores nothing, so that failure mode <b>cannot physically occur</b> — and the four-week comparison in Scenario 3 is how we turn that argument into data.')]
   ];
-  var thick = [['0.5 mm', '100%', ti('基準', 'baseline')], ['1 mm', ti('約 93%', 'about 93%'), ''],
-               ['2 mm', ti('約 83%', 'about 83%'), ''], ['5 mm', ti('約 61%', 'about 61%'), ti('已明顯損失', 'a clear loss')]];
+  var thick = [[ti('1 層（0.01 mm）', '1 layer (0.01 mm)'), '100%', ti('基準', 'baseline')], [ti('10 層（0.1 mm）', '10 layers (0.1 mm)'), ti('約 99%', 'about 99%'), ''],
+               [ti('50 層（0.5 mm）', '50 layers (0.5 mm)'), ti('約 93%', 'about 93%'), ''], [ti('100 層（1 mm）', '100 layers (1 mm)'), ti('約 88%', 'about 88%'), ti('未計入層間空氣', 'ignores trapped air')]];
   return '<div class="grid g2">' + d.map(function (v) {
     return '<div class="card"><h4 style="font-size:15px;margin-bottom:6px">' + v[0] + '</h4><div style="font-size:14.5px;color:var(--ink-2)">' + v[1] + '</div></div>';
   }).join('') + '</div>' +
     '<h3 style="font-size:17px;margin:26px 0 8px">' + ti('實驗四的反直覺發現（本作品最重要的學習）', 'The counter-intuitive finding in Experiment 4 — our most important lesson') + '</h3>' +
     '<div class="grid g2" style="grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);align-items:start">' +
-      '<div>' + tp('我們原先假設「<b>蠟塗得越多、發電越多</b>」，但依 TENG 原理推論恰好相反：發電電荷<b>只存在於石蠟的最表面</b>，下方鋁箔電極必須「感應」到這些表面電荷才能把電子推出導線。石蠟是絕緣體（介電常數僅約 2.2），就像蓋在鋁箔上的一層「<b>電的棉被</b>」——棉被越厚，電極越感應不到表面電荷，可轉移的電荷量就越少。',
-        'We assumed that <b>more wax would mean more electricity</b>. TENG theory says the opposite: the charge lives <b>only on the outermost surface of the paraffin</b>, and the foil electrode underneath has to "sense" that surface charge in order to push electrons out through the wire. Paraffin is an insulator (dielectric constant only about 2.2) — like <b>an electrical duvet</b> spread over the foil. The thicker the duvet, the less the electrode feels the surface charge, and the less charge can be transferred.') +
-        tp('但也不能無限薄，下限是「<b>不可有針孔、不可透出鋁箔</b>」，否則上下電極直接接觸即為短路。故最佳厚度為「<b>剛好完全覆蓋鋁箔的最薄狀態</b>」，約 0.3–1 mm。',
-        'Nor can it be arbitrarily thin: the floor is <b>no pinholes, no foil showing through</b>, otherwise the electrodes touch and short out. The optimum is therefore <b>the thinnest layer that still covers the foil completely</b> — roughly 0.3–1 mm.') +
-        '<div class="quote">' + tb('<b>由此推論：TENG 是「表面現象」而不是「體積現象」。</b>要提升輸出應該增加<b>接觸面積</b>或<b>模組數量</b>，而不是增加<b>厚度</b>——這也直接改變了我們的地墊設計（改為薄塗、多片並聯）。',
-          '<b>The conclusion: a TENG is a surface phenomenon, not a volume one.</b> To raise the output you add <b>contact area</b> or <b>more modules</b>, not <b>thickness</b> — and that changed our mat design directly, to a thin coating with many modules in parallel.') + '</div></div>' +
-      '<div>' + '<div class="tw"><table><thead><tr><th>' + ti('石蠟層厚度', 'Paraffin thickness') + '</th><th class="num">' +
+      '<div>' + tp('我們原先假設「<b>保鮮膜包越多層、發電越多</b>」，但依 TENG 原理推論恰好相反：發電電荷<b>只存在於保鮮膜的最表面</b>，下方鋁箔電極必須「感應」到這些表面電荷才能把電子推出導線。保鮮膜是絕緣體（PE 介電常數約 2.3），就像蓋在鋁箔上的一層「<b>電的棉被</b>」——棉被越厚，電極越感應不到表面電荷，可轉移的電荷量就越少；層與層之間夾住的空氣還會讓損失更大。',
+        'We assumed that <b>more layers of wrap would mean more electricity</b>. TENG theory says the opposite: the charge lives <b>only on the outermost surface of the wrap</b>, and the foil electrode underneath has to "sense" that surface charge in order to push electrons out through the wire. Plastic wrap is an insulator (PE has a dielectric constant of about 2.3) — like <b>an electrical duvet</b> spread over the foil. The thicker the duvet, the less the electrode feels the surface charge and the less charge can be transferred — and air trapped between layers makes the loss worse.') +
+        tp('但也不能無限薄，下限是「<b>不可有針孔、不可透出鋁箔</b>」，否則上下電極直接接觸即為短路。故最佳厚度為「<b>剛好完全覆蓋鋁箔的最薄狀態</b>」，約 1–2 層（單層約 0.01 mm，只包 1 層較容易有破洞）。',
+        'Nor can it be arbitrarily thin: the floor is <b>no pinholes, no foil showing through</b>, otherwise the electrodes touch and short out. The optimum is therefore <b>the thinnest layer that still covers the foil completely</b> — about 1–2 layers (one layer is about 0.01 mm and tears more easily).') +
+        '<div class="quote">' + tb('<b>由此推論：TENG 是「表面現象」而不是「體積現象」。</b>要提升輸出應該增加<b>接觸面積</b>或<b>模組數量</b>，而不是增加<b>厚度</b>——這也直接改變了我們的地墊設計（改為薄包、多片並聯）。',
+          '<b>The conclusion: a TENG is a surface phenomenon, not a volume one.</b> To raise the output you add <b>contact area</b> or <b>more modules</b>, not <b>thickness</b> — and that changed our mat design directly, to a thin wrap with many modules in parallel.') + '</div></div>' +
+      '<div>' + '<div class="tw"><table><thead><tr><th>' + ti('保鮮膜層數', 'Wrap layers') + '</th><th class="num">' +
         ti('可轉移電荷量（相對值）', 'Transferable charge (relative)') + '</th><th>' + ti('備註', 'Note') + '</th></tr></thead><tbody>' +
         thick.map(function (r, i) { return '<tr' + (i === 0 ? ' class="hi"' : '') + '><td>' + r[0] + '</td><td class="num">' + r[1] + '</td><td>' + r[2] + '</td></tr>'; }).join('') +
         '</tbody></table></div>' +
@@ -1976,11 +1976,11 @@ function secSafety() {
      ti('不會漏液腐蝕、不會因高溫或擠壓而起火膨脹，也不產生廢電池汙染。<b>災害現場中，電池本身往往就是危險源之一</b>，本作品完全避開。',
         'Nothing to leak or corrode, nothing to swell or ignite when hot or crushed, and no spent-battery waste. <b>At a disaster scene the battery is often a hazard in itself</b> — this design avoids it entirely.')],
     [ti('材料無毒、無明火', 'Non-toxic materials, no flame'),
-     ti('石蠟、紙板、鋁箔、塑膠板皆為日常無毒材料，運作時<b>不發熱、不發聲</b>。',
-        'Paraffin, cardboard, foil and plastic sheet are everyday non-toxic materials, and in use the mat <b>neither heats up nor makes noise</b>.')],
+     ti('保鮮膜、紙板、鋁箔、塑膠板皆為日常無毒材料，運作時<b>不發熱、不發聲</b>。',
+        'Plastic wrap, cardboard, foil and plastic sheet are everyday non-toxic materials, and in use the mat <b>neither heats up nor makes noise</b>.')],
     [ti('唯一的製作風險', 'The one real risk'),
-     ti('唯一的製作風險是<b>熔蠟時的燙傷</b>，須由大人陪同操作；<b>作品完成後使用時無此風險</b>。展場也不現場熔蠟，加熱步驟只用照片／影片呈現。',
-        'The only hazard is <b>burns while melting wax</b>, which requires adult supervision. <b>Once built, using it carries no such risk.</b> We never melt wax at the venue — the heating step is shown only in photos and video.')]
+     ti('製作<b>全程不需加熱</b>，唯一的風險是<b>美工刀裁切時的割傷</b>，須由大人陪同操作；<b>作品完成後使用時無此風險</b>。展場不現場裁切，裁切步驟只用照片／影片呈現。',
+        'Building it needs <b>no heat at all</b>; the only hazard is <b>cuts from the craft knife</b>, which requires adult supervision. <b>Once built, using it carries no such risk.</b> We do no cutting at the venue — that step is shown only in photos and video.')]
   ];
   var lim = [
     [ti('亮度低於市電型緊急燈', 'Dimmer than a mains emergency light'),
@@ -2023,24 +2023,24 @@ function secImpact() {
      ti('無法重新配線裝設緊急照明的老屋、公寓樓梯間，<b>可直接鋪設、不需施工</b>——這是本作品相較市電型出口燈最實際的優勢。',
         'Old houses and apartment stairwells that cannot be rewired for emergency lighting can <b>simply have it laid down, with no construction work</b> — the most practical advantage over mains-powered exit signs.')],
     [ti('防災教育教具', 'A disaster-education teaching kit'),
-     ti('結合美術課資源回收與物理靜電概念，推廣低成本自製綠能與防災教具，讓學生親手理解「<b>為什麼緊急照明會壞</b>」以及「<b>可以怎麼解決</b>」。',
-        'It joins art-class recycling to the physics of static electricity in a low-cost kit, letting students discover for themselves <b>why emergency lights fail</b> and <b>what can be done about it</b>.')]
+     ti('結合廚房資源回收與物理靜電概念，推廣低成本自製綠能與防災教具，讓學生親手理解「<b>為什麼緊急照明會壞</b>」以及「<b>可以怎麼解決</b>」。',
+        'It joins kitchen recycling to the physics of static electricity in a low-cost kit, letting students discover for themselves <b>why emergency lights fail</b> and <b>what can be done about it</b>.')]
   ];
   var sdgs = [
     ['SDG 11', ti('永續城鄉（防災韌性）', 'Sustainable Cities (resilience)'), ti('停電時仍能點亮的避難指引，且便宜到可以大量佈設，直接提升學校與社區的防災韌性。', 'Guidance that still works in a blackout, cheap enough to install everywhere — a direct gain in school and community resilience.')],
-    ['SDG 12', ti('責任消費與生產', 'Responsible Consumption and Production'), ti('把校園廢棄蠟筆從焚化爐轉為公共安全設備，且蠟層可刮下重熔、循環再生。', 'Diverts waste crayons from the incinerator into public-safety equipment; the wax layer can be scraped and re-melted indefinitely.')],
+    ['SDG 12', ti('責任消費與生產', 'Responsible Consumption and Production'), ti('把廢保鮮膜從焚化爐轉為公共安全設備，且保鮮膜層破損可撕下重包、隨時更換。', 'Diverts waste plastic wrap from the incinerator into public-safety equipment; a worn wrap layer can simply be peeled off and replaced.')],
     ['SDG 7', ti('可負擔的潔淨能源', 'Affordable and Clean Energy'), ti('零材料成本的微能採集，讓「自己發電」的門檻降到任何學校都能做。', 'Zero-material-cost energy harvesting brings self-generated power within reach of any school.')],
     ['SDG 4', ti('優質教育', 'Quality Education'), ti('低成本、可複製的防災動手教案，讓靜電與防災概念變成摸得到的體驗。', 'A low-cost, replicable hands-on lesson makes static electricity and disaster preparedness tangible.')]
   ];
   var concl = [
     ti('校園緊急照明存在「<b>電池久放失效</b>」的實際問題，已由本團隊<b>實地調查證實</b>（見「問題與現場調查」的清點數據）。',
        'Campus emergency lighting really does suffer from <b>batteries that go flat in storage</b>, as our own <b>field survey confirms</b> (see the inventory in the problem section).'),
-    ti('廢棄蠟筆的石蠟成分具備<b>優異摩擦起電特性</b>，可製成 TENG，將踩踏動作轉為電能點亮 LED，<b>材料成本不到 50 元且全數來自回收物</b>。',
-       'The paraffin in waste crayons has <b>excellent triboelectric properties</b> and can be made into a TENG that converts footsteps into enough electricity to light an LED, at <b>under NT$50 in materials, all of it reclaimed</b>.'),
+    ti('廢保鮮膜（PE／PVC）具備<b>良好摩擦起電特性</b>，可製成 TENG，將踩踏動作轉為電能點亮 LED，<b>材料成本不到 50 元且全數來自回收物</b>。',
+       'Waste plastic wrap (PE / PVC) has <b>good triboelectric properties</b> and can be made into a TENG that converts footsteps into enough electricity to light an LED, at <b>under NT$50 in materials, all of it reclaimed</b>.'),
     ti('本作品<b>不儲存電力，因此不存在自放電失效模式</b>，能解決現有方案「放久了就不能用」的核心弱點。',
        'Because it <b>stores no electricity, it has no self-discharge failure mode</b> — solving the core weakness of every existing approach.'),
-    ti('實驗意外發現<b>石蠟塗層越厚發電效率反而越低</b>，據此推論 TENG 為<b>表面現象而非體積現象</b>，並修正了製作方式（改為薄塗、增加模組數量而非厚度）。',
-       'We unexpectedly found that <b>a thicker paraffin layer performs worse</b>, concluded that a TENG is <b>a surface rather than a volume phenomenon</b>, and changed the build accordingly — thin coating, more modules, not more thickness.'),
+    ti('實驗意外發現<b>保鮮膜包越多層發電效率反而越低</b>，據此推論 TENG 為<b>表面現象而非體積現象</b>，並修正了製作方式（改為薄包、增加模組數量而非層數）。',
+       'We unexpectedly found that <b>more layers of wrap perform worse</b>, concluded that a TENG is <b>a surface rather than a volume phenomenon</b>, and changed the build accordingly — a thin wrap and more modules, not more layers.'),
     ti('經<b>全黑可視性、續亮時間、四週零衰退、潮濕耐受與千次踩踏耐久</b>等五項情境驗證，確認本作品具備作為<b>緊急避難指引設備</b>之可行性。',
        'Five scenario tests — <b>visibility in darkness, lit duration, four weeks with zero decay, tolerance of damp, and durability over 1000 steps</b> — confirm it is viable as <b>emergency evacuation guidance equipment</b>.')
   ];
@@ -2051,20 +2051,20 @@ function secImpact() {
     }).join('') + '</div>' +
     '<h3 style="font-size:17px;margin:26px 0 8px">' + ti('結論', 'Conclusions') + '</h3>' +
     '<div class="goals">' + concl.map(function (s) { return '<div class="goal"><div><span>' + s + '</span></div></div>'; }).join('') + '</div>' +
-    '<div class="quote mt">' + tb('<b>一句話結論：</b>我們用美術課的垃圾，做出一種<b>放再久也不會沒電</b>的避難指引燈——因為它的電，是逃生者在黑暗中往出口走的那一步<b>當場產生</b>的。',
-      '<b>In one line:</b> using art-class rubbish we built an evacuation guidance light that <b>can never be found flat</b> — because its electricity is generated <b>on the spot</b>, by the very step someone takes toward the exit in the dark.') + '</div>' +
+    '<div class="quote mt">' + tb('<b>一句話結論：</b>我們用廚房的垃圾，做出一種<b>放再久也不會沒電</b>的避難指引燈——因為它的電，是逃生者在黑暗中往出口走的那一步<b>當場產生</b>的。',
+      '<b>In one line:</b> using kitchen rubbish we built an evacuation guidance light that <b>can never be found flat</b> — because its electricity is generated <b>on the spot</b>, by the very step someone takes toward the exit in the dark.') + '</div>' +
     '<div class="note mt">' + tb('<b>後續研究方向：</b>①長期實地佈設與大量人流測試（目前僅驗證 1000 次踩踏）②多片並聯在真人踩踏下的實際輸出 ③加入超級電容延長離腳後的續亮時間 ④與蓄光貼片併用的互補效果量化 ⑤找出最佳粗糙度曲線。',
       '<b>Next steps:</b> (1) long-term deployment and heavy-traffic testing (only 1000 steps verified so far); (2) real-world output of a parallel array under actual footsteps; (3) a supercapacitor to keep it lit after the foot lifts; (4) quantifying the complementary effect of pairing it with glow strips; (5) mapping the optimum-roughness curve.') + '</div>';
 }
 
 /* ---------- 展示與 pitch ---------- */
 function secPitch() {
-  var p30zh = '大家好！請問一件事：如果現在停電，你們學校走廊的緊急照明，<b>真的會亮嗎</b>？<br>我們走遍校園按下每一顆測試鈕，發現有相當比例根本不亮——原因幾乎都一樣：<b>電池早就沒電或過期了</b>。電池會自放電，放得越久越不可靠，可是災害不會事先通知。<br>所以我們做了一種<b>完全沒有電池</b>的指引燈：把美術課丟掉的斷蠟筆熔成石蠟膜，做成摩擦發電地墊，鋪在樓梯口。<b>逃生者踩下去的那一步，就是電源。</b><br>沒有電池，就沒有自放電——<b>放一年也不會沒電，而且踩的人越多、亮得越久。</b>';
-  var p30en = 'Good afternoon. One question first: if the power went out right now, would the emergency lights in your school corridor <b>actually come on</b>?<br>We walked the whole campus pressing every test button, and a substantial share simply did not light. The reason was nearly always the same: <b>the battery was already flat or expired</b>. Batteries self-discharge — the longer they sit, the less you can trust them — and disasters give no warning.<br>So we built a guidance light with <b>no battery at all</b>: broken crayons from art class, melted into a paraffin film, made into a triboelectric mat laid at the stairwell. <b>The step the evacuee takes is the power source.</b><br>No battery means no self-discharge: <b>a year in place and it still works — and the more people walk on it, the longer it stays lit.</b>';
+  var p30zh = '大家好！請問一件事：如果現在停電，你們學校走廊的緊急照明，<b>真的會亮嗎</b>？<br>我們走遍校園按下每一顆測試鈕，發現有相當比例根本不亮——原因幾乎都一樣：<b>電池早就沒電或過期了</b>。電池會自放電，放得越久越不可靠，可是災害不會事先通知。<br>所以我們做了一種<b>完全沒有電池</b>的指引燈：把廚房丟掉的保鮮膜包在鋁箔上，做成摩擦發電地墊，鋪在樓梯口。<b>逃生者踩下去的那一步，就是電源。</b><br>沒有電池，就沒有自放電——<b>放一年也不會沒電，而且踩的人越多、亮得越久。</b>';
+  var p30en = 'Good afternoon. One question first: if the power went out right now, would the emergency lights in your school corridor <b>actually come on</b>?<br>We walked the whole campus pressing every test button, and a substantial share simply did not light. The reason was nearly always the same: <b>the battery was already flat or expired</b>. Batteries self-discharge — the longer they sit, the less you can trust them — and disasters give no warning.<br>So we built a guidance light with <b>no battery at all</b>: plastic wrap thrown out of the kitchen, laid over foil and made into a triboelectric mat laid at the stairwell. <b>The step the evacuee takes is the power source.</b><br>No battery means no self-discharge: <b>a year in place and it still works — and the more people walk on it, the longer it stays lit.</b>';
   var b90 = [
     [ti('問題（20 秒）', 'Problem (20 s)'), ti('停電時最需要照明的走廊與樓梯，緊急照明卻常常不亮。我們實地清點全校 ___ 盞，失效比例 ___%，原因幾乎都是電池早已耗盡或過期。（指向調查表）', 'The corridors and stairwells that need light most in a blackout are served by lights that often do not work. We inventoried ___ units across the school; ___% failed, almost always because the battery was flat or expired. (Point at the survey table.)')],
     [ti('洞察（15 秒）', 'Insight (15 s)'), ti('現有方案全部都是「先把電存起來」——蓄電池、乾電池、蓄光片，所以都會隨時間衰退。我們反過來問：能不能<b>完全不儲存電</b>？', 'Every existing solution stores energy in advance — battery packs, dry cells, glow strips — so all of them decay with time. We asked the opposite question: can we <b>store no energy at all</b>?')],
-    [ti('方法（20 秒）', 'Method (20 s)'), ti('石蠟在摩擦起電序列的強負電端，和實驗室用的 PTFE 同區。我們把廢蠟筆熔成薄膜配鋁箔，做成接觸-分離式 TENG，踩一下就是一次脈衝，整流後存進電容點亮 LED。', 'Paraffin sits at the strongly negative end of the triboelectric series, the same region as lab-grade PTFE. We melt waste crayons into a film, pair it with foil as a contact-separation TENG, and each step is one pulse — rectified into a capacitor to light an LED.')],
+    [ti('方法（20 秒）', 'Method (20 s)'), ti('保鮮膜在摩擦起電序列的負電端，和實驗室用的 PTFE 同一側。我們把廢保鮮膜包在鋁箔上，做成接觸-分離式 TENG，踩一下就是一次脈衝，整流後存進電容點亮 LED。', 'Plastic wrap sits on the negative side of the triboelectric series, the same side as lab-grade PTFE. We lay waste wrap over foil as a contact-separation TENG, and each step is one pulse — rectified into a capacitor to light an LED.')],
     [ti('數據（25 秒）', 'Data (25 s)'), ti('全黑走廊 ___ 公尺外可辨識；踩 10 下亮 ___ 秒；<b>擺放 28 天輸出零衰退，同期乾電池下降 ___%</b>；1000 次踩踏後仍有 ___%。（指向四週對照折線圖）', 'Recognisable from ___ m in a black corridor; ten steps keep it lit ___ s; <b>zero decay after 28 days in storage while the control batteries fell ___%</b>; still ___% after 1000 steps. (Point at the four-week comparison chart.)')],
     [ti('創新與請求（10 秒）', 'Innovation & ask (10 s)'), ti('材料來自垃圾、單片不到 50 元、免布線可自由增減——便宜到每個樓梯口都裝得起。請您踩一下我們的地墊，親自把燈點亮。', 'Made from rubbish, under NT$50 a module, no wiring and freely scalable — cheap enough for every stairwell. Please step on our mat and light it yourself.')]
   ];
@@ -2076,8 +2076,8 @@ function secPitch() {
     ['摩擦奈米發電器', 'Triboelectric Nanogenerator (TENG)', ti('把接觸摩擦的機械能轉成電的裝置', 'A device converting contact-friction motion into electricity')],
     ['摩擦起電順序表', 'Triboelectric series', ti('材料搶電子能力的排行榜', 'A ranking of how strongly materials grab electrons')],
     ['接觸-分離模式', 'Contact-separation mode', ti('壓合再分開的發電方式', 'Generating by pressing together then separating')],
-    ['石蠟', 'Paraffin wax', ti('蠟筆主成分，強負電材料', 'The main ingredient of crayons; strongly electronegative')],
-    ['碳黑 / 鈦白粉', 'Carbon black / Titanium dioxide', ti('黑、白蠟筆的顏料填充物', 'Pigment fillers in black and white crayons')],
+    ['PE / PVC', 'Polyethylene / Polyvinyl chloride', ti('保鮮膜的兩種常見材質，負電端材料', 'The two common plastic-wrap materials; electronegative')],
+    ['PVDC', 'Polyvinylidene chloride', ti('含氯的高阻隔保鮮膜材質', 'A chlorine-containing high-barrier wrap material')],
     ['瞬間峰值電壓', 'Peak voltage (Vmax)', ti('一次拍打能量到的最高電壓', 'The highest voltage reached in one tap')],
     ['橋式整流', 'Bridge rectifier', ti('把交流變直流的四顆二極體', 'Four diodes converting AC to DC')],
     ['儲能電容', 'Storage capacitor', ti('把微小電荷累積起來的元件', 'The component that accumulates tiny charges')],
@@ -2090,14 +2090,14 @@ function secPitch() {
     '<div class="full t"><b>' + ti('① 標題區（「踩亮生路」＋一句話賣點）', '(1) Title ("Step on it, light the way out") + one-line hook') + '</b>' + ti('最上方，隔 3 公尺要看得懂', 'Top strip — readable from 3 m away') + '</div>' +
     '<div class="two"><b>' + ti('② 問題＋校園調查數據', '(2) Problem + campus survey data') + '</b>' + ti('照片：不亮的緊急照明（去識別化）＋失效比例', 'Photo: a dead emergency light (de-identified) + the failure rate') + '</div>' +
     '<div><b>' + ti('③ 與現有方案比較表', '(3) Comparison with existing options') + '</b>' + ti('重點：閒置一年後還能用嗎', 'Key column: still usable after a year idle?') + '</div>' +
-    '<div><b>' + ti('④ 原理圖解＋剖面圖', '(4) Principle + cross-section') + '</b>' + ti('接觸-分離四階段、石蠟外擴設計', 'Four phases; the paraffin-overhang design') + '</div>' +
+    '<div><b>' + ti('④ 原理圖解＋剖面圖', '(4) Principle + cross-section') + '</b>' + ti('接觸-分離四階段、保鮮膜外擴設計', 'Four phases; the wrap-overhang design') + '</div>' +
     '<div class="two"><b>' + ti('⑤ 四週零衰退折線圖（最大區塊）', '(5) The four-week zero-decay chart (largest block)') + '</b>' + ti('本作品持平、乾電池下降——一張圖說完核心優勢', 'One line flat, the other falling — the whole argument in one chart') + '</div>' +
     '<div class="two"><b>' + ti('⑥ 全黑環境實照', '(6) Photos taken in the dark') + '</b>' + ti('全黑走廊中 LED 亮起、可視距離標註', 'The lit LED in a black corridor, with the visibility distance marked') + '</div>' +
     '<div><b>' + ti('⑦ 限制與 SDGs', '(7) Limitations & SDGs') + '</b>' + ti('誠實揭露＋四個標章', 'Honest disclosure + four badges') + '</div>' +
     '<div class="full"><b>' + ti('⑧ 團隊照片、學校、QR code（連到這個網站）', '(8) Team photo, school, QR code linking to this site') + '</b></div>' +
     '</div>';
   var sop = [
-    ti('擦乾：用乾布把石蠟面與鋁箔擦一次（<b>最重要</b>，濕氣會讓示範失敗）', 'Wipe dry: pass a dry cloth over the wax and foil (<b>most important</b> — moisture ruins the demo)'),
+    ti('擦乾：用乾布把保鮮膜面與鋁箔擦一次（<b>最重要</b>，濕氣會讓示範失敗）', 'Wipe dry: pass a dry cloth over the wrap and foil (<b>most important</b> — moisture ruins the demo)'),
     ti('檢查：短路檢查（壓到底時電表維持 ∞）與回彈檢查各做一次', 'Check: run the short-circuit test (meter stays at ∞ when fully pressed) and the spring-back test once each'),
     ti('放電：先短路電容歸零，讓大家看到「從零開始」', 'Discharge: short the capacitor to zero so everyone sees it start from nothing'),
     ti('關燈：可以的話關掉攤位燈或用黑布罩住——<b>暗一點，說服力差很多</b>', 'Dim it: switch off the booth light or drape a black cloth if you can — <b>darkness makes the demo far more convincing</b>'),
@@ -2132,12 +2132,12 @@ function secQA() {
     [ti('為什麼電壓有幾十伏特，卻不會電到人？', 'Why doesn&rsquo;t tens of volts give you a shock?'),
      ti('因為摩擦發電是<b>靜電</b>：瞬間電壓雖高，但電流非常微弱，只有微安培（µA）等級，總電量極小，所以對人體完全安全。也正因為電流這麼小，必須靠電容把電荷「積少成多」，才能拿來點燈。',
         'Because this is <b>static electricity</b>: the instantaneous voltage is high, but the current is only microamperes, so the total charge is tiny and completely safe for the human body. That same tiny current is why we must accumulate charge in a capacitor before we can light anything.')],
-    [ti('你怎麼證明電是「蠟筆」發出來的，而不是踩踏地板的震動？', 'How do you prove the electricity comes from the crayons, not from the vibration of the footstep?'),
-     ti('我們做了<b>對照組</b>：把下層石蠟拿掉，只用兩張紙板或兩片鋁箔對敲，電壓只有 1–2 V；加上廢蠟筆石蠟層後，電壓飆升到十幾伏特。差距十倍，證明石蠟確實扮演關鍵的電子吸引角色。',
-        'We ran a <b>control</b>: with the paraffin removed, tapping two bare boards or two foils together yields only 1–2 V. Adding the waste-crayon wax layer raises it to over ten volts — a tenfold difference proving the wax is the key electron-attracting element.')],
-    [ti('蠟塗越多是不是發電越多？', 'Does more wax mean more electricity?'),
-     ti('<b>不是。</b>實驗四證實塗層越厚<b>充電反而越慢</b>，因為石蠟是絕緣體，太厚會阻礙下方電極感應到表面電荷。這讓我們理解 TENG 是<b>表面現象而非體積現象</b>；要提升輸出應增加<b>接觸面積或模組數量</b>，而不是厚度。這個結果推翻了我們原本的假設。',
-        '<b>No.</b> Experiment 4 shows a thicker coating <b>charges more slowly</b>, because paraffin is an insulator and too much of it stops the electrode underneath sensing the surface charge. That taught us a TENG is <b>a surface phenomenon, not a volume one</b>: to raise the output you add <b>contact area or modules</b>, not thickness. The result overturned our own hypothesis.')],
+    [ti('你怎麼證明電是「保鮮膜」發出來的，而不是踩踏地板的震動？', 'How do you prove the electricity comes from the plastic wrap, not from the vibration of the footstep?'),
+     ti('我們做了<b>對照組</b>：把下層保鮮膜拿掉，只用兩張紙板或兩片鋁箔對敲，電壓只有 1–2 V；包上保鮮膜層後，電壓飆升到十幾伏特。差距十倍，證明保鮮膜確實扮演關鍵的電子吸引角色。',
+        'We ran a <b>control</b>: with the wrap removed, tapping two bare boards or two foils together yields only 1–2 V. Adding the plastic-wrap layer raises it to over ten volts — a tenfold difference proving the wrap is the key electron-attracting element.')],
+    [ti('保鮮膜包越多層是不是發電越多？', 'Do more layers of wrap mean more electricity?'),
+     ti('<b>不是。</b>實驗四證實層數越多<b>充電反而越慢</b>，因為保鮮膜是絕緣體，太厚會阻礙下方電極感應到表面電荷。這讓我們理解 TENG 是<b>表面現象而非體積現象</b>；要提升輸出應增加<b>接觸面積或模組數量</b>，而不是層數。這個結果推翻了我們原本的假設。',
+        '<b>No.</b> Experiment 4 shows more layers <b>charge more slowly</b>, because plastic wrap is an insulator and too much of it stops the electrode underneath sensing the surface charge. That taught us a TENG is <b>a surface phenomenon, not a volume one</b>: to raise the output you add <b>contact area or modules</b>, not layers. The result overturned our own hypothesis.')],
     [ti('下雨天或淹水濕度很大，發不出電怎麼辦？', 'What about heavy damp, or a flood — does it stop working?'),
      ti('我們實測濕度確實會影響靜電（<b>情境四</b>數據）。因此改用<b>不吸濕的回收塑膠板</b>作為基板，並在模組四周加<b>防水封條</b>保持內部乾燥，以因應臺灣潮濕氣候與災時漏水。這是我們特別為「災害現場」而不是為「實驗室」設計的部分。',
         'We measured it: humidity does affect static charge (<b>Scenario 4</b>). So we switched the substrate to <b>non-absorbent recycled plastic</b> and added a <b>waterproof seal</b> around the module to keep the inside dry, for Taiwan&rsquo;s damp climate and for leaks during a disaster. This part was designed for the disaster scene, not for the laboratory.')],
@@ -2147,15 +2147,15 @@ function secQA() {
     [ti('市面上已經有蓄光貼片了，你的作品好在哪？', 'Photoluminescent strips already exist — what does yours add?'),
      ti('蓄光貼片<b>必須先照過光</b>，在無窗走廊或長期全黑的樓梯間就不會亮，而且停電後亮度會隨時間<b>快速衰減</b>。我們的作品<b>不需要事先儲存任何能量</b>，是踩下去的當下才發電，所以不受擺放時間與環境有無光線影響。兩者<b>可以互補併用</b>。',
         'A glow strip <b>must be charged by light first</b>, so it never lights in a windowless corridor or a permanently dark stairwell, and after a blackout it <b>fades quickly</b>. Ours <b>stores no energy in advance</b>: it generates at the moment of the step, so neither storage time nor ambient light matters. The two <b>complement each other</b>.')],
-    [ti('為什麼要用廢蠟筆，用新的材料效果不是更好？', 'Why waste crayons? Wouldn&rsquo;t new material perform better?'),
-     ti('防災設備必須<b>便宜到能大量佈設</b>，否則學校不可能每個樓梯口都裝。用廢棄物製作讓單片成本不到 50 元，這個「<b>便宜</b>」本身就是防災上的優點，同時解決美術課廢棄物問題。而石蠟在摩擦起電序列上本來就與實驗室用的 PTFE 同區，<b>效能上並沒有明顯犧牲</b>。',
-        'Disaster equipment must be <b>cheap enough to install everywhere</b>, or no school will fit one at every stairwell. Waste keeps a module under NT$50, and <b>that cheapness is itself a safety advantage</b> — while also solving an art-class waste problem. Besides, paraffin already sits in the same region of the triboelectric series as lab-grade PTFE, so <b>little performance is sacrificed</b>.')],
+    [ti('為什麼要用廢保鮮膜，用新的材料效果不是更好？', 'Why waste plastic wrap? Wouldn&rsquo;t new material perform better?'),
+     ti('防災設備必須<b>便宜到能大量佈設</b>，否則學校不可能每個樓梯口都裝。用廢棄物製作讓單片成本不到 50 元，這個「<b>便宜</b>」本身就是防災上的優點，同時解決廚房廢棄物問題。而保鮮膜在摩擦起電序列上本來就與實驗室用的 PTFE 同在負電側，只要<b>洗淨晾乾</b>，<b>效能上並沒有明顯犧牲</b>。',
+        'Disaster equipment must be <b>cheap enough to install everywhere</b>, or no school will fit one at every stairwell. Waste keeps a module under NT$50, and <b>that cheapness is itself a safety advantage</b> — while also solving a kitchen waste problem. Besides, plastic wrap already sits on the same negative side of the triboelectric series as lab-grade PTFE, so as long as it is <b>washed and dried</b>, <b>little performance is sacrificed</b>.')],
     [ti('可以量產嗎？成本多少？', 'Can it be mass-produced? At what cost?'),
-     ti('單片 10×10 cm 材料不到 NT$50，九成以上是電子元件。做成 30×30 cm 地墊時，9 片可共用同一組儲能電容與 LED（整流仍各自一組），單片邊際成本約 NT$10，一片地墊 NT$100 以內；蠟筆與紙板由校內廢棄物持續供應，等於<b>邊做防災設備邊減廢</b>。',
-        'Under NT$50 in materials per 10×10 cm module, over 90% of it electronics. In a 30×30 cm mat, nine modules share one storage capacitor and LED (each still needs its own rectifier), so the marginal cost falls to about NT$10 per module — under NT$100 per mat. Crayons and cardboard keep arriving as school waste, so <b>making safety equipment reduces waste at the same time</b>.')],
+     ti('單片 10×10 cm 材料不到 NT$50，九成以上是電子元件。做成 30×30 cm 地墊時，9 片可共用同一組儲能電容與 LED（整流仍各自一組），單片邊際成本約 NT$10，一片地墊 NT$100 以內；保鮮膜與紙板由家庭與校內廢棄物持續供應，等於<b>邊做防災設備邊減廢</b>。',
+        'Under NT$50 in materials per 10×10 cm module, over 90% of it electronics. In a 30×30 cm mat, nine modules share one storage capacitor and LED (each still needs its own rectifier), so the marginal cost falls to about NT$10 per module — under NT$100 per mat. Wrap and cardboard keep arriving as household and school waste, so <b>making safety equipment reduces waste at the same time</b>.')],
     [ti('這是你們自己做的嗎？分工是什麼？', 'Did you build this yourselves? How was the work divided?'),
-     ti('（請按實際情況回答，並準備好實驗紀錄本）建議說明：誰負責熔蠟製膜、誰負責電路焊接／夾接、誰負責量測與記錄、誰負責畫圖表與海報，以及大人只在<b>加熱步驟</b>從旁協助安全。',
-        '(Answer honestly and have your lab notebook ready.) Suggested framing: who cast the wax film, who assembled the circuit, who measured and logged data, who made the charts and poster — and note that an adult assisted only with <b>safety during heating</b>.')]
+     ti('（請按實際情況回答，並準備好實驗紀錄本）建議說明：誰負責收集清洗保鮮膜與包覆、誰負責電路焊接／夾接、誰負責量測與記錄、誰負責畫圖表與海報，以及大人只在<b>美工刀裁切步驟</b>從旁協助安全。',
+        '(Answer honestly and have your lab notebook ready.) Suggested framing: who collected, washed and laid the wrap, who assembled the circuit, who measured and logged data, who made the charts and poster — and note that an adult assisted only with <b>safety during cutting</b>.')]
   ];
   return qa.map(function (q, i) {
     return '<div class="qa"><button type="button" data-qa="' + i + '"><span class="q">Q' + (i + 1) + '</span><span>' + q[0] +
@@ -2177,18 +2177,18 @@ var CHECK = [
   ]],
   [ti('② 實驗與數據品質', '(2) Data quality'), [
     ti('每組實驗重複 3 次取平均，數據已填入本頁並<b>匯出 CSV／JSON 備份</b>', 'Three repeats per condition, entered on this page and <b>exported as a CSV/JSON backup</b>'),
-    ti('對照組（拿掉蠟層）已測，數據可證明電來自石蠟', 'Control group (wax removed) measured, proving the wax is the source'),
+    ti('對照組（拿掉保鮮膜）已測，數據可證明電來自保鮮膜', 'Control group (wrap removed) measured, proving the wrap is the source'),
     ti('組裝後<b>短路檢查與回彈檢查</b>都做過，並記錄在紀錄本裡', '<b>Short-circuit and spring-back checks</b> done after assembly and logged in the notebook'),
     ti('紙本實驗紀錄本（有日期、原始數字、<b>失敗紀錄</b>）', 'Paper lab notebook with dates, raw numbers and <b>records of failures</b>'),
     ti('<b>四週零衰退折線圖</b>已畫好（本作品持平、乾電池下降）', 'The <b>four-week zero-decay chart</b> is ready (one line flat, the other falling)'),
     ti('<b>全黑環境中 LED 點亮的照片或影片</b>（此類別最有說服力的視覺素材）', '<b>Photo or video of the lit LED in total darkness</b> — the most persuasive visual in this category'),
     ti('校園緊急照明失效的現場照片（<b>注意去識別化，勿拍到人</b>）', 'Photos of failed emergency lights on campus (<b>de-identified — no people in frame</b>)'),
-    ti('模組剖面示意圖與實體剖面照，說明「<b>石蠟外擴</b>」設計', 'A cross-section diagram and a real cut-away photo explaining the <b>paraffin-overhang</b> design')
+    ti('模組剖面示意圖與實體剖面照，說明「<b>保鮮膜外擴</b>」設計', 'A cross-section diagram and a real cut-away photo explaining the <b>wrap-overhang</b> design')
   ]],
   [ti('③ 文件（依當年簡章確認）', '(3) Documents (verify against this year&rsquo;s official guide)'), [
     ti('報名表與作品說明書（<b>中英文</b>版本）', 'Entry form and project report (<b>Chinese and English</b>)'),
     ti('作品海報／展板（含 QR code 連到本網站）', 'Poster / display board (with a QR code to this site)'),
-    ti('專利檢索紀錄（keywords: triboelectric, paraffin wax, self-powered emergency lighting）', 'Patent-search record (keywords: triboelectric, paraffin wax, self-powered emergency lighting)'),
+    ti('專利檢索紀錄（keywords: triboelectric, plastic wrap / polyethylene film, self-powered emergency lighting）', 'Patent-search record (keywords: triboelectric, plastic wrap / polyethylene film, self-powered emergency lighting)'),
     ti('作品照片（正面、細部、使用情境）', 'Project photos (front, detail, in use)'),
     ti('指導老師與家長同意書、學生證明文件', 'Teacher/parent consent forms and student ID documents'),
     ti('確認參賽<b>類別</b>（災害管理與安全）、組別與繳件期限', 'Confirm the entry <b>category</b> (Disaster Management &amp; Safety), division and submission deadline'),
@@ -2196,7 +2196,7 @@ var CHECK = [
   ]],
   [ti('④ 展品與備援', '(4) Exhibit & backups'), [
     ti('發電模組至少 2 組（1 主 1 備）', 'At least two generator modules (one main, one spare)'),
-    ti('備用材料：蠟筆、鋁箔、紙板、海綿、膠帶', 'Spare materials: crayons, foil, cardboard, sponge, tape'),
+    ti('備用材料：保鮮膜、鋁箔、紙板、海綿、膠帶', 'Spare materials: plastic wrap, foil, cardboard, sponge, tape'),
     ti('三用電表、整流模組、電容、LED、霓虹燈泡', 'Multimeter, rectifier module, capacitor, LED, neon bulb'),
     ti('<b>乾布＋除濕包</b>（現場濕度是最大風險）', '<b>Dry cloth and desiccant packs</b> (hall humidity is the biggest risk)'),
     ti('工具包：長尾夾、鱷魚夾、剪刀、雙面膠、節拍器（手機 App）', 'Tool kit: bulldog clips, crocodile clips, scissors, tape, metronome app'),
@@ -2210,7 +2210,7 @@ var CHECK = [
     ti('練習「被打斷後接回主軸」與「不知道就誠實說並提出下一步」', 'Practised recovering from interruptions and saying "we don&rsquo;t know yet, and here is our next step"')
   ]],
   [ti('⑥ 安全與現場', '(6) Safety & on-site'), [
-    ti('展場<b>不現場熔蠟</b>（加熱步驟只用照片／影片呈現）', '<b>No wax melting at the venue</b> — show heating steps via photo/video only'),
+    ti('展場<b>不現場裁切</b>（美工刀步驟只用照片／影片呈現）', '<b>No knife work at the venue</b> — show cutting steps via photo/video only'),
     ti('能清楚說明「µA 微電流對人體安全」', 'Able to explain clearly that microampere current is safe'),
     ti('模組邊緣封好，無尖銳邊、無外露高壓', 'Module edges sealed; no sharp edges, no exposed high voltage'),
     ti('攤位電源／延長線與擺放位置確認', 'Booth power, extension cords and layout confirmed')
@@ -2265,8 +2265,8 @@ function secTeam() {
 function secThanks() {
   return '<div class="grid g2">' +
       '<div class="card"><h4 style="font-size:15px;margin-bottom:6px">' + ti('致謝', 'Acknowledgements') + '</h4>' +
-        tp('感謝美術課老師協助蒐集廢棄蠟筆、自然科教室出借三用電表，以及家長在加熱步驟的安全陪同。',
-           'We thank our art teacher for helping collect waste crayons, the science lab for lending the multimeter, and our parents for supervising the heating steps.') + '</div>' +
+        tp('感謝家人與午餐廚房協助蒐集廢保鮮膜、自然科教室出借三用電表，以及家長在裁切步驟的安全陪同。',
+           'We thank our family and the school lunch kitchen for helping collect waste plastic wrap, the science lab for lending the multimeter, and our parents for supervising the cutting steps.') + '</div>' +
       '<div class="card"><h4 style="font-size:15px;margin-bottom:6px">' + ti('參考方向', 'References') + '</h4>' +
         tp('摩擦起電順序表（各版本教科書與公開資料）、接觸-分離式 TENG 原理相關科普文獻、橋式整流與電容儲能基本電學。<b>正式送審請補上實際引用來源與檢索日期。</b>',
            'Triboelectric series tables (textbooks and public sources), popular-science literature on contact-separation TENGs, and basic circuit theory for bridge rectification and capacitor storage. <b>Add your actual citations and search dates before formal submission.</b>') + '</div>' +
@@ -2287,8 +2287,8 @@ var SECTIONS = [
     lead: ['出口燈、手電筒、蓄光貼片、太陽能燈——四種方案，同一個弱點。',
            'Exit signs, torches, glow strips, solar lamps — four approaches, one shared weakness.'], body: secPrior },
   { id: 'innovation', nav: ['設計理念', 'Design & innovation'], t: ['設計理念與創新特色', 'Design Rationale & Innovation'],
-    lead: ['為什麼選廢棄蠟筆，以及本作品的五項特色（包含一個推翻我們自己假設的發現）。',
-           'Why waste crayons — and five distinguishing features, including one finding that overturned our own hypothesis.'], body: secSolution },
+    lead: ['為什麼選廢保鮮膜，以及本作品的五項特色（包含一個推翻我們自己假設的發現）。',
+           'Why waste plastic wrap — and five distinguishing features, including one finding that overturned our own hypothesis.'], body: secSolution },
   { id: 'goals', nav: ['研究目的', 'Objectives'], t: ['研究目的', 'Research Objectives'],
     lead: ['四個材料最佳化實驗，加上五項災防情境驗證——先證明會發電，再證明派得上用場。',
            'Four optimisation experiments plus five disaster-scenario tests: first prove it generates, then prove it helps.'], body: secGoals },
@@ -2299,8 +2299,8 @@ var SECTIONS = [
     lead: ['兩台模擬器：發電原理模擬器（換材料看波形與充電），以及麵包板接線模擬器（把整流電路親手插出來，接錯會告訴你錯在哪）。',
            'Two simulators: the generation-principle simulator (swap materials, watch the waveform and the charging), and the breadboard wiring simulator (build the rectifier yourself — it tells you what is wrong when you miswire it).'], body: secLab },
   { id: 'build', nav: ['結構與製作', 'Build'], t: ['作品結構、尺寸與製作', 'Structure, Dimensions & Build'],
-    lead: ['關鍵在「石蠟外擴 5 mm」與「先各自整流、再並聯」——這兩件事做錯，輸出直接歸零。',
-           'Everything turns on the 5 mm paraffin overhang and on rectifying each module before paralleling. Get either wrong and the output is zero.'], body: secBuild },
+    lead: ['關鍵在「保鮮膜外擴 5 mm」與「先各自整流、再並聯」——這兩件事做錯，輸出直接歸零。',
+           'Everything turns on the 5 mm wrap overhang and on rectifying each module before paralleling. Get either wrong and the output is zero.'], body: secBuild },
   { id: 'design', nav: ['實驗設計', 'Design'], t: ['實驗設計與變因控制', 'Experimental Design'],
     lead: ['四個實驗、三類變因、一個對照組，加上一個很容易讓人得到錯誤結論的量測陷阱。',
            'Four experiments, three classes of variables, one control — and one measurement trap that leads straight to the wrong conclusion.'], body: secDesign },
@@ -2344,8 +2344,8 @@ function renderAll() {
   document.getElementById('foot').innerHTML =
     '<div><div style="color:var(--ink);font-weight:700">© ' + (new Date().getFullYear()) + ' Hinata Team. ' +
       ti('版權所有。', 'All rights reserved.') + '</div>' +
-      '<div>' + ti('「踩亮生路」免電池廢蠟筆發電緊急避難指引地墊｜IEYI 世界青少年創客發明展 · 災害管理與安全類',
-                   'Step on It, Light the Way Out — a battery-free waste-crayon TENG guidance mat | IEYI, Disaster Management & Safety') + '</div></div>' +
+      '<div>' + ti('「踩亮生路」免電池保鮮膜發電緊急避難指引地墊｜IEYI 世界青少年創客發明展 · 災害管理與安全類',
+                   'Step on It, Light the Way Out — a battery-free plastic-wrap TENG guidance mat | IEYI, Disaster Management & Safety') + '</div></div>' +
     '<div><div>' + ti('未經 Hinata Team <b>書面同意</b>，不得重製、散布或改作本作品；<b>保留一切專利申請權</b>（詳見 LICENSE.md）。',
                  'No reproduction, distribution or adaptation without <b>written permission</b> from Hinata Team; <b>all patent rights reserved</b> (see LICENSE.md).') + '</div></div>';
 }
@@ -2359,15 +2359,15 @@ var MAT = [
   ['paper', ['影印紙', 'Copy paper'], 0.48, '#ece6d6']
 ];
 var CRAYON = [
-  ['black', ['黑色（含碳黑）', 'Black (carbon black)'], 1.10, '#33322f', '#fff'],
-  ['white', ['白色（含鈦白粉）', 'White (titanium white)'], 0.92, '#efece1', '#0b0b0b'],
-  ['red', ['紅色', 'Red'], 1.00, '#cf4141', '#fff'],
-  ['blue', ['藍色', 'Blue'], 0.98, '#3f7fd0', '#fff']
+  ['pe', ['PE（聚乙烯）', 'PE (polyethylene)'], 1.00, '#bfdde8', '#1f3a46'],
+  ['pvc', ['PVC（聚氯乙烯）', 'PVC (polyvinyl chloride)'], 1.12, '#a9d0c4', '#1f3a46'],
+  ['pvdc', ['PVDC（聚偏二氯乙烯）', 'PVDC (polyvinylidene chloride)'], 1.18, '#d9d2b0', '#3a3420'],
+  ['rpe', ['回收 PE（洗淨晾乾）', 'Recycled PE (washed, dried)'], 0.86, '#c9cfc8', '#2c332c']
 ];
 var ROUGH = [
-  ['smooth', ['平滑熔融面', 'Smooth melted'], 1.00],
-  ['g600', ['600 目打磨', '600-grit sanded'], 1.24],
-  ['g200', ['200 目打磨', '200-grit sanded'], 1.45]
+  ['smooth', ['平整拉平', 'Laid flat'], 1.00],
+  ['g600', ['600 目壓紋', '600-grit embossed'], 1.24],
+  ['g200', ['200 目壓紋', '200-grit embossed'], 1.45]
 ];
 var HUM = [
   ['dry', ['乾燥（冷氣房）', 'Dry (air-conditioned)'], 1.00],
@@ -2445,7 +2445,7 @@ function initSim() {
     var k = cfg(), ink = css('--ink'), ink2 = css('--ink-2'), muted = css('--muted'), rule = css('--rule'), surf = css('--chart-surface');
     ctx.clearRect(0, 0, SIM_W, SIM_H);
     var x0 = 26, bw = 252, waxTop = 196, gp = 4 + 26 * S.gap;
-    /* 下方：石蠟層 / 鋁箔 / 紙板 */
+    /* 下方：保鮮膜層 / 鋁箔 / 紙板 */
     var waxH = k.wax ? 14 : 0;
     if (k.wax) {
       ctx.fillStyle = k.c[3]; ctx.strokeStyle = rule; ctx.lineWidth = 1;
@@ -2461,7 +2461,7 @@ function initSim() {
       ctx.lineTo(x0 + bw, waxTop + waxH); ctx.closePath();
       ctx.fill(); ctx.stroke();
       ctx.fillStyle = k.c[4]; ctx.font = '600 9.5px system-ui, sans-serif'; ctx.textAlign = 'center';
-      ctx.fillText(pick('石蠟層（廢蠟筆）', 'Paraffin (waste crayon)'), x0 + bw / 2, waxTop + 10.5);
+      ctx.fillText(pick('保鮮膜層（廢保鮮膜）', 'Plastic wrap (reclaimed)'), x0 + bw / 2, waxTop + 10.5);
     }
     ctx.fillStyle = '#c9ccd1'; ctx.strokeStyle = rule;
     ctx.fillRect(x0, waxTop + waxH, bw, 7); ctx.strokeRect(x0, waxTop + waxH, bw, 7);
@@ -2526,7 +2526,7 @@ function initSim() {
       ctx.beginPath(); ctx.moveTo(5, -5); ctx.lineTo(5, 5); ctx.stroke(); ctx.restore();
     });
     ctx.fillStyle = muted; ctx.font = '9px system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText(pick('橋式整流 1N4007×4', 'Bridge rectifier 1N4007×4'), cx, cy + hf + 14);
+    ctx.fillText(pick('橋式整流 1N4148×4', 'Bridge rectifier 1N4148×4'), cx, cy + hf + 14);
     /* 整流輸出 → 電容 */
     var px = 452, pT = 126, pB = 174;
     ctx.beginPath();
@@ -2541,7 +2541,7 @@ function initSim() {
     ctx.fillStyle = css('--seq-450');
     ctx.fillRect(px - 13, pB - 4 - (pB - pT - 8) * frac, 26, (pB - pT - 8) * frac);
     ctx.fillStyle = muted; ctx.font = '9px system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText('10 µF', px, pB + 14);
+    ctx.fillText('0.1 µF', px, pB + 14);
     ctx.fillStyle = ink2; ctx.font = '600 10px system-ui, sans-serif';
     ctx.fillText(S.cap.toFixed(2) + ' V', px, pT - 8);
     /* LED */
@@ -2733,7 +2733,7 @@ function initSim() {
   });
   document.getElementById('bLogClear').addEventListener('click', function () { simLog = []; simLogN = 0; renderLog(); });
   document.getElementById('bLogCsv').addEventListener('click', function () {
-    var head = ['#', 'counter_material', 'crayon_colour', 'roughness', 'humidity', 'wax', 'peak_V', 'cap_V', 'time_s', 'note'];
+    var head = ['#', 'counter_material', 'wrap_material', 'roughness', 'humidity', 'wax', 'peak_V', 'cap_V', 'time_s', 'note'];
     var rows = simLog.map(function (r) { return [r.n, r.mat, r.col, r.rough, r.hum, r.wax, r.peak.toFixed(2), r.cap.toFixed(3), r.t.toFixed(1), r.note]; });
     download('teng-simulator-log.csv', toCSV([head].concat(rows)), 'text/csv;charset=utf-8');
   });
@@ -2822,7 +2822,7 @@ function exportDataCSV() {
   Object.keys(TABLES).forEach(function (k) {
     var t = TABLES[k], n = t.cols ? t.cols.length : t.trials;
     rows.push([t.title[1]]);
-    var head = [k === 't2' ? 'crayon_colour' : (k === 't3' ? 'coating_state' : 'counter_material')];
+    var head = [k === 't2' ? 'wrap_material' : (k === 't3' ? 'coating_state' : 'counter_material')];
     for (var i = 0; i < n; i++) head.push(t.cols ? t.cols[i][1] : ('trial_' + (i + 1) + '_V'));
     if (!t.cols) head.push('mean_peak_V');
     head.push(t.extraLabel[1]);
