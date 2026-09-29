@@ -787,7 +787,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
 <header>
   <div>
     <h1>🍞 麵包板模擬器</h1>
-    <div class="sub">保鮮膜摩擦發電 → 橋式整流（1N4007 ×4）→ 10 µF 儲能電容 → LED</div>
+    <div class="sub">保鮮膜摩擦發電 → 橋式整流（1N4148 ×4）→ 0.1 µF 儲能電容 → LED</div>
   </div>
   <div class="grow"></div>
   <button id="btnRef">⚡ 一鍵標準接線</button>
@@ -890,8 +890,8 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
       </div>
       <div class="prow"><label>電容容量</label>
         <select id="pCap">
+          <option value="0.1" selected>0.1 µF（題目用的）</option>
           <option value="1">1 µF</option>
-          <option value="10" selected>10 µF（題目用的）</option>
           <option value="100">100 µF</option>
           <option value="470">470 µF</option>
         </select></div>
@@ -904,8 +904,8 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
         </select></div>
       <div class="prow"><label>電容漏電</label>
         <select id="pLeak">
-          <option value="1e9">很好（1 GΩ）</option>
-          <option value="2e7" selected>一般電解電容（20 MΩ）</option>
+          <option value="1e10" selected>一般麥拉電容（10 GΩ）</option>
+          <option value="2e7">受潮（20 MΩ）</option>
           <option value="2e6">劣質／老化（2 MΩ）</option>
         </select></div>
       <div class="dim" style="font-size:11px;line-height:1.6;margin-top:6px">
@@ -921,7 +921,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
   <h3>1. 插零件</h3>
   <ul>
     <li>左邊<b>點一下零件</b>拿起來 → 在麵包板上<b>點第一個孔</b>（第一隻腳）→ <b>再點第二個孔</b>（第二隻腳），就插好了。</li>
-    <li>有極性的零件會告訴你哪一腳先插：二極體先插<b>陽極</b>、後插<b>陰極（白線那端）</b>；電容先插<b>＋</b>、後插<b>−</b>；LED 先插<b>長腳</b>。</li>
+    <li>有極性的零件會告訴你哪一腳先插：二極體先插<b>陽極</b>、後插<b>陰極（白線那端）</b>；麥拉電容<b>沒有極性</b>，兩腳不分先後；LED 先插<b>長腳</b>。</li>
     <li>插錯方向不用刪：選起來按 <kbd>R</kbd> 或「↔ 反轉方向」。</li>
     <li>點零件可以<b>拖曳移動</b>；<kbd>Del</kbd> 或按右鍵可刪除；<kbd>Ctrl</kbd>+<kbd>Z</kbd> 復原；<kbd>Esc</kbd> 放下零件。</li>
   </ul>
@@ -1058,12 +1058,12 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
   // ---------------- 預設元件參數（貼近真實零件） ----------------
   var DEFAULTS = {
     VT: 0.025852,        // 熱電壓 (300K)
-    // 1N4007：Vf ≈ 0.7~1.0V @ mA 級
-    diodeIs: 2e-9, diodeN: 1.9, diodeRs: 1.2,
+    // 1N4148（SPICE 常用參數）：Vf ≈ 0.6~1.0V @ mA 級
+    diodeIs: 2.52e-9, diodeN: 1.752, diodeRs: 0.568,
     // 一般紅光 LED：Vf ≈ 1.9~2.1V @ 10mA
     ledIs: 1.6e-19, ledN: 2.0, ledRs: 18,
-    capC: 10e-6,         // 10 µF
-    capLeakR: 2e7,       // 電解電容漏電（20 MΩ）
+    capC: 0.1e-6,        // 0.1 µF（104 麥拉電容）
+    capLeakR: 1e10,      // 麥拉電容漏電（10 GΩ）
     // 摩擦發電模組（TENG）等效：高電壓、極高內阻
     vPeak: 150, tapHz: 2, srcR: 1e6, pulseMs: 40,
     dcV: 9, dcR: 10,     // 附加：切成「乾電池」模式時
@@ -1372,7 +1372,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
     facts.diodeCount = diodes.length;
 
     var NAME = {
-      diode: '二極體 1N4007', led: 'LED', cap: '10 µF 電容',
+      diode: '二極體 1N4148', led: 'LED', cap: '0.1 µF 電容',
       wire: '導線', source: '發電模組', switch: '按鍵開關', probe: '電表探棒'
     };
 
@@ -1440,18 +1440,17 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
       }
       if (facts.bridgeOK) push('ok', '橋式整流接對了！直流 + 在「' + netLabel(facts.dcP) +
         '」、直流 − 在「' + netLabel(facts.dcN) + '」。');
-      else push('err', '4 顆 1N4007 還沒組成橋式整流。訣竅：兩顆的「白線那端（陰極）」一起指向直流 +，' +
+      else push('err', '4 顆 1N4148 還沒組成橋式整流。訣竅：兩顆的「白線那端（陰極）」一起指向直流 +，' +
         '另外兩顆的「非白線端（陽極）」一起接直流 −，發電模組兩條線各接在菱形的左右兩角。');
     } else if (facts.hasSource) {
       push('warn', '目前只放了 ' + diodes.length + ' 顆二極體，橋式整流需要 4 顆。');
     }
 
-    // 5) 電容極性
-    if (!cap) push('warn', '還沒放 10 µF 儲能電容，微弱的電荷沒地方累積。');
+    // 5) 電容位置（麥拉電容無極性，兩個方向都算對）
+    if (!cap) push('warn', '還沒放 0.1 µF 儲能電容，微弱的電荷沒地方累積。');
     else if (facts.bridgeOK) {
       var ca = nl.root(cap.pins[0]), cc = nl.root(cap.pins[1]);
-      if (ca === facts.dcP && cc === facts.dcN) { facts.capOK = true; push('ok', '電容跨在直流 + / − 之間，極性正確。'); }
-      else if (ca === facts.dcN && cc === facts.dcP) { facts.capReversed = true; push('err', '電容裝反了！有標「−」的那腳要接直流 −（電解電容反接會鼓包或爆開）。'); }
+      if ((ca === facts.dcP && cc === facts.dcN) || (ca === facts.dcN && cc === facts.dcP)) { facts.capOK = true; push('ok', '電容跨在直流 + / − 之間（麥拉電容沒有極性，方向不拘）。'); }
       else push('warn', '電容還沒跨在整流輸出的 + / − 之間。');
     }
 
@@ -1483,7 +1482,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
       { type: 'diode', pins: ['TN:16', 'C:14'], label: 'D4' },  // 直流- -> 交流2
       { type: 'wire', pins: ['TP:22', 'A:22'], color: '#e5484d' },
       { type: 'wire', pins: ['TN:26', 'A:26'], color: '#2b2b2b' },
-      { type: 'cap', pins: ['B:22', 'B:26'], label: '10µF' },
+      { type: 'cap', pins: ['B:22', 'B:26'], label: '0.1µF' },
       { type: 'led', pins: ['D:22', 'D:26'], label: 'LED' }
     ];
   }
@@ -1544,8 +1543,8 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
   // ---------------- 零件定義 ----------------
   var PARTS = {
     source: { name: '保鮮膜發電模組', max: 1, hint: '兩條引線＝上下鋁箔電極。這是電從哪來的地方。', p1: 'A 端', p2: 'B 端' },
-    diode: { name: '1N4007 二極體', max: 4, hint: '電流只能從「陽極 → 陰極（白線那端）」通過。', p1: '陽極 +', p2: '陰極（白線）' },
-    cap: { name: '10 µF 電解電容', max: 1, hint: '把微小電荷積少成多。有極性，−腳一定要接負端！', p1: '＋ 長腳', p2: '− 短腳（有灰線）' },
+    diode: { name: '1N4148 二極體', max: 4, hint: '電流只能從「陽極 → 陰極（白線那端）」通過。', p1: '陽極 +', p2: '陰極（白線）' },
+    cap: { name: '0.1 µF 麥拉電容', max: 1, hint: '把微小電荷積少成多。麥拉電容沒有極性，兩腳可以對調。', p1: '腳 1', p2: '腳 2' },
     led: { name: 'LED 發光二極體', max: 1, hint: '長腳（陽極）接 +，短腳接 −，反接不會亮。', p1: '長腳（陽極）', p2: '短腳（陰極）' },
     wire: { name: '導線', max: 99, hint: '把兩個不同的節點接起來。', p1: '一端', p2: '另一端' },
     'switch': { name: '按鍵開關（附加）', max: 1, hint: '先讓 LED 斷開充電，再按下去放電 → 會閃得更亮。', p1: '一端', p2: '另一端' },
@@ -1701,7 +1700,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
       s.push(body);
       s.push('<line class="pick" x1="' + G.A.x + '" y1="' + G.A.y + '" x2="' + G.B.x + '" y2="' + G.B.y +
         '" stroke="transparent" stroke-width="16"/>');
-      s.push(label(G, comp.label || '1N4007'));
+      s.push(label(G, comp.label || '1N4148'));
       if (reading && Math.abs(reading.i) > 5e-7) s.push(flowArrow(G, reading.i));
     } else if (comp.type === 'led') {
       var br = reading ? reading.bright : 0;
@@ -1723,15 +1722,14 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
       bw = 12;
       body += '<line x1="' + (-half) + '" y1="0" x2="' + (-bw) + '" y2="0" stroke="' + lead + '" stroke-width="2.4"/>';
       body += '<line x1="' + bw + '" y1="0" x2="' + half + '" y2="0" stroke="' + lead + '" stroke-width="2.4"/>';
-      body += '<rect x="' + (-bw) + '" y="-12" width="' + (bw * 2) + '" height="24" rx="4" fill="#1d4ed8"/>';
-      body += '<rect x="' + (bw - 8) + '" y="-12" width="8" height="24" fill="#dbe4ff"/>';
-      body += '<text x="' + (bw - 4) + '" y="4" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="700">−</text>';
-      body += '<text x="' + (-bw + 6) + '" y="4" font-size="11" fill="#fff" text-anchor="middle" font-weight="700">+</text>';
+      /* 麥拉電容：綠色方塊、印「104」，沒有極性標記 */
+      body += '<rect x="' + (-bw) + '" y="-12" width="' + (bw * 2) + '" height="24" rx="4" fill="#2e7d4f"/>';
+      body += '<g transform="rotate(' + (-G.ang) + ')"><text x="0" y="4" font-size="9" fill="#fff" text-anchor="middle" font-weight="700">104</text></g>';
       body += '</g>';
       s.push(body);
       s.push('<line class="pick" x1="' + G.A.x + '" y1="' + G.A.y + '" x2="' + G.B.x + '" y2="' + G.B.y +
         '" stroke="transparent" stroke-width="16"/>');
-      s.push(label(G, (sim.p.capC * 1e6).toFixed(0) + 'µF'));
+      s.push(label(G, +(sim.p.capC * 1e6).toPrecision(3) + 'µF'));
     } else if (comp.type === 'source') {
       bw = 30;
       body += '<line x1="' + (-half) + '" y1="0" x2="' + (-bw) + '" y2="0" stroke="#c9a227" stroke-width="2.6"/>';
@@ -2009,8 +2007,8 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
     var f = a.facts;
     var steps = [
       ['放上「保鮮膜發電模組」（兩條引線各插一孔）', f.hasSource],
-      ['用 4 顆 1N4007 組成橋式整流', f.bridgeOK],
-      ['10 µF 電容跨在整流輸出的 + / −（注意 − 腳）', f.capOK],
+      ['用 4 顆 1N4148 組成橋式整流', f.bridgeOK],
+      ['0.1 µF 電容跨在整流輸出的 + / −（麥拉電容不分方向）', f.capOK],
       ['LED 跨在同樣的 + / −（長腳朝 +）', f.ledOK],
       ['按住「拍打發電」，看電容電壓爬上去', S.peakV > 0.5],
       ['進階：LED 串一顆開關，先充電再按下 → 閃更亮', S.flashes > 0]
@@ -2064,7 +2062,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
 
     var warn = [];
     if (S.peakV > S.vMax) warn.push('電容電壓最高衝到 ' + S.peakV.toFixed(1) + ' V，超過你設定的 ' +
-      S.vMax + ' V 耐壓；真實電路要換耐壓更高的電容（電解電容超壓會鼓包漏液）。');
+      S.vMax + ' V 耐壓；真實電路要換耐壓更高的電容（麥拉電容超壓可能被擊穿而短路）。');
     if (!r.converged) warn.push('這個接法數值上很極端（可能有短路），計算結果僅供參考。');
     if (S.powerMode === 'dc' && r.iled > 0.03) warn.push('乾電池直接推 LED 電流 ' + fmtI(r.iled) + '，真實電路一定要串限流電阻（例如 220 Ω）。');
     $('warnBox').innerHTML = warn.length ? warn.map(function (w) { return '<div class="msg warn">⚠️ ' + esc(w) + '</div>'; }).join('') : '';
@@ -2244,7 +2242,7 @@ footer.ft .in { max-width: 1140px; margin: 0 auto; display: flex; flex-wrap: wra
         document.querySelectorAll('.spd').forEach(function (x) { x.classList.toggle('on', x === b); });
       };
     });
-    $('btnRef').onclick = function () { loadReference(); toast('已載入標準接線：橋式整流 + 10 µF + LED'); };
+    $('btnRef').onclick = function () { loadReference(); toast('已載入標準接線：橋式整流 + 0.1 µF + LED'); };
     $('btnClear').onclick = function () { if (S.comps.length && !confirm('清空整片麵包板？')) return; clearAll(); };
     $('btnReset').onclick = function () { resetMeters(); toast('電容放電、儀表歸零'); };
     $('btnUndo').onclick = undo;
@@ -2971,8 +2969,8 @@ function secHow() {
     ['c', ti('③ 最大分離', '③ Fully separated'), ti('間隙 3 mm 時電位差最大，電流停止，此時電表顯示峰值電壓。', 'At the 3 mm gap the potential difference peaks and current stops; the meter reads peak voltage.')],
     ['d', ti('④ 再壓合（反向）', '④ Pressed again (reverse)'), ti('再次壓下時電子反向流回，形成交流訊號，所以必須整流才能儲存。', 'Pressing again drives electrons back, producing an AC signal — which is why rectification is required before storage.')]
   ];
-  return tp('保鮮膜層與上方的鋁箔電極原本被 <b>3 mm 氣隙</b>分開。有人踩下地墊，兩者緊密接觸，保鮮膜因電子親和力較強而<b>從鋁箔奪取電子</b>、表面帶負電；腳離開、海綿把兩板彈開，帶負電的保鮮膜與鋁箔分離，電位差驅使電子經由外部導線流動，<b>產生一次脈衝電流</b>。每踩一下產生一次脈衝，經<b>橋式整流（4 顆 1N4007）</b>轉為直流，累積在 <b>10 µF 電容</b>中「積少成多」，電壓足夠後即可點亮 LED。',
-    'A <b>3 mm air gap</b> separates the plastic-wrap layer from the aluminium electrode above it. When someone steps on the mat the two press together and the wrap, having the stronger electron affinity, <b>strips electrons from the foil</b> and becomes negatively charged. As the foot lifts and the sponge springs the plates apart, the charged wrap separates from the foil and the resulting potential difference drives electrons through the external wire — <b>one pulse of current</b>. Every step is one pulse; a <b>bridge rectifier (four 1N4007 diodes)</b> turns them into DC, a <b>10 µF capacitor</b> accumulates them, and once the voltage is high enough the LED lights.') +
+  return tp('保鮮膜層與上方的鋁箔電極原本被 <b>3 mm 氣隙</b>分開。有人踩下地墊，兩者緊密接觸，保鮮膜因電子親和力較強而<b>從鋁箔奪取電子</b>、表面帶負電；腳離開、海綿把兩板彈開，帶負電的保鮮膜與鋁箔分離，電位差驅使電子經由外部導線流動，<b>產生一次脈衝電流</b>。每踩一下產生一次脈衝，經<b>橋式整流（4 顆 1N4148）</b>轉為直流，累積在 <b>0.1 µF 電容</b>中「積少成多」，電壓足夠後即可點亮 LED。',
+    'A <b>3 mm air gap</b> separates the plastic-wrap layer from the aluminium electrode above it. When someone steps on the mat the two press together and the wrap, having the stronger electron affinity, <b>strips electrons from the foil</b> and becomes negatively charged. As the foot lifts and the sponge springs the plates apart, the charged wrap separates from the foil and the resulting potential difference drives electrons through the external wire — <b>one pulse of current</b>. Every step is one pulse; a <b>bridge rectifier (four 1N4148 diodes)</b> turns them into DC, a <b>0.1 µF capacitor</b> accumulates them, and once the voltage is high enough the LED lights.') +
     '<div class="quote">' + tb('<b>重點：</b>能量來源是「<b>逃生者本來就會做的動作</b>」——在黑暗中往出口走。使用者不需要多做任何事，也不需要記得換電池。',
       '<b>The point:</b> the energy source is <b>an action evacuees already perform</b> — walking toward the exit in the dark. Users need do nothing extra, and never need to remember to change a battery.') + '</div>' +
     '<div class="phases mt">' + ph.map(function (p) {
@@ -3019,7 +3017,7 @@ function secLab() {
         '<div class="readouts">' +
           '<div class="ro"><div class="lb">' + ti('瞬間電壓', 'Instant') + '</div><div class="vl" id="roNow">0.0 V</div></div>' +
           '<div class="ro"><div class="lb">' + ti('峰值 Vmax', 'Peak Vmax') + '</div><div class="vl" id="roPeak">0.0 V</div></div>' +
-          '<div class="ro wide"><div class="lb">' + ti('10 µF 電容累積電壓', '10 µF capacitor voltage') + '</div><div class="vl" id="roCap">0.00 V</div><div class="meter"><i id="roCapBar"></i></div></div>' +
+          '<div class="ro wide"><div class="lb">' + ti('0.1 µF 電容累積電壓', '0.1 µF capacitor voltage') + '</div><div class="vl" id="roCap">0.00 V</div><div class="meter"><i id="roCapBar"></i></div></div>' +
           '<div class="ro"><div class="lb">' + ti('拍打次數', 'Taps') + '</div><div class="vl" id="roTaps">0</div></div>' +
           '<div class="ro"><div class="lb">' + ti('經過時間', 'Elapsed') + '</div><div class="vl" id="roTime">0.0 s</div></div>' +
           '<div class="ro wide"><div class="lb">' + ti('LED 指示燈（門檻 1.9 V）', 'LED indicator (1.9 V threshold)') + '</div><div class="vl"><span class="led" id="roLed"></span><span id="roLedTxt">—</span></div></div>' +
@@ -3056,14 +3054,14 @@ function secBreadboard() {
   if (!document.getElementById('bbSrc')) return '';
   return '<h3 style="font-size:17px;margin:30px 0 8px">' + ti('模擬器二：麵包板接線模擬器（把整流電路親手插出來）',
       'Simulator 2 — breadboard wiring simulator (build the rectifier yourself)') + '</h3>' +
-    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、電容極性接錯、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
-       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed electrolytic capacitor, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
-    pshot(SHOT_BB, '模擬器二的畫面：已完成的橋式整流接線（1N4007×4 → 10 µF 電容 → LED）。線上互動版可以自己重接，接錯會告訴你錯在哪。',
-                   'Simulator 2: the completed bridge-rectifier wiring (1N4007&times;4 &rarr; 10 &micro;F &rarr; LED). In the online version you can rebuild it yourself and it explains any miswiring.') +
+    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、LED 接反、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
+       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed LED, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
+    pshot(SHOT_BB, '模擬器二的畫面：已完成的橋式整流接線（1N4148×4 → 0.1 µF 電容 → LED）。線上互動版可以自己重接，接錯會告訴你錯在哪。',
+                   'Simulator 2: the completed bridge-rectifier wiring (1N4148&times;4 &rarr; 0.1 &micro;F &rarr; LED). In the online version you can rebuild it yourself and it explains any miswiring.') +
     '<div class="bb no-print" id="bbBox">' +
       '<div class="bb-bar">' +
         '<b>🍞 ' + ti('麵包板模擬器', 'Breadboard simulator') + '</b>' +
-        '<span class="bb-sub">' + ti('保鮮膜發電 → 橋式整流 1N4007×4 → 10 µF 電容 → LED', 'Plastic-wrap TENG → bridge rectifier 1N4007×4 → 10 µF → LED') + '</span>' +
+        '<span class="bb-sub">' + ti('保鮮膜發電 → 橋式整流 1N4148×4 → 0.1 µF 電容 → LED', 'Plastic-wrap TENG → bridge rectifier 1N4148×4 → 0.1 µF → LED') + '</span>' +
         '<span class="sp">' +
           '<button class="btn sm" id="bbFull">' + ti('⛶ 放大到全畫面', '⛶ Enlarge') + '</button>' +
           '<button class="btn sm" id="bbReload">' + ti('↺ 重新載入模擬器', '↺ Reload the simulator') + '</button>' +
@@ -3121,7 +3119,7 @@ function sideSVG() {
   /* 導線 */
   S += '<path d="M252 65 L288 65 L288 24" stroke="var(--ink-2)" stroke-width="1.6" fill="none"/>';
   S += '<path d="M48 115 L12 115 L12 24" stroke="var(--ink-2)" stroke-width="1.6" fill="none"/>';
-  S += '<text x="150" y="20" font-size="9.5" fill="var(--ink-2)" text-anchor="middle">' + esc(pick('→ 橋式整流 → 10 µF 電容 → LED', '→ bridge rectifier → 10 µF → LED')) + '</text>';
+  S += '<text x="150" y="20" font-size="9.5" fill="var(--ink-2)" text-anchor="middle">' + esc(pick('→ 橋式整流 → 0.1 µF 電容 → LED', '→ bridge rectifier → 0.1 µF → LED')) + '</text>';
   S += '<text x="150" y="160" font-size="9" fill="var(--muted)" text-anchor="middle">' + esc(pick('踩下＝接觸；抬腳＝海綿彈開，各產生一次反向脈衝', 'Press = contact; lift = the sponge springs it open. Each gives one opposite pulse.')) + '</text>';
   return S + '</svg>';
 }
@@ -3169,8 +3167,8 @@ function secBuild() {
      ti('另取 12×12 cm 上板，<b>中央</b>貼 10×10 cm 對擦鋁箔並引出導線。於下板四角<b>留邊處</b>黏上約 3 mm 厚的高密度海綿塊，蓋上上板，形成「踩壓接觸、離腳彈開」機構。',
         'Take a second 12×12 cm board and stick a 10×10 cm counter-foil at its <b>centre</b>, with a wire tail. Glue ~3 mm high-density sponge blocks onto the <b>margin</b> at the four corners of the base, then lay the top board over it: press to contact, release to separate.'), ''],
     [ti('接上整流儲能電路', 'Wire the rectifier and capacitor'), '≈10 ' + ti('分鐘', 'min'),
-     ti('上、下電極各引出一條導線，接到 4 顆 1N4007 組成的橋式整流器，輸出接 10 µF 電容再接 LED。不會用電烙鐵時，用金屬長尾夾或鱷魚夾把導線夾緊在鋁箔上即可導電。<b>可先在本頁的麵包板模擬器練一次接線。</b>',
-        'Lead one wire from each electrode into a bridge rectifier of four 1N4007 diodes; the output feeds the 10 µF capacitor and then the LED. If you cannot solder, clamp the wires onto the foil with bulldog or crocodile clips. <b>Practise the wiring first in the breadboard simulator on this page.</b>'), ''],
+     ti('上、下電極各引出一條導線，接到 4 顆 1N4148 組成的橋式整流器，輸出接 0.1 µF 電容再接 LED。不會用電烙鐵時，用金屬長尾夾或鱷魚夾把導線夾緊在鋁箔上即可導電。<b>可先在本頁的麵包板模擬器練一次接線。</b>',
+        'Lead one wire from each electrode into a bridge rectifier of four 1N4148 diodes; the output feeds the 0.1 µF capacitor and then the LED. If you cannot solder, clamp the wires onto the foil with bulldog or crocodile clips. <b>Practise the wiring first in the breadboard simulator on this page.</b>'), ''],
     [ti('多片並聯與封裝', 'Parallel the modules and seal'), '≈20 ' + ti('分鐘', 'min'),
      ti('各片<b>先各自整流</b>，直流端再全部並聯至同一顆電容；整組模組夾在防滑墊與底板之間，外圍加防水封條，使用者只會踩到防滑墊表面。',
         '<b>Rectify each module separately first</b>, then parallel all the DC outputs into one capacitor. Sandwich the array between an anti-slip mat and the base board and seal the perimeter — the user only ever touches the mat surface.'), '']
@@ -3185,7 +3183,7 @@ function secBuild() {
     [ti('對擦金屬電極', 'Counter-metal electrode'), ti('廚房烘焙用鋁箔紙、銅箔膠帶', 'Kitchen aluminium foil, copper tape'), ti('極容易（家裡就有）', 'Trivial — already at home'), 'NT$0'],
     [ti('基板與支架', 'Boards & frame'), ti('回收 PP 中空板（首選）、廢棄厚紙板、喜餅盒紙板　<b>※ 不可用金屬</b>', 'Recycled PP sheet (first choice), waste cardboard, gift-box board　<b>— no metal</b>'), ti('極容易（垃圾回收）', 'Trivial — from the recycling bin'), 'NT$0'],
     [ti('彈性間隔', 'Elastic spacer'), ti('高密度海綿、洗碗菜瓜布', 'High-density sponge, dish scrubber'), ti('極容易', 'Trivial'), 'NT$0'],
-    [ti('電子元件：1N4007 ×4、10 µF 電容 ×1、小 LED ×1', 'Electronics: 1N4007 ×4, 10 µF capacitor ×1, small LED ×1'),
+    [ti('電子元件：1N4148 ×4、0.1 µF 電容 ×1、小 LED ×1', 'Electronics: 1N4148 ×4, 0.1 µF capacitor ×1, small LED ×1'),
      ti('網拍或電子材料行（亦可直接買組好的橋式整流模組）', 'Online or an electronics shop (a ready-made bridge module also works)'), ti('容易', 'Easy'), 'NT$30–50'],
     [ti('量化工具', 'Measuring tools'), ti('三用電表、尺、節拍器（手機 App 即可）', 'Multimeter, ruler, metronome (a phone app is fine)'), ti('容易（可向學校借用）', 'Easy — borrow from school'), 'NT$0'],
     [ti('防水封條、防滑墊', 'Waterproof seal, anti-slip mat'), ti('膠帶／防水膠條；防滑墊可用現成舊墊', 'Tape or weather strip; reuse an old anti-slip mat'), ti('容易', 'Easy'), 'NT$0–10']
@@ -3291,7 +3289,7 @@ function secDesign() {
     ti('節拍器設定 <b>120 BPM（每秒 2 下）</b>，以固定力道踩踏或拍打。', 'Metronome at <b>120 BPM (2 taps per second)</b>, tapping or stepping with consistent force.'),
     ti('拍打時墊一塊<b>木片或課本</b>作為受力面：使力道一致，並避免手掌摩擦板子背面產生額外靜電干擾讀值。', 'Put a <b>wooden block or textbook</b> between hand and board: it keeps the force consistent and stops your palm rubbing the back of the board and adding stray static to the reading.'),
     ti('每組<b>重複 3 次取平均</b>。', '<b>Three repeats per condition</b>, averaged.'),
-    ti('儲能電容統一使用 <b>10 µF</b>；整流電路使用 <b>1N4007 × 4</b> 顆之橋式整流。', 'Always the same <b>10 µF</b> storage capacitor and a bridge rectifier of <b>four 1N4007</b> diodes.'),
+    ti('儲能電容統一使用 <b>0.1 µF</b>；整流電路使用 <b>1N4148 × 4</b> 顆之橋式整流。', 'Always the same <b>0.1 µF</b> storage capacitor and a bridge rectifier of <b>four 1N4148</b> diodes.'),
     ti('全部實驗使用<b>同一種基板材質</b>（情境四除外，該組即以基板材質為操縱變因）。', 'Every experiment uses <b>the same substrate material</b> — except Scenario 4, where the substrate is the independent variable.'),
     ti('<b>對照組：拿掉保鮮膜層</b>，只用兩片鋁箔（或兩張紙板）對敲，證明電確實來自保鮮膜。', '<b>Control: remove the wrap</b> and tap two bare foils (or two boards) together, proving the electricity really comes from the wrap.')
   ];
@@ -3327,14 +3325,14 @@ var TABLES = {
     extraLabel: ['結論與備註', 'Notes']
   },
   t3: {
-    title: ['表（三）表面粗糙度與電容充電效率（10 µF）', 'Table 3 — Roughness vs. capacitor charging (10 µF)'],
+    title: ['表（三）表面粗糙度與電容充電效率（0.1 µF）', 'Table 3 — Roughness vs. capacitor charging (0.1 µF)'],
     rowHead: ['表面狀態', 'Surface state'],
     rows: [['平整拉平', 'Laid flat'], ['600 目壓紋', '600-grit embossed'], ['200 目壓紋', '200-grit embossed']],
     cols: [['拍打 30 秒 (V)', 'After 30 s (V)'], ['拍打 60 秒 (V)', 'After 60 s (V)'], ['拍打 120 秒 (V)', 'After 120 s (V)']],
     extra: 'led', extraLabel: ['可點亮 LED 時間 (秒)', 'LED lit time (s)']
   },
   t4: {
-    title: ['表（四）保鮮膜層數與發電效率（10 µF）', 'Table 4 — Wrap layers vs. output (10 µF)'],
+    title: ['表（四）保鮮膜層數與發電效率（0.1 µF）', 'Table 4 — Wrap layers vs. output (0.1 µF)'],
     rowHead: ['包覆層數', 'Layers'],
     rows: [['1 層', '1 layer'], ['10 層', '10 layers'], ['50 層', '50 layers']],
     cols: [['換算總厚度 (mm)', 'Total thickness (mm)'], ['平均峰值電壓 (V)', 'Mean peak (V)'], ['拍打 60 秒電容電壓 (V)', 'Cap. after 60 s (V)'], ['充電速度 (V/min)', 'Charging rate (V/min)']],
@@ -3601,7 +3599,7 @@ function renderFigures(k) {
     var legend = '<div class="legend">' + series.map(function (se) {
       return '<span><i style="background:' + se.color + '"></i>' + esc(se.name) + '</span>';
     }).join('') + '</div>';
-    out += figure(pick('10 µF 電容充電曲線 × 表面粗糙度', '10 µF capacitor charging curves by surface roughness'),
+    out += figure(pick('0.1 µF 電容充電曲線 × 表面粗糙度', '0.1 µF capacitor charging curves by surface roughness'),
       pick('拍打 30／60／120 秒後的電容電壓', 'Capacitor voltage after 30 / 60 / 120 s of tapping'),
       lineChart({ xs: [30, 60, 120], series: series, aria: 'line chart' }),
       pick('曲線愈陡代表每次接觸轉移的電荷愈多——微觀有效接觸面積增加的證據。', 'Steeper curves mean more charge per contact — evidence that effective microscopic contact area increased.'),
@@ -4236,7 +4234,7 @@ function initSim() {
       ctx.beginPath(); ctx.moveTo(5, -5); ctx.lineTo(5, 5); ctx.stroke(); ctx.restore();
     });
     ctx.fillStyle = muted; ctx.font = '9px system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText(pick('橋式整流 1N4007×4', 'Bridge rectifier 1N4007×4'), cx, cy + hf + 14);
+    ctx.fillText(pick('橋式整流 1N4148×4', 'Bridge rectifier 1N4148×4'), cx, cy + hf + 14);
     /* 整流輸出 → 電容 */
     var px = 452, pT = 126, pB = 174;
     ctx.beginPath();
@@ -4251,7 +4249,7 @@ function initSim() {
     ctx.fillStyle = css('--seq-450');
     ctx.fillRect(px - 13, pB - 4 - (pB - pT - 8) * frac, 26, (pB - pT - 8) * frac);
     ctx.fillStyle = muted; ctx.font = '9px system-ui, sans-serif'; ctx.textAlign = 'center';
-    ctx.fillText('10 µF', px, pB + 14);
+    ctx.fillText('0.1 µF', px, pB + 14);
     ctx.fillStyle = ink2; ctx.font = '600 10px system-ui, sans-serif';
     ctx.fillText(S.cap.toFixed(2) + ' V', px, pT - 8);
     /* LED */

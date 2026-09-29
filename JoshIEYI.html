@@ -1346,8 +1346,8 @@ function secBreadboard() {
   if (!document.getElementById('bbSrc')) return '';
   return '<h3 style="font-size:17px;margin:30px 0 8px">' + ti('模擬器二：麵包板接線模擬器（把整流電路親手插出來）',
       'Simulator 2 — breadboard wiring simulator (build the rectifier yourself)') + '</h3>' +
-    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、電容極性接錯、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
-       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed electrolytic capacitor, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
+    tp('發電模組送出的是<b>交流脈衝</b>：踩下去一次、抬腳又一次，方向相反。要把它存進電容，就一定得先整流——這也是最容易被追問的一段電路。這台模擬器用<b>真的電路解算器</b>（節點電壓法）計算，不是動畫：二極體方向插反、LED 接反、兩隻腳插在同一縱欄造成短路，它都會算出來並告訴你原因。',
+       'The module puts out <b>AC pulses</b>: one when you press, an opposite one when you lift. To store them in a capacitor you must rectify first — and this is the part people most enjoy probing. This simulator runs a <b>real circuit solver</b> (nodal analysis), not an animation: a diode inserted backwards, a reversed LED, or two legs in the same column shorting each other are all computed, and it explains what went wrong.') +
     pshot(SHOT_BB, '模擬器二的畫面：已完成的橋式整流接線（1N4148×4 → 0.1 µF 電容 → LED）。線上互動版可以自己重接，接錯會告訴你錯在哪。',
                    'Simulator 2: the completed bridge-rectifier wiring (1N4148&times;4 &rarr; 0.1 &micro;F &rarr; LED). In the online version you can rebuild it yourself and it explains any miswiring.') +
     '<div class="bb no-print" id="bbBox">' +
